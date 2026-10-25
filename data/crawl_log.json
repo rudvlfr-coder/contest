@@ -1,0 +1,38 @@
+[
+ {
+  "site": "wevity",
+  "started_at": "2026-10-25T16:29:23",
+  "listed": 75,
+  "already_seen": 36,
+  "irrelevant": 0,
+  "new": 38,
+  "merged": 1,
+  "needs_review": 16,
+  "errors": [],
+  "finished_at": "2026-10-25T16:31:58"
+ },
+ {
+  "site": "contestkorea",
+  "started_at": "2026-10-25T16:31:58",
+  "listed": 252,
+  "already_seen": 228,
+  "irrelevant": 0,
+  "new": 15,
+  "merged": 9,
+  "needs_review": 0,
+  "errors": [],
+  "finished_at": "2026-10-25T16:33:41"
+ },
+ {
+  "site": "itchio",
+  "started_at": "2026-10-25T16:33:41",
+  "listed": 42,
+  "already_seen": 1,
+  "irrelevant": 0,
+  "new": 41,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "finished_at": "2026-10-25T16:33:52"
+ }
+]

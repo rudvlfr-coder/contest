@@ -1,0 +1,21 @@
+{
+  "site_url": "",
+  "contact_email": "",
+  "user_agent": "ContestHubBot/0.1 (+{site_url}; contact: {contact})",
+  "sheet": {
+    "_설명": "구글 시트 '웹에 게시 → CSV' 주소. 비워 두면 GitHub 저장소 Variables(SHEET_EDIT_CSV 등) 값을 쓴다.",
+    "edit_csv": "",
+    "add_csv": "",
+    "keywords_csv": "",
+    "sites_csv": ""
+  },
+  "request_delay_seconds": 3,
+  "timeout_seconds": 30,
+  "retries": 3,
+  "sites": {
+    "wevity": {"enabled": true, "max_pages": 3},
+    "contestkorea": {"enabled": true, "max_pages": 2},
+    "itchio": {"enabled": true, "max_pages": 2, "min_joined": 200},
+    "thinkcontest": {"enabled": false, "_보류": "목록·상세 주소가 브라우저에서 암호화되어 서버 HTML로 수집할 수 없음 (docs/사이트조사.md)"}
+  }
+}
