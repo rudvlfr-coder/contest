@@ -2010,5 +2010,69 @@
  "https://itch.io/jam/chrevo-jam": {
   "relevant": true,
   "id": "2026-14ea44"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111916": {
+  "relevant": false,
+  "title": "2026 충남 문화예술후원사업 문화CF 스타상 (청년예술부문) 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610190013": {
+  "relevant": false,
+  "title": "「우리가 만드는 좋은 돌봄문화」장기요양기관 우수사례 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610190010": {
+  "relevant": false,
+  "title": "실상문학 신인문학상 작품 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610010030": {
+  "relevant": false,
+  "title": "제1회 중앙일보 어린이 미술대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202607280021": {
+  "relevant": false,
+  "title": "2026 제62회 경기건축대전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202608140024": {
+  "relevant": false,
+  "title": "국제 어린이 및 청소년 미술공모전 (International Children & Youth Art Competition)"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202609100007": {
+  "relevant": true,
+  "id": "2026-75ff5d"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610190009": {
+  "relevant": false,
+  "title": "2026 어린이교통안전 포스터 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610210009": {
+  "relevant": false,
+  "title": "Doodll 2nd AI Makeathon"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610230061": {
+  "relevant": false,
+  "title": "2026 청도 바이브코딩 해커톤 with 해커그라운드"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610160005": {
+  "relevant": false,
+  "title": "2026 충북인재 정책제안 워크숍 및 대화 참여자 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610190007": {
+  "relevant": false,
+  "title": "제2회 데이터로 미래를 그리는 AI 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610240007": {
+  "relevant": false,
+  "title": "[서울 양재] 「2026 대한민국 청소년 창업경진대회」 개최 안내"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610190021": {
+  "relevant": false,
+  "title": "2026 서울AI디지털배움터 청년 AI 해커톤"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610260014": {
+  "relevant": false,
+  "title": "2026 체육관련 규제개선 공모전"
+ },
+ "https://itch.io/jam/playtest-feedback-exchange-jam-9": {
+  "relevant": true,
+  "id": "2026-de4eb0"
  }
 }

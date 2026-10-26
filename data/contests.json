@@ -4733,7 +4733,8 @@
    "게임"
   ],
   "subcategories": [
-   "원화"
+   "원화",
+   "기획"
   ],
   "start_date": "2026-10-26",
   "end_date": "2026-10-31",
@@ -4743,7 +4744,10 @@
   "targets": [
    "middle",
    "high",
-   "general"
+   "general",
+   "elementary",
+   "univ",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -4754,10 +4758,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=110910"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202609100007"
    }
   ],
   "created_at": "2026-10-25T16:29",
-  "updated_at": "2026-10-25T16:29"
+  "updated_at": "2026-10-26T18:30"
  },
  {
   "id": "2026-793299",
@@ -5003,6 +5011,41 @@
   ],
   "created_at": "2026-10-25T16:33",
   "updated_at": "2026-10-25T16:33"
+ },
+ {
+  "id": "2026-de4eb0",
+  "title": "Playtest & Feedback Exchange Jam #9",
+  "official_url": "https://itch.io/jam/playtest-feedback-exchange-jam-9",
+  "apply_url": null,
+  "organizer": "One Joyful Day",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-01",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "needs_review": false,
+  "review_reasons": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/playtest-feedback-exchange-jam-9"
+   }
+  ],
+  "created_at": "2026-10-26T18:30",
+  "updated_at": "2026-10-26T18:30"
  },
  {
   "id": "2026-14ea44",
