@@ -1,0 +1,83 @@
+# 하루 2회 공모전 수집 → 사이트 생성 → GitHub Pages 배포
+name: 공모전 수집·배포
+
+on:
+  schedule:
+    - cron: "0 23 * * *"  # 매일 08:00 KST
+    - cron: "0 9 * * *"   # 매일 18:00 KST
+  workflow_dispatch:      # Actions 화면의 "Run workflow" 버튼 (구글 시트 수정을 바로 반영할 때)
+    inputs:
+      crawl:
+        description: "새로 수집할까요? (끄면 시트 수정만 반영해서 다시 만듭니다)"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths: ["contesthub/**", "site/assets/**", "config/**"]
+
+permissions:
+  contents: write   # 수집 결과(data/)를 저장소에 저장
+  pages: write
+  id-token: write
+
+concurrency:
+  group: crawl-deploy
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+  CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+  SHEET_EDIT_CSV: ${{ vars.SHEET_EDIT_CSV }}
+  SHEET_ADD_CSV: ${{ vars.SHEET_ADD_CSV }}
+  SHEET_KEYWORDS_CSV: ${{ vars.SHEET_KEYWORDS_CSV }}
+  SHEET_SITES_CSV: ${{ vars.SHEET_SITES_CSV }}
+  TZ: Asia/Seoul
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 테스트
+        run: python -m pytest -q tests
+
+      - name: 수집
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.crawl)
+        # 일부 사이트가 실패해도 나머지 결과로 배포는 계속한다
+        continue-on-error: true
+        run: python -m contesthub crawl
+
+      - name: 수집 결과 저장
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "contesthub-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/contests.json data/seen.json data/crawl_log.json
+          git diff --cached --quiet || git commit -m "수집 결과 $(date '+%Y-%m-%d %H:%M')"
+          git push
+
+      - name: 사이트 생성
+        run: python -m contesthub build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
