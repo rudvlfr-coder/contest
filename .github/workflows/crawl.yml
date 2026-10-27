@@ -27,6 +27,7 @@ concurrency:
 env:
   SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
   CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+  ADMIN_PATH: ${{ secrets.ADMIN_PATH }}
   SHEET_EDIT_CSV: ${{ vars.SHEET_EDIT_CSV }}
   SHEET_ADD_CSV: ${{ vars.SHEET_ADD_CSV }}
   SHEET_KEYWORDS_CSV: ${{ vars.SHEET_KEYWORDS_CSV }}
