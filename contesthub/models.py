@@ -37,6 +37,7 @@ class Contest:
     summary: str | None = None
     needs_review: bool = False
     review_reasons: list[str] = field(default_factory=list)
+    competitor_hits: list[str] = field(default_factory=list)  # 수집할 때 본문에서 찾은 경쟁사 이름 (승인 전 비공개)
     sources: list[dict] = field(default_factory=list)  # [{"site": ..., "url": ...}]
     created_at: str | None = None
     updated_at: str | None = None

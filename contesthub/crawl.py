@@ -7,7 +7,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from . import config, overrides, store
-from .classify import classify
+from .classify import classify, competitor_hits
 from .collectors import COLLECTORS
 from .dedupe import find_duplicate
 from .http import PoliteClient
@@ -97,6 +97,8 @@ def run(sites: list[str] | None = None, limit: int | None = None) -> list[dict]:
                             contest.review_reasons.append("분류 확인 필요")
                     if not contest.end_date:
                         contest.review_reasons.append("마감일 없음")
+                    # 경쟁사 관련 공모전은 본문까지 확인해 표시해 둔다 (사이트 생성 때 승인 전까지 비공개)
+                    contest.competitor_hits = competitor_hits(contest.title, contest.organizer, body)
                     contest.needs_review = bool(contest.review_reasons)
 
                     dup = find_duplicate(contest, contests)

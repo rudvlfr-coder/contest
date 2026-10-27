@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -15,6 +16,9 @@ def settings() -> dict:
     # GitHub Actions에서는 환경변수로 주소·연락처를 넘긴다 (settings.json 값이 비어 있을 때만)
     s["site_url"] = s.get("site_url") or os.environ.get("SITE_URL", "")
     s["contact_email"] = s.get("contact_email") or os.environ.get("CONTACT_EMAIL", "")
+    # 관리자 페이지 주소. 저장소가 공개라서 settings.json에 적지 않고 GitHub Secret(ADMIN_PATH)으로 넘긴다
+    path = os.environ.get("ADMIN_PATH") or s.get("admin_path") or "admin"
+    s["admin_path"] = re.sub(r"[^A-Za-z0-9_-]", "", path) or "admin"
     s["user_agent"] = s["user_agent"].format(site_url=s["site_url"] or "-", contact=s["contact_email"] or "pending")
     for key, env in (("edit_csv", "SHEET_EDIT_CSV"), ("add_csv", "SHEET_ADD_CSV"),
                      ("keywords_csv", "SHEET_KEYWORDS_CSV"), ("sites_csv", "SHEET_SITES_CSV")):

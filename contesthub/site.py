@@ -242,33 +242,87 @@ def render_ics(c: Contest, page_url: str) -> str:
     return "\r\n".join(lines) + "\r\n"
 
 
-# ---------------------------------------------------------------- 운영자용 확인 페이지
+# ---------------------------------------------------------------- 관리자 페이지
 
-def render_review(contests: list[Contest], name: str, updated: datetime, warnings: list[str] | None = None) -> str:
+SITE_NAMES = {"notion": "노션", "wevity": "위비티", "contestkorea": "콘테스트코리아", "mgood": "엠굿",
+              "itchio": "itch.io", "sheet": "직접등록"}
+
+
+def _id_cell(c: Contest) -> str:
+    return (f'<code>{escape(c.id)}</code> <button class="btn small" type="button" '
+            f'data-copy-text="{escape(c.id)}">복사</button>')
+
+
+def _source_links(c: Contest) -> str:
+    links = [f'<a href="{escape(s["url"])}" target="_blank" rel="noopener">{escape(SITE_NAMES.get(s["site"], s["site"]))}</a>'
+             for s in c.sources if s.get("url")]
+    if c.official_url and all(s.get("url") != c.official_url for s in c.sources):
+        links.append(f'<a href="{escape(c.official_url)}" target="_blank" rel="noopener">공식</a>')
+    return " · ".join(links) or "-"
+
+
+def _table(head: list[str], rows: list[str], empty: str) -> str:
+    th = "".join(f"<th>{h}</th>" for h in head)
+    body = "".join(rows) or f'<tr><td colspan="{len(head)}">{empty}</td></tr>'
+    return f'<div style="overflow-x:auto"><table class="review"><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div>'
+
+
+def render_admin(public: list[Contest], pending: list[Contest], name: str, updated: datetime,
+                 warnings: list[str] | None = None, runs: list[dict] | None = None) -> str:
+    today = updated.date()
+    pending_open = sorted((c for c in pending if c.status(today) != "마감"), key=lambda c: c.end_date or "9999")
+    pending_rows = [
+        f'<tr><td>{_id_cell(c)}</td><td>{escape(c.title)}<div class="note">{escape(c.organizer or "")}</div></td>'
+        f'<td><span class="tag review">{escape(", ".join(c.competitor_hits))}</span></td>'
+        f'<td>{escape(fmt_short(c.end_date))}</td><td>{_source_links(c)}</td></tr>'
+        for c in pending_open]
+    review_rows = [
+        f'<tr><td>{_id_cell(c)}</td><td><a href="../c/{escape(c.id)}/">{escape(c.title)}</a></td>'
+        f'<td>{escape(", ".join(c.categories))} / {escape(", ".join(c.subcategories))}</td>'
+        f'<td>{escape(fmt_short(c.end_date))}</td><td>{escape(", ".join(c.review_reasons))}</td></tr>'
+        for c in sorted(public, key=lambda c: c.end_date or "9999") if c.needs_review and c.status(today) != "마감"]
+
+    latest: dict[str, dict] = {}
+    for r in runs or []:
+        latest[r["site"]] = r
+    run_rows = [
+        f'<tr><td>{escape(SITE_NAMES.get(s, s))}</td><td>{escape((r.get("finished_at") or "")[:16].replace("T", " "))}</td>'
+        f'<td>{r.get("listed", 0)}</td><td>{r.get("new", 0)}</td><td>{len(r.get("errors", []))}'
+        + (' <span class="tag review">확인 필요</span>' if r.get("listed", 0) == 0 else "") + "</td></tr>"
+        for s, r in latest.items()]
+
     warn_html = ""
     if warnings:
         items = "".join(f"<li>{escape(w)}</li>" for w in warnings)
-        warn_html = f'<section class="box"><p class="note" style="margin:0 0 6px">구글 시트에서 반영하지 못한 내용</p><ul class="sources">{items}</ul></section>'
-    rows = "".join(
-        f'<tr><td><code>{escape(c.id)}</code></td><td><a href="../c/{escape(c.id)}/">{escape(c.title)}</a></td>'
-        f'<td>{escape(", ".join(c.categories))} / {escape(", ".join(c.subcategories))}</td>'
-        f'<td>{escape(fmt_short(c.end_date))}</td><td>{escape(", ".join(c.review_reasons))}</td></tr>'
-        for c in contests if c.needs_review and c.status(updated.date()) != "마감")
+        warn_html = f'<section class="box"><h2 style="margin:0 0 6px;font-size:16px">구글 시트에서 반영하지 못한 내용</h2><ul class="sources">{items}</ul></section>'
+
     body = header("../", name, updated) + f"""
-<main class="wrap detail"><h1>확인 필요 목록</h1>
-<p class="note">자동 분류가 애매하거나 정보가 빠진 진행 중 공모전입니다. 고칠 내용은 구글 시트 '수정' 탭에 공모전 ID와 함께 적어 주세요.</p>
+<main class="wrap detail"><h1>관리자</h1>
+<p class="note">이 페이지는 검색에 노출되지 않지만 주소를 아는 사람은 볼 수 있습니다. 주소는 운영진끼리만 공유해 주세요.</p>
 {warn_html}
-<div style="overflow-x:auto"><table class="review"><thead><tr><th>ID</th><th>제목</th><th>구분 / 장르</th><th>마감</th><th>사유</th></tr></thead>
-<tbody>{rows or '<tr><td colspan="5">없음</td></tr>'}</tbody></table></div></main>"""
-    return page(title=f"확인 필요 | {name}", body=body, prefix="../", name=name, updated=updated, noindex=True)
+<section class="box"><h2 style="margin:0 0 6px;font-size:16px">승인 대기 {len(pending_open)}건 — 경쟁사 관련</h2>
+<p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인한 뒤 구글 시트 '수정' 탭에 공모전 ID를 붙여넣고
+<b>승인</b> 칸에 <code>승인</code>(발행) 또는 <code>거절</code>(계속 숨김)을 적어 주세요. 다음 실행 때 반영됩니다.</p>
+{_table(["공모전 ID", "제목 / 주최", "걸린 이름", "마감", "출처"], pending_rows, "승인 대기 중인 공모전이 없습니다.")}</section>
+<section class="box"><h2 style="margin:0 0 6px;font-size:16px">확인 필요 {len(review_rows)}건 — 자동 분류가 애매함</h2>
+<p class="note">사이트에는 '확인 필요' 표시와 함께 올라가 있습니다. 고칠 내용은 시트 '수정' 탭에 적어 주세요.</p>
+{_table(["공모전 ID", "제목", "구분 / 장르", "마감", "사유"], review_rows, "없음")}</section>
+<section class="box"><h2 style="margin:0 0 6px;font-size:16px">최근 수집</h2>
+{_table(["사이트", "시각", "목록", "신규", "오류"], run_rows, "수집 기록이 없습니다.")}</section>
+</main>
+<script>document.addEventListener("click",function(e){{var b=e.target.closest("[data-copy-text]");if(b)ContestHub.copy(b.getAttribute("data-copy-text"),"공모전 ID를 복사했어요");}});</script>"""
+    return page(title=f"관리자 | {name}", body=body, prefix="../", name=name, updated=updated, noindex=True)
 
 
 # ---------------------------------------------------------------- 빌드
 
 def build(out: Path = DIST) -> dict:
-    # 구글 시트의 숨김·수정·직접등록을 반영 (원본 data/contests.json은 바꾸지 않는다)
-    applied, warnings = overrides.apply(store.load(), overrides.load_sheet())
-    contests = list(applied.values())
+    # 구글 시트의 숨김·수정·직접등록·승인을 반영 (원본 data/contests.json은 바꾸지 않는다)
+    sheet = overrides.load_sheet()
+    config.override_keywords(sheet.keywords)
+    applied, warnings = overrides.apply(store.load(), sheet)
+    public, pending = overrides.split_pending(applied, sheet)
+    contests = list(public.values())
     updated = last_updated()
     name = site_name(updated)
     if out.exists():
@@ -285,6 +339,11 @@ def build(out: Path = DIST) -> dict:
         (d / "index.html").write_text(render_detail(c, name, updated), encoding="utf-8")
         if c.end_date:
             (d / "event.ics").write_text(render_ics(c, f"{base}/c/{c.id}/" if base else ""), encoding="utf-8", newline="")
-    (out / "review").mkdir()
-    (out / "review" / "index.html").write_text(render_review(contests, name, updated, warnings), encoding="utf-8")
-    return {"name": name, "contests": len(contests), "out": str(out), "warnings": warnings}
+    admin_dir = out / config.settings()["admin_path"]
+    admin_dir.mkdir()
+    log_path = config.ROOT / "data" / "crawl_log.json"
+    runs = json.loads(log_path.read_text(encoding="utf-8")) if log_path.exists() else []
+    (admin_dir / "index.html").write_text(
+        render_admin(contests, list(pending.values()), name, updated, warnings, runs), encoding="utf-8")
+    return {"name": name, "contests": len(contests), "pending": len(pending), "out": str(out),
+            "admin": admin_dir.name, "warnings": warnings}

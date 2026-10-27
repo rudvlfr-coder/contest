@@ -29,6 +29,7 @@ class SheetData:
     additions: list[Contest] = field(default_factory=list)
     keywords: dict | None = None  # config.keywords()와 같은 형태 (시트가 있으면 덮어씀)
     sites: dict[str, bool] = field(default_factory=dict)
+    approvals: dict[str, str] = field(default_factory=dict)  # 공모전ID → '승인' / '거절'
     warnings: list[str] = field(default_factory=list)
 
 
@@ -84,6 +85,11 @@ def _edits(rows: list[dict], data: SheetData) -> None:
                 data.warnings.append(f"{where}: 마감일 형식 오류 '{row['마감일']}' (예: 2026-11-30)")
         if row.get("제목수정"):
             edit["title"] = row["제목수정"]
+        approval = row.get("승인", "")
+        if approval in ("승인", "거절"):
+            data.approvals[cid] = approval
+        elif approval:
+            data.warnings.append(f"{where}: 승인 칸에는 '승인' 또는 '거절'만 적을 수 있음 ('{approval}')")
         if edit:
             data.edits[cid] = edit
 
@@ -123,7 +129,7 @@ def _keywords(rows: list[dict], data: SheetData) -> None:
     base = config.keywords()
     kw = {"categories": {k: [] for k in base["categories"]},
           "subcategories": {k: [] for k in base["subcategories"]},
-          "exclude_title": [], "universities": [], "univ_subjects": []}
+          "exclude_title": [], "universities": [], "univ_subjects": [], "competitors": []}
     for n, row in enumerate(rows, start=2):
         kind, name, words = row.get("종류", ""), row.get("이름", ""), _split(row.get("키워드", ""))
         if kind == "구분" and name in kw["categories"]:
@@ -136,14 +142,22 @@ def _keywords(rows: list[dict], data: SheetData) -> None:
             kw["universities"] += words
         elif kind == "대학과목":
             kw["univ_subjects"] += words
+        elif kind == "경쟁사":
+            kw["competitors"] += words
         elif kind or name:
             data.warnings.append(f"키워드 탭 {n}행: 종류 '{kind}' / 이름 '{name}'을 알 수 없음")
     # 시트에 대학 목록이 없으면(예전 양식) 기본값을 쓴다
-    for key in ("universities", "univ_subjects"):
+    for key in ("universities", "univ_subjects", "competitors"):
         kw[key] = kw[key] or list(base.get(key, []))
-    # 시트에 아무 키워드도 없으면 기본값을 그대로 쓴다 (빈 시트로 분류가 멈추지 않도록)
+    # 시트에 구분 키워드가 없으면 분류 키워드는 기본값을 쓴다 (빈 시트로 분류가 멈추지 않도록).
+    # 이때도 시트의 대학·경쟁사 목록은 반영한다.
     if any(kw["categories"].values()):
         data.keywords = kw
+    elif kw["competitors"] != list(base.get("competitors", [])) or kw["universities"] != list(base.get("universities", [])):
+        merged = dict(base)
+        for key in ("universities", "univ_subjects", "competitors"):
+            merged[key] = kw[key]
+        data.keywords = merged
 
 
 def load_sheet() -> SheetData:
@@ -168,6 +182,30 @@ def load_sheet() -> SheetData:
     for w in data.warnings:
         log.warning(w)
     return data
+
+
+def split_pending(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Contest], dict[str, Contest]]:
+    """경쟁사 관련 공모전을 (공개, 승인 대기)로 나눈다. '거절'은 어느 쪽에도 넣지 않는다.
+
+    경쟁사 판단: 수집할 때 본문에서 찾은 이름 + 지금 목록으로 제목·주최·대상·시상·소개를 다시 확인.
+    시트 '직접등록'으로 관리자가 넣은 건은 승인 없이 공개한다.
+    """
+    from .classify import competitor_hits
+
+    public, pending = {}, {}
+    for cid, c in contests.items():
+        hits = list(dict.fromkeys(c.competitor_hits + competitor_hits(
+            c.title, c.organizer, c.target_text, c.prize_text, c.summary)))
+        from_sheet = any(s.get("site") == "sheet" for s in c.sources)
+        decision = data.approvals.get(cid)
+        if decision == "거절":
+            continue
+        if hits and not from_sheet and decision != "승인":
+            c.competitor_hits = hits
+            pending[cid] = c
+        else:
+            public[cid] = c
+    return public, pending
 
 
 def apply(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Contest], list[str]]:

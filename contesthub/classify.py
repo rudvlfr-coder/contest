@@ -40,6 +40,16 @@ def _hits(text: str, words: list[str]) -> int:
     return sum(1 for w in words if _pattern(w.lower()).search(text))
 
 
+def _squash(text: str) -> str:
+    return re.sub(r"\s+", "", text or "").lower()
+
+
+def competitor_hits(*texts: str | None) -> list[str]:
+    """경쟁사 이름이 나오면 그 이름들을 돌려준다 (띄어쓰기·대소문자 무시)."""
+    hay = _squash(" ".join(t for t in texts if t))
+    return [name for name in config.keywords().get("competitors", []) if name.strip() and _squash(name) in hay]
+
+
 _UNIV_FULL = re.compile(r"[가-힣]{2,12}대학교|\[대학\]")
 
 
