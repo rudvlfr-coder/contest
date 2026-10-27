@@ -42,7 +42,52 @@
     var t = (c.targets || []).map(function (x) { return TARGET_LABELS[x]; });
     return t.length ? t.join(", ") : "자격 확인 필요";
   }
-  function detailUrl(c) { return new URL("c/" + c.id + "/", document.baseURI).href; }
+  // ---------------------------------------------------------------- 담당 직원 (직원별 공유 링크 ?ref=코드)
+  // 처음 받은 링크의 직원을 30일 동안 유지한다. 그 사이 다른 직원 링크로 들어와도 바꾸지 않는다.
+  var REF_KEY = "contesthub_ref", REF_DAYS = 30;
+  var STAFF = (function () {
+    var el = document.getElementById("staff");
+    try { return el ? JSON.parse(el.textContent) : {}; } catch (e) { return {}; }
+  })();
+  var STAFF_MAP = STAFF.staff || {};
+  function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function readRef() {
+    var urlRef = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(REF_KEY) || "null"); } catch (e) { saved = null; }
+    if (saved && STAFF_MAP[saved.code] && Date.now() - saved.at < REF_DAYS * 86400000) return saved.code;
+    if (STAFF_MAP[urlRef]) {
+      try { localStorage.setItem(REF_KEY, JSON.stringify({ code: urlRef, at: Date.now() })); } catch (e) { /* 저장 불가 브라우저 */ }
+      return urlRef;
+    }
+    return "";
+  }
+  var REF = readRef();
+  function withRef(url) {
+    if (!REF) return url;
+    var u = new URL(url, document.baseURI);
+    u.searchParams.set("ref", REF);
+    return u.href;
+  }
+  function renderContact() {
+    var s = REF ? STAFF_MAP[REF] : null, d = STAFF["default"] || {};
+    var portfolio = safeUrl(s && s.form) || safeUrl(d.form);
+    var contest = safeUrl(s && (s.contest_form || s.form)) || safeUrl(d.contest_form || d.form);
+    var name = s ? s.name : (d.name || "");
+    document.querySelectorAll("[data-contact]").forEach(function (box) {
+      var show = !!(portfolio || contest);
+      box.hidden = !show;
+      document.body.classList.toggle("has-contact", show);
+      var who = box.querySelector("[data-contact-name]");
+      if (who) { who.textContent = name ? "담당 " + name : ""; who.hidden = !name; }
+      var a = box.querySelector('[data-contact-link="portfolio"]');
+      if (a) a.href = portfolio || contest;
+      var b = box.querySelector('[data-contact-link="contest"]');
+      if (b) b.href = contest || portfolio;
+    });
+  }
+
+  function detailUrl(c) { return withRef(new URL("c/" + c.id + "/", document.baseURI).href); }
 
   function shareText(c, url) {
     var lines = ["[" + (c.categories || []).join("·") + "] " + c.title];
@@ -73,7 +118,8 @@
   }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]; }); }
 
-  window.ContestHub = { shareText: shareText, copy: copy, ddayText: ddayText, status: status, daysLeft: daysLeft };
+  window.ContestHub = { shareText: shareText, copy: copy, ddayText: ddayText, status: status, daysLeft: daysLeft, ref: REF };
+  renderContact();
 
   // ---------------------------------------------------------------- 상세 페이지
   var detailData = document.getElementById("contest");
@@ -90,8 +136,8 @@
       var b = e.target.closest("[data-copy]");
       if (!b) return;
       var kind = b.getAttribute("data-copy");
-      if (kind === "share") copy(shareText(c, location.href.split("#")[0]), "공유 문구를 복사했어요");
-      if (kind === "link") copy(location.href.split("#")[0], "링크를 복사했어요");
+      if (kind === "share") copy(shareText(c, withRef(location.href.split("#")[0])), "공유 문구를 복사했어요");
+      if (kind === "link") copy(withRef(location.href.split("#")[0]), "링크를 복사했어요");
       if (kind === "id") copy(c.id, "공모전 ID를 복사했어요");
     });
     return;
@@ -129,6 +175,7 @@
     if (state.past) q.set("past", "1");
     if (state.sort !== "due") q.set("sort", state.sort);
     if (state.q) q.set("q", state.q);
+    if (REF) q.set("ref", REF);  // 주소창을 그대로 복사해 공유해도 담당 직원이 따라가도록
     var s = q.toString();
     history.replaceState(null, "", location.pathname + (s ? "?" + s : ""));
   }
@@ -177,17 +224,75 @@
     meta.push("대상 " + esc(targetText(c)));
     var p = prizeText(c);
     if (p) meta.push("상금 " + esc(p));
-    return '<li class="card"><div class="card-head"><h2><a href="c/' + esc(c.id) + '/">' + esc(c.title) + "</a></h2>" +
+    return '<li class="card' + (c.id === selectedId && WIDE.matches ? " selected" : "") + '" data-id="' + esc(c.id) + '">' +
+      '<div class="card-head"><h2><a href="c/' + esc(c.id) + '/" data-open="' + esc(c.id) + '">' + esc(c.title) + "</a></h2>" +
       '<span class="dday' + cls + '">' + ddayText(c) + "</span></div>" +
       '<div class="tags">' + tags.join("") + "</div>" +
       '<div class="meta"><span>' + meta.join("</span><span>") + "</span></div>" +
       '<div class="card-foot"><button class="btn small" type="button" data-share="' + esc(c.id) + '">공유 문구 복사</button></div></li>';
   }
 
+  // ---------------------------------------------------------------- PC: 오른쪽 상세 영역 (5:5 분할)
+  var WIDE = window.matchMedia("(min-width: 1024px)");
+  var selectedId = "";
+  var SOURCE_NAMES = { notion: "기존 노션 목록", wevity: "위비티", contestkorea: "콘테스트코리아", mgood: "엠굿", itchio: "itch.io", sheet: "직접등록" };
+  function fullDate(s) { var d = parseDay(s); return d ? d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + "(" + WEEK[d.getDay()] + ")" : "미정"; }
+  function safeHref(u) { return /^https?:\/\//i.test(u || "") ? esc(u) : ""; }
+
+  function renderPane() {
+    var pane = $("detail-pane");
+    var c = ALL.filter(function (x) { return x.id === selectedId; })[0];
+    if (!c) { pane.innerHTML = '<p class="empty">왼쪽 목록에서 공모전을 선택하세요.</p>'; return; }
+    var left = daysLeft(c);
+    var cls = left === null ? "" : left < 0 ? " closed" : left <= 7 ? " urgent" : "";
+    var tags = (c.categories || []).map(function (x) { return '<span class="tag cat-' + esc(x) + '">' + esc(x) + "</span>"; })
+      .concat((c.subcategories || []).map(function (x) { return '<span class="tag">' + esc(x) + "</span>"; }));
+    if (c.region === "overseas") tags.push('<span class="tag">해외</span>');
+    if (c.needs_review) tags.push('<span class="tag review">확인 필요</span>');
+
+    var links = [];
+    if (safeHref(c.official_url)) links.push('<a class="btn primary" href="' + safeHref(c.official_url) + '" target="_blank" rel="noopener">공식 공고 보기</a>');
+    if (safeHref(c.apply_url) && c.apply_url !== c.official_url) links.push('<a class="btn" href="' + safeHref(c.apply_url) + '" target="_blank" rel="noopener">접수 페이지</a>');
+    links.push('<button class="btn" type="button" data-pane="share">공유 문구 복사</button>');
+    links.push('<button class="btn" type="button" data-pane="link">링크 복사</button>');
+    if (c.end_date) links.push('<a class="btn" href="c/' + esc(c.id) + '/event.ics" download>캘린더에 마감일 추가</a>');
+
+    var rows = [["접수 기간", (c.start_date ? fullDate(c.start_date) + " ~ " : "~ ") + fullDate(c.end_date)]];
+    if (c.organizer) rows.push(["주최", esc(c.organizer)]);
+    rows.push(["참가 대상", esc(targetText(c)) + (c.target_text ? '<div class="note">' + esc(c.target_text.slice(0, 200)) + "</div>" : "")]);
+    var p = prizeText(c);
+    if (p || c.prize_text) rows.push(["시상", esc(p) + (c.prize_text && c.prize_max_krw ? '<div class="note">' + esc(c.prize_text.slice(0, 200)) + "</div>" : "")]);
+    if (c.summary) rows.push(["소개", esc(c.summary)]);
+    var sources = (c.sources || []).map(function (s) {
+      return "<li>" + esc(SOURCE_NAMES[s.site] || s.site) + (safeHref(s.url) ? ' — <a href="' + safeHref(s.url) + '" target="_blank" rel="noopener">원문</a>' : "") + "</li>";
+    }).join("");
+
+    pane.innerHTML =
+      '<div class="tags">' + tags.join("") + "</div>" +
+      '<div class="card-head"><h1>' + esc(c.title) + '</h1><span class="dday' + cls + '">' + ddayText(c) + "</span></div>" +
+      '<div class="cta">' + links.join("") + "</div>" +
+      '<section class="box"><dl class="facts">' + rows.map(function (r) { return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl></section>" +
+      '<section class="box"><p class="note" style="margin:0 0 6px">출처</p><ul class="sources">' + sources + "</ul>" +
+      '<p class="note" style="margin:10px 0 0">공모전 ID <code>' + esc(c.id) + '</code> · <a href="c/' + esc(c.id) + '/" target="_blank">새 창으로 보기</a></p></section>';
+    pane.scrollTop = 0;
+  }
+  function select(id) {
+    selectedId = id;
+    document.querySelectorAll("#list .card").forEach(function (li) { li.classList.toggle("selected", li.getAttribute("data-id") === id); });
+    renderPane();
+  }
+  function syncHeaderHeight() {
+    var top = document.querySelector(".top");
+    if (top) document.documentElement.style.setProperty("--top-h", top.offsetHeight + "px");
+  }
+
   var current = [];
   function render() {
     current = sorted(ALL.filter(matches));
+    if (WIDE.matches && !current.some(function (c) { return c.id === selectedId; })) selectedId = current.length ? current[0].id : "";
     $("list").innerHTML = current.length ? current.map(card).join("") : '<li class="empty">조건에 맞는 공모전이 없어요.</li>';
+    if (WIDE.matches) renderPane();
+    syncHeaderHeight();
     $("count").textContent = (state.past ? "지난 공모전 " : "") + current.length + "건";
     document.querySelectorAll("[data-cat]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-cat") === state.cat)); });
     $("f-genre").value = state.genre; $("f-target").value = state.target; $("f-region").value = state.region;
@@ -203,11 +308,33 @@
   readState();
   if (["genre", "target", "region", "due"].some(function (k) { return state[k]; }) || state.prize) $("panel").classList.add("open");
 
+  // PC에서는 카드를 누르면 페이지를 옮기지 않고 오른쪽에 상세를 보여준다 (모바일은 상세 페이지로 이동)
+  $("list").addEventListener("click", function (e) {
+    if (!WIDE.matches || e.target.closest("button")) return;
+    var li = e.target.closest(".card[data-id]");
+    if (!li) return;
+    if (e.target.closest("a")) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey) return;  // 새 탭으로 열기는 그대로 허용
+      e.preventDefault();
+    }
+    select(li.getAttribute("data-id"));
+  });
+  $("detail-pane").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-pane]");
+    if (!b) return;
+    var c = ALL.filter(function (x) { return x.id === selectedId; })[0];
+    if (!c) return;
+    if (b.getAttribute("data-pane") === "share") copy(shareText(c), "공유 문구를 복사했어요");
+    else copy(detailUrl(c), "링크를 복사했어요");
+  });
+  WIDE.addEventListener ? WIDE.addEventListener("change", render) : WIDE.addListener(render);
+  window.addEventListener("resize", syncHeaderHeight);
+
   document.addEventListener("click", function (e) {
     var b = e.target.closest("button");
     if (!b) return;
     if (b.hasAttribute("data-cat")) { state.cat = b.getAttribute("data-cat"); render(); }
-    else if (b.id === "toggle") { $("panel").classList.toggle("open"); b.setAttribute("aria-expanded", String($("panel").classList.contains("open"))); }
+    else if (b.id === "toggle") { $("panel").classList.toggle("open"); b.setAttribute("aria-expanded", String($("panel").classList.contains("open"))); syncHeaderHeight(); }
     else if (b.id === "past") { state.past = !state.past; render(); }
     else if (b.id === "copy-link") copy(location.href, "현재 필터 링크를 복사했어요");
     else if (b.id === "copy-list") {

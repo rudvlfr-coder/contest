@@ -61,7 +61,7 @@ def cmd_build(_: argparse.Namespace) -> int:
 
     r = build()
     print(f"'{r['name']}' 사이트 생성: 공모전 {r['contests']}건 (승인 대기 {r['pending']}건) → {r['out']}")
-    print(f"    관리자 페이지: /{r['admin']}/")
+    print(f"    관리자 페이지: /{r['admin']}/ · 직원 링크 {r['staff']}명")
     for w in r["warnings"]:
         print(f"    ! {w}")
     return 0

@@ -110,6 +110,7 @@ button, input, select { font: inherit; color: inherit; }
 
 /* 상세 */
 .detail { padding-top: 16px; padding-bottom: 48px; display: grid; gap: 14px; }
+.detail > * { min-width: 0; }  /* 넓은 표가 페이지 폭을 밀어내지 않도록 (표 안에서만 가로 스크롤) */
 .detail h1 { margin: 0; font-size: 22px; line-height: 1.35; letter-spacing: -.01em; }
 .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
 .facts { display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; margin: 0; }
@@ -126,6 +127,41 @@ button, input, select { font: inherit; color: inherit; }
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 footer { color: var(--muted); font-size: 12px; padding: 16px 0 32px; border-top: 1px solid var(--line); }
+/* PC: 목록 | 상세 5:5 분할. 모바일·태블릿은 목록만 (카드를 누르면 상세 페이지로 이동) */
+.detail-pane { display: none; }
+@media (min-width: 1024px) {
+  body.index .wrap { max-width: 1320px; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+  .detail-pane {
+    display: grid; gap: 14px; align-content: start; position: sticky; top: calc(var(--top-h, 140px) + 12px);
+    max-height: calc(100vh - var(--top-h, 140px) - 24px); overflow-y: auto; margin-top: 14px; padding: 18px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  }
+  body.has-contact .detail-pane { max-height: calc(100vh - var(--top-h, 140px) - 96px); }
+  .detail-pane h1 { margin: 0; font-size: 22px; line-height: 1.35; }
+  .detail-pane .box { background: var(--bg); }
+  .detail-pane .empty { padding: 60px 0; }
+  .list-col .card { cursor: pointer; transition: border-color .12s, box-shadow .12s; }
+  .list-col .card:hover { border-color: var(--accent); }
+  .list-col .card.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+}
+
+/* 담당 직원 문의 버튼 (하단 고정) */
+.contactbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: var(--surface);
+  border-top: 1px solid var(--line); box-shadow: 0 -2px 8px rgba(0,0,0,.08); flex-wrap: wrap;
+}
+.contactbar .who { font-size: 13px; color: var(--muted); width: 100%; text-align: center; }
+.contactbar .btn { flex: 1 1 0; max-width: 260px; font-weight: 600; }
+body.has-contact { padding-bottom: 110px; }
+@media (min-width: 641px) { .contactbar .who { width: auto; } body.has-contact { padding-bottom: 72px; } }
+
+.staff-table input { width: 100%; min-width: 9em; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.qr-modal { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.qr-modal .box { max-width: 320px; width: 100%; text-align: center; }
+.qr-modal #qr-code { display: flex; justify-content: center; padding: 8px; background: #fff; border-radius: 8px; }
+
 .admin .box h2 { margin: 0 0 6px; font-size: 16px; }
 .admin td.acts { white-space: nowrap; }
 .admin td.acts .btn { margin: 2px 2px 2px 0; }

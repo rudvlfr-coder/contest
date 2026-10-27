@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from datetime import date, datetime, timedelta, timezone
 from html import escape
@@ -79,8 +80,38 @@ def json_script(element_id: str, data) -> str:
 
 # ---------------------------------------------------------------- 공통 틀
 
+_PUBLIC_STAFF: dict = {}  # build()에서 채움: {"default": {...}, "staff": {코드: {...}}}
+
+CONTACT_BAR = """<div class="contactbar" data-contact hidden>
+<span class="who" data-contact-name hidden></span>
+<a class="btn" data-contact-link="portfolio" href="#" target="_blank" rel="noopener">무료 포트폴리오 상담</a>
+<a class="btn primary" data-contact-link="contest" href="#" target="_blank" rel="noopener">공모전 준비 문의</a>
+</div>"""
+
+
+def public_staff(staff_cfg: dict | None) -> dict:
+    """관리자 페이지에서 저장한 직원 목록(decisions.json의 _staff) → 페이지에 넣을 공개 정보. http(s) 주소만 통과."""
+    def url(u):
+        return u if isinstance(u, str) and u.startswith(("http://", "https://")) else ""
+
+    staff_cfg = staff_cfg or {}
+    d = staff_cfg.get("default") or {}
+    out = {"default": {"name": d.get("name", ""), "form": url(d.get("form")), "contest_form": url(d.get("contest_form"))},
+           "staff": {}}
+    for s in staff_cfg.get("staff") or []:
+        code = re.sub(r"[^a-z0-9_-]", "", str(s.get("code", "")).lower())
+        if code and url(s.get("form")):
+            out["staff"][code] = {"name": s.get("name", ""), "form": url(s.get("form")),
+                                  "contest_form": url(s.get("contest_form"))}
+    return out
+
+
 def page(*, title: str, body: str, prefix: str, name: str, updated: datetime, description: str = "",
-         og_url: str = "", noindex: bool = False, scripts: str = "") -> str:
+         og_url: str = "", noindex: bool = False, scripts: str = "", contact: bool = True,
+         body_class: str = "") -> str:
+    if contact:
+        body += "\n" + CONTACT_BAR
+        scripts = json_script("staff", _PUBLIC_STAFF) + "\n" + scripts
     s = config.settings()
     contact = s.get("contact_email") or ""
     og = [f'<meta property="og:type" content="website">',
@@ -105,7 +136,7 @@ def page(*, title: str, body: str, prefix: str, name: str, updated: datetime, de
 <link rel="stylesheet" href="{prefix}assets/site.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b5bdb'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3E공%3C/text%3E%3C/svg%3E">
 </head>
-<body>
+<body class="{body_class}">
 {body}
 <footer><div class="wrap">공모전 정보는 각 출처에서 자동으로 모은 것입니다. 지원 전에 반드시 공식 공고를 확인하세요.
 마지막 수집 {updated:%Y-%m-%d %H:%M}{contact_html}</div></footer>
@@ -147,6 +178,8 @@ def render_index(contests: list[Contest], name: str, updated: datetime) -> str:
 </div>"""
     body = header("", name, updated, controls) + """
 <main class="wrap">
+<div class="split">
+<section class="list-col">
 <div class="bar"><span class="count" id="count" aria-live="polite"></span>
 <div class="actions">
 <button class="btn small" id="copy-link" type="button">필터 링크 복사</button>
@@ -154,10 +187,15 @@ def render_index(contests: list[Contest], name: str, updated: datetime) -> str:
 <button class="btn small" id="past" type="button" aria-pressed="false">지난 공모전</button>
 </div></div>
 <ul class="list" id="list"></ul>
+</section>
+<aside class="detail-pane" id="detail-pane" aria-live="polite" aria-label="선택한 공모전"></aside>
+</div>
 </main>"""
-    data = [{k: getattr(c, k) for k in PUBLIC_FIELDS} for c in contests]
+    # PC 화면 오른쪽 상세 영역을 그리는 데 필요한 항목까지 함께 넣는다
+    fields = PUBLIC_FIELDS + ("official_url", "apply_url", "target_text", "summary", "sources")
+    data = [{k: getattr(c, k) for k in fields} for c in contests]
     open_count = sum(1 for c in contests if c.status(updated.date()) != "마감")
-    return page(title=name, body=body, prefix="", name=name, updated=updated,
+    return page(title=name, body=body, prefix="", name=name, updated=updated, body_class="index",
                 description=f"웹툰·웹소설·게임 분야 학생 공모전 {open_count}건 (마감 임박순)",
                 og_url=config.settings().get("site_url", ""), scripts=json_script("data", data))
 
@@ -301,7 +339,8 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
         f'<tr data-row="{escape(cid)}"><td>{escape(titles.get(cid, cid))}<div class="note"><code>{escape(cid)}</code></div></td>'
         f'<td>{ACTION_LABELS.get(d.get("action"), d.get("action"))}</td><td>{escape((d.get("at") or "")[:16].replace("T", " "))}</td>'
         f'<td class="acts">{_buttons(cid, [("undo", "되돌리기", "")])}</td></tr>'
-        for cid, d in sorted(decisions.items(), key=lambda kv: kv[1].get("at", ""), reverse=True)[:50]]
+        for cid, d in sorted(((k, v) for k, v in decisions.items() if not k.startswith("_") and isinstance(v, dict)),
+                             key=lambda kv: kv[1].get("at", ""), reverse=True)[:50]]
 
     latest: dict[str, dict] = {}
     for r in runs or []:
@@ -317,7 +356,8 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
         items = "".join(f"<li>{escape(w)}</li>" for w in warnings)
         warn_html = f'<section class="box"><h2 style="margin:0 0 6px;font-size:16px">구글 시트에서 반영하지 못한 내용</h2><ul class="sources">{items}</ul></section>'
 
-    admin_cfg = {"repo": config.settings().get("github_repo", ""), "path": "data/decisions.json", "branch": "main"}
+    admin_cfg = {"repo": config.settings().get("github_repo", ""), "path": "data/decisions.json", "branch": "main",
+                 "staff": decisions.get("_staff") or {"default": {}, "staff": []}}
     body = header("../", name, updated) + f"""
 <main class="wrap detail admin"><h1>관리자</h1>
 <p class="note">이 페이지는 검색에 노출되지 않지만 주소를 아는 사람은 볼 수 있습니다. 버튼으로 내린 결정은
@@ -339,6 +379,23 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 <section class="box"><h2>확인 필요 {len(review_rows)}건 — 자동 분류가 애매함</h2>
 <p class="note">사이트에는 '확인 필요' 표시와 함께 올라가 있습니다. 맞으면 <b>확인</b>(표시 지움), 맞지 않으면 <b>숨김</b>(사이트에서 내림).</p>
 {_table(["제목", "구분 / 사유", "출처", "처리"], review_rows, "없음")}</section>
+<section class="box" id="staff-box"><h2>직원 관리 — 직원별 문의 링크</h2>
+<p class="note">직원마다 코드(영어 소문자·숫자)와 네이버 폼 주소를 넣으면, 그 직원의 공유 링크로 들어온 학생에게
+<b>무료 포트폴리오 상담</b>·<b>공모전 준비 문의</b> 버튼이 그 직원의 폼으로 연결되고 "담당 ○○○"이 표시됩니다.
+학생이 친구에게 공유한 링크에도 담당 직원이 따라가며, 처음 받은 링크의 직원이 30일 동안 유지됩니다.
+'공모전 문의 폼'을 비워 두면 두 버튼 모두 첫 번째 폼으로 연결됩니다. 저장 후 1~2분 뒤부터 링크가 동작합니다.</p>
+<div style="overflow-x:auto"><table class="review staff-table"><thead><tr><th>이름</th><th>코드</th><th>포트폴리오 상담 폼</th><th>공모전 문의 폼 (선택)</th><th>링크</th></tr></thead>
+<tbody id="staff-rows"></tbody></table></div>
+<p><button class="btn small" id="staff-add" type="button">+ 직원 추가</button></p>
+<p class="note" style="margin-bottom:4px">담당 코드 없이 들어온 학생(대표 문의) — 비워 두면 코드 없는 방문자에게는 버튼이 보이지 않습니다.</p>
+<div style="overflow-x:auto"><table class="review staff-table"><tbody><tr>
+<td><input data-default="name" placeholder="표시 이름 (예: 상담실)"></td>
+<td><input data-default="form" placeholder="https://naver.me/... 포트폴리오 상담 폼"></td>
+<td><input data-default="contest_form" placeholder="https://naver.me/... 공모전 문의 폼 (선택)"></td></tr></tbody></table></div>
+</section>
+<div class="qr-modal" id="qr-modal" hidden><div class="box"><p id="qr-title" style="margin:0 0 8px;font-weight:700"></p>
+<div id="qr-code"></div><p class="note" id="qr-url" style="word-break:break-all"></p>
+<p><a class="btn small" id="qr-download" download="qr.png">QR 이미지 저장</a> <button class="btn small" id="qr-close" type="button">닫기</button></p></div></div>
 <section class="box"><h2>처리 내역</h2>
 <p class="note">잘못 눌렀다면 <b>되돌리기</b>를 누르세요.</p>
 {_table(["제목", "처리", "시각", ""], done_rows, "아직 처리한 공모전이 없습니다.")}</section>
@@ -349,7 +406,10 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 <button class="btn" id="save-cancel" type="button">취소</button>
 <button class="btn primary" id="save-go" type="button">반영하기</button></div>"""
     return page(title=f"관리자 | {name}", body=body, prefix="../", name=name, updated=updated, noindex=True,
-                scripts=json_script("admin-config", admin_cfg) + '\n<script src="../assets/admin.js" defer></script>')
+                contact=False,
+                scripts=json_script("admin-config", admin_cfg)
+                + '\n<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>'
+                + '\n<script src="../assets/admin.js" defer></script>')
 
 
 # ---------------------------------------------------------------- 빌드
@@ -364,6 +424,9 @@ def build(out: Path = DIST) -> dict:
     contests = list(public.values())
     updated = last_updated()
     name = site_name(updated)
+    decisions = overrides.load_decisions(overrides.SheetData())
+    global _PUBLIC_STAFF
+    _PUBLIC_STAFF = public_staff(decisions.get("_staff"))
     if out.exists():
         shutil.rmtree(out)
     (out / "assets").mkdir(parents=True)
@@ -384,7 +447,7 @@ def build(out: Path = DIST) -> dict:
     runs = json.loads(log_path.read_text(encoding="utf-8")) if log_path.exists() else []
     (admin_dir / "index.html").write_text(
         render_admin(contests, list(pending.values()), name, updated, warnings, runs,
-                     decisions=overrides.load_decisions(overrides.SheetData()),
+                     decisions=decisions,
                      titles={cid: c.title for cid, c in raw.items()}), encoding="utf-8")
     return {"name": name, "contests": len(contests), "pending": len(pending), "out": str(out),
-            "admin": admin_dir.name, "warnings": warnings}
+            "admin": admin_dir.name, "staff": len(_PUBLIC_STAFF["staff"]), "warnings": warnings}

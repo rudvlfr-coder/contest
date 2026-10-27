@@ -50,6 +50,8 @@ def load_decisions(data: SheetData, path: Path = DECISIONS_PATH) -> dict:
         data.warnings.append(f"관리자 결정 파일(data/decisions.json)을 읽지 못함: {e}")
         return {}
     for cid, d in decisions.items():
+        if cid.startswith("_"):  # '_staff' 등 관리자 설정
+            continue
         action = d.get("action") if isinstance(d, dict) else None
         if action in ("approve", "hide"):
             data.approvals[cid] = DECISION_ACTIONS[action]
