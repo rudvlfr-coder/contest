@@ -14,5 +14,16 @@
  "2026-0bd475": {
   "action": "confirm",
   "at": "2026-10-27T17:05"
+ },
+ "_staff": {
+  "default": {},
+  "staff": [
+   {
+    "name": "김경필 멘토",
+    "code": "1021",
+    "form": "http://bu-sangame.co.kr/2025/curriculum/webtoon/toon.asp",
+    "contest_form": "http://bu-sangame.co.kr/2025/curriculum/webtoon/toon.asp"
+   }
+  ]
  }
 }
