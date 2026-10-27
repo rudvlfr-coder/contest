@@ -5465,6 +5465,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-9817ea",
+  "title": "1-BIT JAM 15 + Prizes",
+  "official_url": "https://itch.io/jam/1-bit-jam-15",
+  "apply_url": null,
+  "organizer": "MYline media 👤",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-03",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzIzNTkyMDg1LnBuZw==/140x111%23/glB46R.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/1-bit-jam-15"
+   }
+  ],
+  "created_at": "2026-10-28T08:19",
+  "updated_at": "2026-10-28T08:19"
+ },
+ {
   "id": "2026-42f94b",
   "title": "Game Gauntlet - SIM Jam ($1,500 in Cash Prizes, Online, Worldwide)",
   "official_url": "https://itch.io/jam/game-gauntlet-sim-jam",
@@ -7648,7 +7685,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261022182654_5424167a.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -7804,7 +7841,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261026210038_084c72d0.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -7947,7 +7984,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261014180237_8682378c.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -7987,7 +8024,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20260911225833_3367ba44.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8023,7 +8060,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20260504230139_e17481c3.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8246,7 +8283,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261012102127_655d79e4.jpg",
   "needs_review": false,
   "review_reasons": [],
   "competitor_hits": [],
@@ -8317,7 +8354,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20260810192226_f367c90c.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8353,7 +8390,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261006182502_a8539dbb.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8389,7 +8426,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20260930190407_6188faab.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8465,7 +8502,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261013004718_9bf8c2f6.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8538,7 +8575,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20260808061032_3bdb4f40.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
@@ -8617,7 +8654,7 @@
   "student_eligible": "yes",
   "region": "domestic",
   "summary": null,
-  "poster_url": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261019170556_b396d269.jpg",
   "needs_review": true,
   "review_reasons": [
    "분류 확인 필요"
