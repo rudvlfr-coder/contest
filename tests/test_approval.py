@@ -66,6 +66,33 @@ def test_competitor_keywords_tab_without_categories(tmp_path):
     assert data.keywords["categories"] == config.keywords()["categories"]  # 분류 키워드는 기본값 유지
 
 
+def test_admin_decisions(tmp_path, competitors):
+    p = tmp_path / "decisions.json"
+    p.write_text('{"b": {"action": "approve", "at": "2026-10-27T12:00"},'
+                 ' "r": {"action": "confirm"}, "x": {"action": "hide"}, "y": {"action": "이상한값"}}', encoding="utf-8")
+    data = overrides.SheetData(approvals={"b": "거절"})  # 시트 값보다 관리자 페이지 결정이 우선
+    overrides.load_decisions(data, p)
+    assert data.approvals == {"b": "승인", "x": "거절"} and data.confirmed == {"r"}
+
+    contests = {
+        "b": make("b", "OO아카데미 콜라보 웹툰 공모전"),
+        "r": make("r", "애매한 공모전", needs_review=True, review_reasons=["분류 확인 필요"]),
+        "x": make("x", "숨길 공모전"),
+    }
+    applied, _ = overrides.apply(contests, data)
+    assert not applied["r"].needs_review and applied["r"].review_reasons == []
+    public, pending = overrides.split_pending(applied, data)
+    assert set(public) == {"b", "r"} and not pending  # b는 승인돼서 공개, x는 숨김
+
+
+def test_broken_decisions_file_is_ignored(tmp_path):
+    p = tmp_path / "decisions.json"
+    p.write_text("{깨진 파일", encoding="utf-8")
+    data = overrides.SheetData()
+    assert overrides.load_decisions(data, p) == {}
+    assert any("decisions.json" in w for w in data.warnings)
+
+
 def test_admin_page_lists_pending(competitors):
     pending = [make("2026-bbbbbb", "OO아카데미 콜라보 웹툰 공모전", competitor_hits=["OO아카데미"],
                     sources=[{"site": "wevity", "url": "https://example.com/1"}])]

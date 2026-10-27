@@ -267,20 +267,41 @@ def _table(head: list[str], rows: list[str], empty: str) -> str:
     return f'<div style="overflow-x:auto"><table class="review"><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
+def _buttons(cid: str, actions: list[tuple[str, str, str]]) -> str:
+    return "".join(f'<button class="btn small {cls}" type="button" data-act="{act}" data-id="{escape(cid)}">{label}</button>'
+                   for act, label, cls in actions)
+
+
+ACTION_LABELS = {"approve": "승인함", "hide": "숨김", "confirm": "확인함"}
+
+
 def render_admin(public: list[Contest], pending: list[Contest], name: str, updated: datetime,
-                 warnings: list[str] | None = None, runs: list[dict] | None = None) -> str:
+                 warnings: list[str] | None = None, runs: list[dict] | None = None,
+                 decisions: dict | None = None, titles: dict[str, str] | None = None) -> str:
     today = updated.date()
+    decisions = decisions or {}
+    titles = titles or {}
     pending_open = sorted((c for c in pending if c.status(today) != "마감"), key=lambda c: c.end_date or "9999")
     pending_rows = [
-        f'<tr><td>{_id_cell(c)}</td><td>{escape(c.title)}<div class="note">{escape(c.organizer or "")}</div></td>'
+        f'<tr data-row="{escape(c.id)}"><td>{escape(c.title)}<div class="note">{escape(c.organizer or "")} · 마감 {escape(fmt_short(c.end_date))}'
+        f' · <code>{escape(c.id)}</code></div></td>'
         f'<td><span class="tag review">{escape(", ".join(c.competitor_hits))}</span></td>'
-        f'<td>{escape(fmt_short(c.end_date))}</td><td>{_source_links(c)}</td></tr>'
+        f'<td>{_source_links(c)}</td>'
+        f'<td class="acts">{_buttons(c.id, [("approve", "승인", "primary"), ("hide", "숨김", "")])}</td></tr>'
         for c in pending_open]
     review_rows = [
-        f'<tr><td>{_id_cell(c)}</td><td><a href="../c/{escape(c.id)}/">{escape(c.title)}</a></td>'
-        f'<td>{escape(", ".join(c.categories))} / {escape(", ".join(c.subcategories))}</td>'
-        f'<td>{escape(fmt_short(c.end_date))}</td><td>{escape(", ".join(c.review_reasons))}</td></tr>'
+        f'<tr data-row="{escape(c.id)}"><td><a href="../c/{escape(c.id)}/" target="_blank">{escape(c.title)}</a>'
+        f'<div class="note">{escape(c.organizer or "")} · 마감 {escape(fmt_short(c.end_date))} · <code>{escape(c.id)}</code></div></td>'
+        f'<td>{escape(", ".join(c.categories))}{" / " + escape(", ".join(c.subcategories)) if c.subcategories else ""}'
+        f'<div class="note">{escape(", ".join(c.review_reasons))}</div></td>'
+        f'<td>{_source_links(c)}</td>'
+        f'<td class="acts">{_buttons(c.id, [("confirm", "확인", "primary"), ("hide", "숨김", "")])}</td></tr>'
         for c in sorted(public, key=lambda c: c.end_date or "9999") if c.needs_review and c.status(today) != "마감"]
+    done_rows = [
+        f'<tr data-row="{escape(cid)}"><td>{escape(titles.get(cid, cid))}<div class="note"><code>{escape(cid)}</code></div></td>'
+        f'<td>{ACTION_LABELS.get(d.get("action"), d.get("action"))}</td><td>{escape((d.get("at") or "")[:16].replace("T", " "))}</td>'
+        f'<td class="acts">{_buttons(cid, [("undo", "되돌리기", "")])}</td></tr>'
+        for cid, d in sorted(decisions.items(), key=lambda kv: kv[1].get("at", ""), reverse=True)[:50]]
 
     latest: dict[str, dict] = {}
     for r in runs or []:
@@ -296,22 +317,39 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
         items = "".join(f"<li>{escape(w)}</li>" for w in warnings)
         warn_html = f'<section class="box"><h2 style="margin:0 0 6px;font-size:16px">구글 시트에서 반영하지 못한 내용</h2><ul class="sources">{items}</ul></section>'
 
+    admin_cfg = {"repo": config.settings().get("github_repo", ""), "path": "data/decisions.json", "branch": "main"}
     body = header("../", name, updated) + f"""
-<main class="wrap detail"><h1>관리자</h1>
-<p class="note">이 페이지는 검색에 노출되지 않지만 주소를 아는 사람은 볼 수 있습니다. 주소는 운영진끼리만 공유해 주세요.</p>
+<main class="wrap detail admin"><h1>관리자</h1>
+<p class="note">이 페이지는 검색에 노출되지 않지만 주소를 아는 사람은 볼 수 있습니다. 버튼으로 내린 결정은
+<b>GitHub 토큰을 연결한 기기에서만</b> 저장됩니다.</p>
+<section class="box" id="token-box">
+<div id="token-off"><b>처음 한 번: GitHub 토큰 연결</b>
+<p class="note">GitHub → 오른쪽 위 프로필 → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> →
+Generate new token → Repository access: <b>Only select repositories</b>에서 이 저장소 선택 → Permissions의 Repository permissions에서
+<b>Contents: Read and write</b> → Generate token → 나온 값을 복사해 아래에 붙여넣기.</p>
+<div class="search"><input id="token-input" type="password" placeholder="github_pat_로 시작하는 토큰" autocomplete="off">
+<button class="btn primary" id="token-save" type="button">연결</button></div></div>
+<div id="token-on" hidden>✅ 이 기기는 GitHub에 연결되어 있습니다. <button class="btn small" id="token-clear" type="button">연결 해제</button></div>
+</section>
 {warn_html}
-<section class="box"><h2 style="margin:0 0 6px;font-size:16px">승인 대기 {len(pending_open)}건 — 경쟁사 관련</h2>
-<p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인한 뒤 구글 시트 '수정' 탭에 공모전 ID를 붙여넣고
-<b>승인</b> 칸에 <code>승인</code>(발행) 또는 <code>거절</code>(계속 숨김)을 적어 주세요. 다음 실행 때 반영됩니다.</p>
-{_table(["공모전 ID", "제목 / 주최", "걸린 이름", "마감", "출처"], pending_rows, "승인 대기 중인 공모전이 없습니다.")}</section>
-<section class="box"><h2 style="margin:0 0 6px;font-size:16px">확인 필요 {len(review_rows)}건 — 자동 분류가 애매함</h2>
-<p class="note">사이트에는 '확인 필요' 표시와 함께 올라가 있습니다. 고칠 내용은 시트 '수정' 탭에 적어 주세요.</p>
-{_table(["공모전 ID", "제목", "구분 / 장르", "마감", "사유"], review_rows, "없음")}</section>
-<section class="box"><h2 style="margin:0 0 6px;font-size:16px">최근 수집</h2>
+<section class="box"><h2>승인 대기 {len(pending_open)}건 — 경쟁사 관련</h2>
+<p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인하고 <b>승인</b>(사이트에 발행) 또는 <b>숨김</b>(계속 비공개)을 누르세요.
+아무것도 누르지 않으면 보류 상태로 남습니다. 마감이 지나면 이 목록에서 자동으로 사라집니다.</p>
+{_table(["제목", "걸린 이름", "출처", "처리"], pending_rows, "승인 대기 중인 공모전이 없습니다.")}</section>
+<section class="box"><h2>확인 필요 {len(review_rows)}건 — 자동 분류가 애매함</h2>
+<p class="note">사이트에는 '확인 필요' 표시와 함께 올라가 있습니다. 맞으면 <b>확인</b>(표시 지움), 맞지 않으면 <b>숨김</b>(사이트에서 내림).</p>
+{_table(["제목", "구분 / 사유", "출처", "처리"], review_rows, "없음")}</section>
+<section class="box"><h2>처리 내역</h2>
+<p class="note">잘못 눌렀다면 <b>되돌리기</b>를 누르세요.</p>
+{_table(["제목", "처리", "시각", ""], done_rows, "아직 처리한 공모전이 없습니다.")}</section>
+<section class="box"><h2>최근 수집</h2>
 {_table(["사이트", "시각", "목록", "신규", "오류"], run_rows, "수집 기록이 없습니다.")}</section>
 </main>
-<script>document.addEventListener("click",function(e){{var b=e.target.closest("[data-copy-text]");if(b)ContestHub.copy(b.getAttribute("data-copy-text"),"공모전 ID를 복사했어요");}});</script>"""
-    return page(title=f"관리자 | {name}", body=body, prefix="../", name=name, updated=updated, noindex=True)
+<div class="savebar" id="savebar" hidden><span id="save-count"></span>
+<button class="btn" id="save-cancel" type="button">취소</button>
+<button class="btn primary" id="save-go" type="button">반영하기</button></div>"""
+    return page(title=f"관리자 | {name}", body=body, prefix="../", name=name, updated=updated, noindex=True,
+                scripts=json_script("admin-config", admin_cfg) + '\n<script src="../assets/admin.js" defer></script>')
 
 
 # ---------------------------------------------------------------- 빌드
@@ -320,7 +358,8 @@ def build(out: Path = DIST) -> dict:
     # 구글 시트의 숨김·수정·직접등록·승인을 반영 (원본 data/contests.json은 바꾸지 않는다)
     sheet = overrides.load_sheet()
     config.override_keywords(sheet.keywords)
-    applied, warnings = overrides.apply(store.load(), sheet)
+    raw = store.load()
+    applied, warnings = overrides.apply(raw, sheet)
     public, pending = overrides.split_pending(applied, sheet)
     contests = list(public.values())
     updated = last_updated()
@@ -344,6 +383,8 @@ def build(out: Path = DIST) -> dict:
     log_path = config.ROOT / "data" / "crawl_log.json"
     runs = json.loads(log_path.read_text(encoding="utf-8")) if log_path.exists() else []
     (admin_dir / "index.html").write_text(
-        render_admin(contests, list(pending.values()), name, updated, warnings, runs), encoding="utf-8")
+        render_admin(contests, list(pending.values()), name, updated, warnings, runs,
+                     decisions=overrides.load_decisions(overrides.SheetData()),
+                     titles={cid: c.title for cid, c in raw.items()}), encoding="utf-8")
     return {"name": name, "contests": len(contests), "pending": len(pending), "out": str(out),
             "admin": admin_dir.name, "warnings": warnings}

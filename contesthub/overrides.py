@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import logging
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -30,7 +31,31 @@ class SheetData:
     keywords: dict | None = None  # config.keywords()와 같은 형태 (시트가 있으면 덮어씀)
     sites: dict[str, bool] = field(default_factory=dict)
     approvals: dict[str, str] = field(default_factory=dict)  # 공모전ID → '승인' / '거절'
+    confirmed: set[str] = field(default_factory=set)  # '확인 필요' 표시를 지울 공모전ID
     warnings: list[str] = field(default_factory=list)
+
+
+DECISIONS_PATH = config.ROOT / "data" / "decisions.json"
+# 관리자 페이지 버튼 → data/decisions.json에 저장되는 값
+DECISION_ACTIONS = {"approve": "승인", "hide": "거절", "confirm": "확인"}
+
+
+def load_decisions(data: SheetData, path: Path = DECISIONS_PATH) -> dict:
+    """관리자 페이지에서 내린 결정을 반영한다. 시트보다 나중에 적용되므로 시트와 겹치면 이쪽이 우선."""
+    if not path.exists():
+        return {}
+    try:
+        decisions = json.loads(path.read_text(encoding="utf-8") or "{}")
+    except ValueError as e:
+        data.warnings.append(f"관리자 결정 파일(data/decisions.json)을 읽지 못함: {e}")
+        return {}
+    for cid, d in decisions.items():
+        action = d.get("action") if isinstance(d, dict) else None
+        if action in ("approve", "hide"):
+            data.approvals[cid] = DECISION_ACTIONS[action]
+        elif action == "confirm":
+            data.confirmed.add(cid)
+    return decisions
 
 
 def _read_csv(source: str) -> list[dict[str, str]]:
@@ -179,6 +204,7 @@ def load_sheet() -> SheetData:
                     data.sites[row["사이트"]] = row.get("사용", "") in YES
         except Exception as e:
             data.warnings.append(f"시트(sites_csv)를 읽지 못함: {e}")
+    load_decisions(data)
     for w in data.warnings:
         log.warning(w)
     return data
@@ -230,6 +256,12 @@ def apply(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Cont
             c.needs_review = bool(c.review_reasons)
         if "targets" in edit and edit["targets"]:
             c.student_eligible = "yes"
+    for cid in data.confirmed:
+        c = out.get(cid)
+        if c is not None:
+            # 관리자가 '확인'을 누른 건: 분류가 맞다고 보고 경고를 지운다
+            c.review_reasons = []
+            c.needs_review = False
     for cid in hidden:
         out.pop(cid, None)
     return out, warnings

@@ -126,5 +126,16 @@ button, input, select { font: inherit; color: inherit; }
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 footer { color: var(--muted); font-size: 12px; padding: 16px 0 32px; border-top: 1px solid var(--line); }
+.admin .box h2 { margin: 0 0 6px; font-size: 16px; }
+.admin td.acts { white-space: nowrap; }
+.admin td.acts .btn { margin: 2px 2px 2px 0; }
+.admin tr.queued td { background: var(--warn-soft); }
+.admin .queued-tag { margin-right: 4px; }
+.savebar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; display: flex; align-items: center; justify-content: flex-end;
+  gap: 8px; padding: 10px 16px; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -2px 8px rgba(0,0,0,.08);
+}
+.savebar span { margin-right: auto; font-weight: 600; }
+.savebar[hidden], [hidden] { display: none !important; }
 table.review { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--surface); }
 table.review th, table.review td { border: 1px solid var(--line); padding: 6px; text-align: left; vertical-align: top; }
