@@ -212,6 +212,21 @@
     return out;
   }
 
+  // 분야 아이콘 배지 (대학 → 웹툰 → 웹소설 → 게임 순으로 하나)
+  var BADGE_ICONS = {
+    "대학": '<path d="M2 9.5 12 5l10 4.5-10 4.5z"/><path d="M6 11.5v4.5c3.5 2.3 8.5 2.3 12 0v-4.5"/><path d="M22 9.5v5.5"/>',
+    "웹툰": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 11h9M12 4v16M12 14h9"/>',
+    "웹소설": '<path d="M5 4h10.5A3.5 3.5 0 0 1 19 7.5V20H8.5A3.5 3.5 0 0 1 5 16.5z"/><path d="M5 16.5A3.5 3.5 0 0 1 8.5 13H19M9 8h6"/>',
+    "게임": '<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="17.5" cy="14" r="1"/>'
+  };
+  function badge(c) {
+    var cats = c.categories || [];
+    var key = ["대학", "웹툰", "웹소설", "게임"].filter(function (k) { return cats.indexOf(k) >= 0; })[0];
+    if (!key) return "";
+    return '<div class="card-badge cat-' + key + '" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + BADGE_ICONS[key] + "</svg></div>";
+  }
+
   function card(c) {
     var left = daysLeft(c);
     var cls = left === null ? "" : left < 0 ? " closed" : left <= 7 ? " urgent" : "";
@@ -225,7 +240,8 @@
     meta.push("대상 " + esc(targetText(c)));
     var p = prizeText(c);
     if (p) meta.push("상금 " + esc(p));
-    return '<li class="card' + (c.id === selectedId && WIDE.matches ? " selected" : "") + '" data-id="' + esc(c.id) + '">' +
+    var b = badge(c);
+    return '<li class="card' + (b ? " has-badge" : "") + (c.id === selectedId && WIDE.matches ? " selected" : "") + '" data-id="' + esc(c.id) + '">' + b +
       '<div class="card-head"><h2><a href="' + esc(detailUrl(c)) + '" data-open="' + esc(c.id) + '">' + esc(c.title) + "</a></h2>" +
       '<span class="dday' + cls + '">' + ddayText(c) + "</span></div>" +
       '<div class="tags">' + tags.join("") + "</div>" +
@@ -268,10 +284,20 @@
       return "<li>" + esc(SOURCE_NAMES[s.site] || s.site) + (safeHref(s.url) ? ' — <a href="' + safeHref(s.url) + '" target="_blank" rel="noopener">원문</a>' : "") + "</li>";
     }).join("");
 
+    // 포스터: 출처 사이트 이미지를 링크로만 불러옴 (못 불러오면 칸째 숨김)
+    var poster = "";
+    if (/^https:\/\//i.test(c.poster_url || "")) {
+      var posterLink = safeHref(c.official_url) || safeHref(((c.sources || [])[0] || {}).url);
+      var img = '<img src="' + esc(c.poster_url) + '" alt="' + esc(c.title) + ' 포스터" loading="lazy" decoding="async" ' +
+        "onerror=\"this.closest('figure').hidden=true\">";
+      poster = '<figure class="poster">' + (posterLink ? '<a href="' + posterLink + '" target="_blank" rel="noopener">' + img + "</a>" : img) +
+        '<figcaption class="note">포스터 출처: 주최 측 공고</figcaption></figure>';
+    }
+
     pane.innerHTML =
       '<div class="tags">' + tags.join("") + "</div>" +
       '<div class="card-head"><h1>' + esc(c.title) + '</h1><span class="dday' + cls + '">' + ddayText(c) + "</span></div>" +
-      '<div class="cta">' + links.join("") + "</div>" +
+      '<div class="cta">' + links.join("") + "</div>" + poster +
       '<section class="box"><dl class="facts">' + rows.map(function (r) { return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl></section>" +
       '<section class="box"><p class="note" style="margin:0 0 6px">출처</p><ul class="sources">' + sources + "</ul>" +
       '<p class="note" style="margin:10px 0 0">공모전 ID <code>' + esc(c.id) + '</code> · <a href="' + esc(detailUrl(c)) + '" target="_blank">새 창으로 보기</a></p></section>';

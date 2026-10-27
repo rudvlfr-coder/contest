@@ -51,7 +51,9 @@ def parse_detail_html(html: str) -> dict:
     home = s.select_one("a.btn_Homelink[val2]")
     apply = s.select_one("tr a.homepage_go[href^='http']")
     area = s.select_one("div.view_cont_area")
+    poster = s.select_one("div.view_top_area div.img_area img[src]")
     return {
+        "poster": urljoin("https://www.contestkorea.com/", poster["src"]) if poster else "",
         "title": text_of(s.select_one("div.view_top_area h1")),
         "info": info,
         "homepage": home["val2"] if home else None,
@@ -95,5 +97,9 @@ class ContestKoreaCollector(Collector):
             official_url=d["homepage"], apply_url=d["apply"],
             prize_text=prize_text, prize_max=parse_prize(prize_text),
             target_text=target_text,
+            poster_url=d["poster"],
         )
         return contest, d["body"]
+
+    def parse_poster(self, html: str) -> str:
+        return parse_detail_html(html)["poster"]

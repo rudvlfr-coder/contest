@@ -9,6 +9,7 @@ from pathlib import Path
 from . import config, overrides, store
 from .classify import classify, competitor_hits
 from .collectors import COLLECTORS
+from .collectors.base import clean_poster
 from .dedupe import find_duplicate
 from .http import PoliteClient
 
@@ -26,6 +27,32 @@ def _load_json(path: Path, default):
 def _save_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
+POSTER_BACKFILL_PER_RUN = 30  # 한 번 실행할 때 사이트별로 다시 열어 볼 최대 상세 페이지 수
+
+
+def backfill_posters(collector, contests: dict, client: PoliteClient, today: str) -> int:
+    """포스터 기능 전에 수집한, 아직 접수 중인 공모전의 포스터 주소를 채운다 (한 번만 확인, 없으면 "")."""
+    if not collector.needs_detail:
+        return 0
+    filled = checked = 0
+    for c in contests.values():
+        if checked >= POSTER_BACKFILL_PER_RUN:
+            break
+        if c.poster_url is not None or (c.end_date and c.end_date < today):
+            continue
+        url = next((s["url"] for s in c.sources if s.get("site") == collector.site and s.get("url")), None)
+        if not url:
+            continue
+        checked += 1
+        try:
+            c.poster_url = clean_poster(collector.parse_poster(client.get_text(url))) or ""
+        except Exception as e:  # 한 건 실패는 다음 실행 때 다시 시도
+            log.warning("포스터 확인 실패 %s: %s", url, e)
+            continue
+        filled += bool(c.poster_url)
+    return filled
 
 
 def run(sites: list[str] | None = None, limit: int | None = None) -> list[dict]:
@@ -61,6 +88,10 @@ def run(sites: list[str] | None = None, limit: int | None = None) -> list[dict]:
                     stats["listed"] += 1
                     if item.url in seen:
                         stats["already_seen"] += 1
+                        # 목록에 포스터가 있는 사이트(itch.io)는 예전에 수집한 건의 포스터를 여기서 채운다
+                        known = contests.get(seen[item.url].get("id", ""))
+                        if known is not None and known.poster_url is None and item.extra.get("poster"):
+                            known.poster_url = clean_poster(item.extra["poster"]) or ""
                         continue
                     if limit is not None and processed >= limit:
                         break
@@ -116,6 +147,7 @@ def run(sites: list[str] | None = None, limit: int | None = None) -> list[dict]:
                         stats["new"] += 1
                         stats["needs_review"] += int(contest.needs_review)
                     seen[item.url] = {"relevant": True, "id": target_id}
+                stats["posters"] = backfill_posters(collector, contests, client, today)
             except Exception as e:  # 목록 자체가 실패하면 이 사이트만 건너뛴다
                 log.exception("%s 수집 실패", site)
                 stats["errors"].append(str(e))

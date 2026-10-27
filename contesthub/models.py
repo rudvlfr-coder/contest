@@ -35,6 +35,7 @@ class Contest:
     student_eligible: str = "unknown"  # yes / no / unknown
     region: str = "domestic"  # domestic / overseas
     summary: str | None = None
+    poster_url: str | None = None  # 출처 사이트의 포스터 이미지 주소 (복사하지 않고 링크로만 표시). ""=확인했지만 없음
     needs_review: bool = False
     review_reasons: list[str] = field(default_factory=list)
     competitor_hits: list[str] = field(default_factory=list)  # 수집할 때 본문에서 찾은 경쟁사 이름 (승인 전 비공개)

@@ -39,6 +39,10 @@ class Collector:
     def from_list_item(self, item: ListItem) -> tuple[Contest, str]:
         raise NotImplementedError
 
+    def parse_poster(self, html: str) -> str:
+        """상세 페이지에서 포스터 주소만 뽑기 (예전에 수집한 공모전 포스터 채우기용). 없으면 ""."""
+        return ""
+
 
 def soup(html: str) -> BeautifulSoup:
     return BeautifulSoup(html, "html.parser")
@@ -61,11 +65,22 @@ def eligibility_snippet(body: str, limit: int = 160) -> str:
     return body[m.end():m.end() + limit]
 
 
+def clean_poster(url: str | None) -> str:
+    """포스터 주소는 https 이미지 주소만 받는다 (http는 https로 바꿔 시도)."""
+    if not url:
+        return ""
+    url = url.strip()
+    if url.startswith("http://"):
+        url = "https://" + url[len("http://"):]
+    return url if url.startswith("https://") else ""
+
+
 def build_contest(site: str, item: ListItem, *, title: str, start: str | None, end: str | None,
                   organizer: str | None = None, official_url: str | None = None,
                   apply_url: str | None = None, prize_text: str | None = None,
                   prize_max: int | None = None, target_text: str | None = None,
-                  region: str = "domestic", summary: str | None = None) -> Contest:
+                  region: str = "domestic", summary: str | None = None,
+                  poster_url: str | None = None) -> Contest:
     targets, eligible = parse_targets(target_text)
     now = datetime.now().isoformat(timespec="minutes")
     return Contest(
@@ -83,6 +98,7 @@ def build_contest(site: str, item: ListItem, *, title: str, start: str | None, e
         student_eligible=eligible,
         region=region,
         summary=summary,
+        poster_url=poster_url if poster_url is None else (clean_poster(poster_url) or ""),
         sources=[{"site": site, "url": item.url}],
         created_at=now,
         updated_at=now,

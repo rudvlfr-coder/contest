@@ -48,6 +48,7 @@ def parse_list(html: str) -> list[ListItem]:
         elif when:
             end = when
         joined = text_of(jam.select_one("div.jam_stats span.number")).replace(",", "")
+        cover = jam.select_one("div.jam_cover[data-background_image]")
         items.append(ListItem(
             url=BASE + a["href"].split("?")[0],
             title=text_of(a),
@@ -57,6 +58,7 @@ def parse_list(html: str) -> list[ListItem]:
                 "joined": int(joined) if joined.isdigit() else 0,
                 "summary": text_of(jam.select_one("p.short_text")) or None,
                 "hosts": ", ".join(text_of(x) for x in jam.select("div.hosted_by a")),
+                "poster": cover["data-background_image"] if cover else "",
             },
         ))
     return items
@@ -93,6 +95,7 @@ class ItchioCollector(Collector):
             target_text="누구나 (온라인, 해외 게임잼)",
             region="overseas",
             summary=item.extra["summary"],
+            poster_url=item.extra.get("poster", ""),
         )
         contest.categories = ["게임"]
         contest.subcategories = ["프로그래밍", "대회"]

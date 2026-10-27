@@ -192,7 +192,7 @@ def render_index(contests: list[Contest], name: str, updated: datetime) -> str:
 </div>
 </main>"""
     # PC 화면 오른쪽 상세 영역을 그리는 데 필요한 항목까지 함께 넣는다
-    fields = PUBLIC_FIELDS + ("official_url", "apply_url", "target_text", "summary", "sources")
+    fields = PUBLIC_FIELDS + ("official_url", "apply_url", "target_text", "summary", "sources", "poster_url")
     data = [{k: getattr(c, k) for k in fields} for c in contests]
     open_count = sum(1 for c in contests if c.status(updated.date()) != "마감")
     return page(title=name, body=body, prefix="", name=name, updated=updated, body_class="index",
@@ -201,6 +201,18 @@ def render_index(contests: list[Contest], name: str, updated: datetime) -> str:
 
 
 # ---------------------------------------------------------------- 상세
+
+def poster_html(c: Contest) -> str:
+    """출처 사이트의 포스터를 링크로만 불러와 보여준다 (우리 쪽에 복사하지 않음). 못 불러오면 칸째 숨김."""
+    if not c.poster_url or not c.poster_url.startswith("https://"):
+        return ""
+    link = c.official_url or next((s["url"] for s in c.sources if s.get("url")), "")
+    img = (f'<img src="{escape(c.poster_url)}" alt="{escape(c.title)} 포스터" loading="lazy" decoding="async" '
+           f'onerror="this.closest(\'figure\').hidden=true">')
+    if link:
+        img = f'<a href="{escape(link)}" target="_blank" rel="noopener">{img}</a>'
+    return f'<figure class="poster">{img}<figcaption class="note">포스터 출처: 주최 측 공고</figcaption></figure>'
+
 
 def render_detail(c: Contest, name: str, updated: datetime) -> str:
     prefix = "../../"
@@ -248,6 +260,7 @@ def render_detail(c: Contest, name: str, updated: datetime) -> str:
 <div class="tags">{tags}</div>
 <div class="card-head"><h1>{escape(c.title)}</h1><span class="dday" data-dday>{escape(fmt_short(c.end_date))}</span></div>
 <div class="cta">{"".join(links)}</div>
+{poster_html(c)}
 <section class="box"><dl class="facts">{facts}</dl></section>
 <section class="box"><p class="note" style="margin:0 0 6px">출처</p><ul class="sources">{sources}</ul>
 <p class="note" style="margin:10px 0 0">공모전 ID <code>{escape(c.id)}</code>

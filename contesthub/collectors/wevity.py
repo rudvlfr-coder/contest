@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import re
 from typing import Iterator
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, urljoin, urlsplit
 
 from ..textutil import parse_date, parse_prize
 from .base import Collector, ListItem, build_contest, eligibility_snippet, soup, text_of
@@ -55,16 +55,21 @@ def parse_detail_html(html: str) -> dict:
             homepage = a["href"] if a else None
         key_el.decompose()
         info[key] = text_of(li)
+    poster = s.select_one("div.cd-area div.thumb img[src]")
     return {
         "title": text_of(s.select_one("div.tit-area h6.tit")),
         "info": info,
         "homepage": homepage,
         "body": text_of(s.select_one("#viewContents")),
+        "poster": urljoin(BASE, poster["src"]) if poster else "",
     }
 
 
 class WevityCollector(Collector):
     site = "wevity"
+
+    def parse_poster(self, html: str) -> str:
+        return parse_detail_html(html)["poster"]
 
     def list_items(self, client) -> Iterator[ListItem]:
         max_pages = int(self.options.get("max_pages", 3))
@@ -100,6 +105,7 @@ class WevityCollector(Collector):
             prize_text=prize_text, prize_max=parse_prize(first) or parse_prize(total),
             target_text=target_text,
             region="overseas" if "해외" in info.get("분야", "") else "domestic",
+            poster_url=d["poster"],
         )
         # 위비티 '분야'는 범위가 넓어서(게임/소프트웨어에 보안 공모전도 포함) 분류 점수에는 넣지 않는다
         return contest, d["body"]

@@ -1267,6 +1267,89 @@ div[style*="overflow-x:auto"] {
   }
 }
 
+/* 분야 아이콘 배지 (목록 카드 왼쪽) */
+.card.has-badge {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  column-gap: 14px;
+}
+
+.card.has-badge > * {
+  grid-column: 2;
+}
+
+.card.has-badge > .card-badge {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+}
+
+.card-badge {
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
+  color: var(--text-soft);
+}
+
+.card-badge svg {
+  width: 26px;
+  height: 26px;
+}
+
+.card-badge.cat-웹툰 { background: var(--cat-webtoon-bg); color: var(--cat-webtoon); }
+.card-badge.cat-웹소설 { background: var(--cat-novel-bg); color: var(--cat-novel); }
+.card-badge.cat-게임 { background: var(--cat-game-bg); color: var(--cat-game); }
+.card-badge.cat-대학 { background: var(--cat-univ-bg); color: var(--cat-univ); }
+
+/* 포스터 (상세 페이지·PC 오른쪽 상세) — 출처 사이트 이미지를 링크로만 표시 */
+.poster {
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
+  text-align: center;
+}
+
+.poster img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 560px;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+}
+
+.poster figcaption {
+  margin: 8px 0 0;
+}
+
+.detail-pane .poster img {
+  max-height: 460px;
+}
+
+@media (max-width: 640px) {
+  .card.has-badge {
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 11px;
+  }
+
+  .card-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+  }
+
+  .card-badge svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

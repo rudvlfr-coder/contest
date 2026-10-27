@@ -33,6 +33,7 @@ def test_wevity_detail():
     assert c.prize_max_krw == 8_000_000
     assert c.official_url.startswith("https://cbgame.org/")
     assert "충청북도" in body
+    assert c.poster_url == "https://www.wevity.com/upload/contest/20261019160122_e7b9ae0d.jpg"
     assert c.sources == [{"site": "wevity", "url": item.url}]
 
 
@@ -49,6 +50,7 @@ def test_contestkorea_detail():
     assert c.title == "2026 제2회 대한민국 AI 창조공모대전"
     assert (c.start_date, c.end_date) == ("2026-11-23", "2026-11-27")
     assert c.official_url == "http://koreaaiart.com/"
+    assert c.poster_url == "https://www.contestkorea.com/admincenter/files/meet/202610231413048692436.png"
     assert c.prize_max_krw == 1_500_000
     assert {"elementary", "middle", "high", "univ", "grad", "general"} <= set(c.targets)
     assert c.target_text == "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인"
@@ -64,6 +66,7 @@ def test_itch_lists():
     assert all(i.url.startswith("https://itch.io/jam/") for i in progress + upcoming)
     c, _ = itchio.ItchioCollector().from_list_item(upcoming[0])
     assert c.categories == ["게임"] and c.region == "overseas"
+    assert c.poster_url.startswith("https://img.itch.zone/")
     assert c.end_date >= c.start_date
 
 
@@ -109,6 +112,27 @@ def test_classify():
     assert classify("드골2: 자유의 시대 포스터·굿즈 공모전").categories == ["게임"]
     # 영문 키워드는 단어 경계로만 ('ai'가 'main'에 걸리지 않음)
     assert "AI" not in classify("Main 웹툰 공모전").subcategories
+
+
+def test_backfill_posters_once():
+    from contesthub.crawl import backfill_posters
+
+    class FakeClient:
+        calls = 0
+
+        def get_text(self, url):
+            FakeClient.calls += 1
+            return read("wevity_view.html")
+
+    src = [{"site": "wevity", "url": wevity.detail_url("111767")}]
+    contests = {
+        "open": Contest(id="open", title="열린 공모전", end_date="2099-01-01", sources=src),
+        "closed": Contest(id="closed", title="마감", end_date="2000-01-01", sources=src),
+        "done": Contest(id="done", title="확인함", end_date="2099-01-01", sources=src, poster_url=""),
+    }
+    filled = backfill_posters(wevity.WevityCollector(), contests, FakeClient(), "2026-10-28")
+    assert filled == 1 and FakeClient.calls == 1  # 마감됐거나 이미 확인한 건은 다시 열지 않음
+    assert contests["open"].poster_url.endswith("e7b9ae0d.jpg")
 
 
 def test_same_contest():

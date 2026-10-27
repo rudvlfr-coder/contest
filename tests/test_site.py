@@ -39,6 +39,15 @@ def test_detail_and_ics():
     assert "SUMMARY:[마감] 테스트 웹툰 공모전\\, 제1회" in ics
 
 
+def test_poster_only_https():
+    c = Contest(id="a", title="공모전", poster_url="https://www.wevity.com/upload/contest/x.jpg",
+                official_url="https://example.com")
+    html = site.poster_html(c)
+    assert 'src="https://www.wevity.com/upload/contest/x.jpg"' in html and 'loading="lazy"' in html
+    assert site.poster_html(Contest(id="b", title="t", poster_url="")) == ""
+    assert site.poster_html(Contest(id="c", title="t", poster_url="javascript:alert(1)")) == ""
+
+
 def test_json_script_escapes_closing_tag():
     out = site.json_script("data", [{"title": "</script><b>"}])
     assert "</script><b>" not in out.removesuffix("</script>")
