@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from contesthub.classify import classify
-from contesthub.collectors import contestkorea, itchio, wevity
+from contesthub.collectors import contestkorea, itchio, mgood, wevity
 from contesthub.collectors.base import ListItem
 from contesthub.dedupe import same_contest
 from contesthub.models import Contest
@@ -65,6 +65,35 @@ def test_itch_lists():
     c, _ = itchio.ItchioCollector().from_list_item(upcoming[0])
     assert c.categories == ["게임"] and c.region == "overseas"
     assert c.end_date >= c.start_date
+
+
+def test_mgood_list_and_detail():
+    items = mgood.parse_list(read("mgood_list.html"))
+    assert len(items) == 20
+    first = items[0]
+    assert first.title == "2026 제5회 서원대학교 웹툰 콘텐츠 공모전"
+    assert first.url == "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4455"
+    assert first.status == "접수중"
+    assert (first.extra["start"], first.extra["end"]) == ("2026-10-19", "2026-12-10")
+    assert first.extra["organizer"] == "서원대학교"
+    assert first.extra["field"].startswith("칸만화")
+    assert sum(i.status == "마감" for i in items) >= 15
+    c, body = mgood.MgoodCollector().parse_detail(first, read("mgood_view.html"))
+    assert c.target_text == "중등부 고등1부 고등2부"
+    assert c.targets == ["middle", "high"]
+    assert set(classify(c.title, body).categories) == {"웹툰", "대학"}
+
+
+def test_classify_university():
+    # 대학 이름 + 과목 단어 → '대학' 구분
+    assert "대학" in classify("2026년 제12회 전국 중.고교생 서강 게임/애니/만화 아이디어 공모전 서강대학교").categories
+    assert "대학" in classify("2026 청강대 실기대전 [2차]", "만화/컬러 스크롤 웹툰").categories
+    assert "대학" in classify("2026[대학]한국영상대공모전", "웹툰[디지털]").categories
+    # 과목과 무관한 대학 대회는 제외
+    assert not classify("2026 인하대학교 전국 고등학생 디자인 실기대회", "기초디자인").relevant
+    # '대학생' 대상 공모전이나 '세종대왕'은 대학 이름이 아님
+    assert "대학" not in classify("대학생 웹툰 공모전").categories
+    assert "대학" not in classify("세종대왕 이야기 웹툰 공모전").categories
 
 
 def test_classify():

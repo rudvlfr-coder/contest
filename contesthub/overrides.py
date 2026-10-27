@@ -123,7 +123,7 @@ def _keywords(rows: list[dict], data: SheetData) -> None:
     base = config.keywords()
     kw = {"categories": {k: [] for k in base["categories"]},
           "subcategories": {k: [] for k in base["subcategories"]},
-          "exclude_title": []}
+          "exclude_title": [], "universities": [], "univ_subjects": []}
     for n, row in enumerate(rows, start=2):
         kind, name, words = row.get("종류", ""), row.get("이름", ""), _split(row.get("키워드", ""))
         if kind == "구분" and name in kw["categories"]:
@@ -132,8 +132,15 @@ def _keywords(rows: list[dict], data: SheetData) -> None:
             kw["subcategories"][name] += words
         elif kind == "제외":
             kw["exclude_title"] += words
+        elif kind == "대학":
+            kw["universities"] += words
+        elif kind == "대학과목":
+            kw["univ_subjects"] += words
         elif kind or name:
             data.warnings.append(f"키워드 탭 {n}행: 종류 '{kind}' / 이름 '{name}'을 알 수 없음")
+    # 시트에 대학 목록이 없으면(예전 양식) 기본값을 쓴다
+    for key in ("universities", "univ_subjects"):
+        kw[key] = kw[key] or list(base.get(key, []))
     # 시트에 아무 키워드도 없으면 기본값을 그대로 쓴다 (빈 시트로 분류가 멈추지 않도록)
     if any(kw["categories"].values()):
         data.keywords = kw

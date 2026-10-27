@@ -40,6 +40,20 @@ def _hits(text: str, words: list[str]) -> int:
     return sum(1 for w in words if _pattern(w.lower()).search(text))
 
 
+_UNIV_FULL = re.compile(r"[가-힣]{2,12}대학교|\[대학\]")
+
+
+def has_university(title: str) -> bool:
+    """'○○대학교', '[대학]', 또는 키워드 목록의 대학 줄임말(청강대, 한국영상대 …)이 제목에 있는지."""
+    if _UNIV_FULL.search(title):
+        return True
+    for name in config.keywords().get("universities", []):
+        # '세종대왕'처럼 뒤에 다른 글자가 붙은 경우는 제외. '한국영상대공모전'처럼 붙여 쓴 경우는 허용
+        if re.search(rf"{re.escape(name)}(?:학교|학)?(?:(?![가-힣])|(?=공모|실기|웹툰|게임|만화|애니|콘텐츠|전국))", title):
+            return True
+    return False
+
+
 def classify(title: str, body: str = "") -> Classification:
     kw = config.keywords()
     t, b = title.lower(), body.lower()
@@ -59,8 +73,13 @@ def classify(title: str, body: str = "") -> Classification:
         # 제목에서 걸린 구분은 모두, 본문에서만 걸린 구분은 최고점일 때만
         result.categories = [c for c, s in result.scores.items() if s >= TITLE_WEIGHT or s == top]
 
+    # 대학: 대학 이름이 제목에 있고, 웹툰·게임·애니 등 과목 단어가 제목·본문에 있을 때
+    if has_university(title) and (_hits(t, kw.get("univ_subjects", [])) or _hits(b, kw.get("univ_subjects", []))):
+        result.categories.append("대학")
+        result.scores["대학"] = max(result.scores.get("대학", 0), ACCEPT_SCORE)
+
     for sub, words in kw["subcategories"].items():
-        if _hits(t, words) or (sub not in ("채용", "대학") and _hits(b, words) >= 2):
+        if _hits(t, words) or (sub != "채용" and _hits(b, words) >= 2):
             result.subcategories.append(sub)
 
     if not result.categories and "채용" in result.subcategories:

@@ -36,6 +36,11 @@ def _row_to_contest(row: dict[str, str]) -> Contest | None:
     if not categories:
         reasons.append("구분 없음")
     subcategories = [s.strip() for s in (row.get("장르") or "").split(",") if s.strip()]
+    # 노션에서는 '대학'이 장르였지만 사이트에서는 구분(탭)으로 쓴다
+    if "대학" in subcategories:
+        subcategories.remove("대학")
+        categories.append("대학")
+        reasons = [r for r in reasons if r != "구분 없음"]
     unknown_sub = [s for s in subcategories if s not in SUBCATEGORIES]
     if unknown_sub:
         reasons.append(f"알 수 없는 장르: {', '.join(unknown_sub)}")

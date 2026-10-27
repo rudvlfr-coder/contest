@@ -16,7 +16,7 @@ WEEK = "월화수목금토일"
 PUBLIC_FIELDS = ("id", "title", "organizer", "categories", "subcategories", "start_date", "end_date",
                  "prize_max_krw", "prize_text", "targets", "student_eligible", "region", "needs_review", "created_at")
 SUB_OPTIONS = [("prog", "프로그래밍"), ("art", "원화"), ("plan", "기획"), ("bgm", "BGM"), ("gfx", "그래픽"),
-               ("ai", "AI"), ("comp", "대회"), ("univ", "대학"), ("job", "채용"), ("etc", "기타")]
+               ("ai", "AI"), ("comp", "대회"), ("job", "채용"), ("etc", "기타")]
 SUB_CODE = {name: code for code, name in SUB_OPTIONS}
 
 
@@ -128,7 +128,7 @@ def header(prefix: str, name: str, updated: datetime, extra: str = "") -> str:
 
 def render_index(contests: list[Contest], name: str, updated: datetime) -> str:
     cats = "".join(f'<button class="chip" type="button" data-cat="{v}">{label}</button>'
-                   for v, label in (("", "전체"), ("웹툰", "웹툰"), ("웹소설", "웹소설"), ("게임", "게임")))
+                   for v, label in (("", "전체"), ("웹툰", "웹툰"), ("웹소설", "웹소설"), ("게임", "게임"), ("대학", "대학")))
     genres = "".join(f'<option value="{n}">{n}</option>' for _, n in SUB_OPTIONS)
     targets = "".join(f'<option value="{k}">{v}</option>' for k, v in TARGET_LABELS.items())
     controls = f"""<div class="search">

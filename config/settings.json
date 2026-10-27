@@ -15,6 +15,7 @@
   "sites": {
     "wevity": {"enabled": true, "max_pages": 3},
     "contestkorea": {"enabled": true, "max_pages": 2},
+    "mgood": {"enabled": true, "max_pages": 2},
     "itchio": {"enabled": true, "max_pages": 2, "min_joined": 200},
     "thinkcontest": {"enabled": false, "_보류": "목록·상세 주소가 브라우저에서 암호화되어 서버 HTML로 수집할 수 없음 (docs/사이트조사.md)"}
   }

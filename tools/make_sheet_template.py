@@ -57,7 +57,9 @@ def main() -> None:
         "  - 여러 개는 쉼표로 적습니다. 예) 웹툰, 게임",
         "■ 직접등록 탭: 자동으로 수집되지 않는 공모전을 추가합니다. 제목과 마감일은 꼭 적어 주세요.",
         "■ 키워드 탭: 자동 분류에 쓰는 키워드입니다. 키워드는 쉼표로 구분합니다.",
-        "  - 종류는 구분 / 장르 / 제외 중 하나. '제외'는 제목에 들어 있으면 수집하지 않는 단어입니다.",
+        "  - 종류는 구분 / 장르 / 제외 / 대학 / 대학과목 중 하나. '제외'는 제목에 들어 있으면 수집하지 않는 단어입니다.",
+        "  - '대학'은 웹툰·게임·애니 관련 학과가 있는 대학 이름(줄임말), '대학과목'은 그 대학 공모전으로 인정할 과목 단어입니다.",
+        "    제목에 대학 이름이 있고 과목 단어가 함께 나오면 '대학' 탭에 들어갑니다. ('○○대학교'라고 적힌 제목은 목록에 없어도 인식)",
         "■ 수집사이트 탭: 사이트별로 수집을 켜고(O) 끕니다(X).",
         "",
         "날짜는 2026-11-30 형식으로 적습니다.",
@@ -108,15 +110,17 @@ def main() -> None:
 
     # 키워드
     ws = wb.create_sheet("키워드")
-    header(ws, [("종류", 8, "구분 / 장르 / 제외"), ("이름", 12, "구분·장르 이름. 제외는 비워 둠"),
+    header(ws, [("종류", 10, "구분 / 장르 / 제외 / 대학 / 대학과목"), ("이름", 12, "구분·장르 이름. 제외·대학·대학과목은 비워 둠"),
                 ("키워드", 110, "쉼표로 구분")])
-    dropdown(ws, "A", ["구분", "장르", "제외"], "구분 / 장르 / 제외")
+    dropdown(ws, "A", ["구분", "장르", "제외", "대학", "대학과목"], "구분 / 장르 / 제외 / 대학 / 대학과목")
     kw = config.keywords()
     for name, words in kw["categories"].items():
         ws.append(["구분", name, ", ".join(words)])
     for name, words in kw["subcategories"].items():
         ws.append(["장르", name, ", ".join(words)])
     ws.append(["제외", "", ", ".join(kw["exclude_title"])])
+    ws.append(["대학", "", ", ".join(kw.get("universities", []))])
+    ws.append(["대학과목", "", ", ".join(kw.get("univ_subjects", []))])
     for row in ws.iter_rows(min_row=2):
         row[2].alignment = Alignment(wrap_text=True)
 
@@ -125,7 +129,8 @@ def main() -> None:
     header(ws, [("사이트", 14, "바꾸지 마세요"), ("사용", 7, "O: 수집 / X: 중지"), ("설명", 70, "")])
     dropdown(ws, "B", ["O", "X"], "O 또는 X")
     descriptions = {"wevity": "위비티 — 웹툰·게임·문학 분야", "contestkorea": "콘테스트코리아 — 문학·미술/웹툰·IT·아이디어 분야",
-                    "itchio": "itch.io — 해외 게임잼 (참가자 200명 이상)", "thinkcontest": "씽굿 — 보류 (자동 수집 불가)"}
+                    "itchio": "itch.io — 해외 게임잼 (참가자 200명 이상)",
+                    "mgood": "엠굿(월간 미대입시) — 대학 주최 고등학생 웹툰·게임·애니 실기대회·공모전", "thinkcontest": "씽굿 — 보류 (자동 수집 불가)"}
     for site, opts in config.settings()["sites"].items():
         ws.append([site, "O" if opts.get("enabled") else "X", descriptions.get(site, "")])
 

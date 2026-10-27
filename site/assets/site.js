@@ -3,8 +3,8 @@
   "use strict";
 
   var TARGET_LABELS = { elementary: "초등학생", middle: "중학생", high: "고등학생", univ: "대학생", grad: "대학원생", general: "일반(누구나)" };
-  var CAT_CODES = { webtoon: "웹툰", webnovel: "웹소설", game: "게임" };
-  var GENRE_CODES = { prog: "프로그래밍", art: "원화", plan: "기획", bgm: "BGM", gfx: "그래픽", ai: "AI", comp: "대회", univ: "대학", job: "채용", etc: "기타" };
+  var CAT_CODES = { webtoon: "웹툰", webnovel: "웹소설", game: "게임", univ: "대학" };
+  var GENRE_CODES = { prog: "프로그래밍", art: "원화", plan: "기획", bgm: "BGM", gfx: "그래픽", ai: "AI", comp: "대회", job: "채용", etc: "기타" };
   var WEEK = ["일", "월", "화", "수", "목", "금", "토"];
 
   function invert(o) { var r = {}; Object.keys(o).forEach(function (k) { r[o[k]] = k; }); return r; }

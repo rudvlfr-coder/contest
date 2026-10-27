@@ -13,6 +13,7 @@
   --webtoon: #0c8599;
   --webnovel: #7048e8;
   --game: #e8590c;
+  --univ: #2b8a3e;
   --radius: 12px;
   --shadow: 0 1px 2px rgba(16, 24, 40, .06);
   color-scheme: light;
@@ -21,14 +22,14 @@
   :root:not([data-theme="light"]) {
     --bg: #111418; --surface: #1a1e24; --text: #e8eaed; --muted: #9aa3ad; --line: #2b3038;
     --accent: #7c95ff; --accent-soft: #232b45; --urgent: #ff6b9a; --urgent-soft: #3a1d29;
-    --warn: #f0b429; --warn-soft: #3a2f12; --webtoon: #3bc9db; --webnovel: #a78bfa; --game: #ff922b;
+    --warn: #f0b429; --warn-soft: #3a2f12; --webtoon: #3bc9db; --webnovel: #a78bfa; --game: #ff922b; --univ: #69db7c;
     --shadow: none; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #111418; --surface: #1a1e24; --text: #e8eaed; --muted: #9aa3ad; --line: #2b3038;
   --accent: #7c95ff; --accent-soft: #232b45; --urgent: #ff6b9a; --urgent-soft: #3a1d29;
-  --warn: #f0b429; --warn-soft: #3a2f12; --webtoon: #3bc9db; --webnovel: #a78bfa; --game: #ff922b;
+  --warn: #f0b429; --warn-soft: #3a2f12; --webtoon: #3bc9db; --webnovel: #a78bfa; --game: #ff922b; --univ: #69db7c;
   --shadow: none; color-scheme: dark;
 }
 
@@ -99,6 +100,7 @@ button, input, select { font: inherit; color: inherit; }
 .tag.cat-웹툰 { color: var(--webtoon); border-color: currentColor; background: transparent; font-weight: 600; }
 .tag.cat-웹소설 { color: var(--webnovel); border-color: currentColor; background: transparent; font-weight: 600; }
 .tag.cat-게임 { color: var(--game); border-color: currentColor; background: transparent; font-weight: 600; }
+.tag.cat-대학 { color: var(--univ); border-color: currentColor; background: transparent; font-weight: 600; }
 .tag.review { color: var(--warn); background: var(--warn-soft); border-color: transparent; }
 .dday { flex: none; font-weight: 800; font-size: 14px; padding: 2px 8px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); }
 .dday.urgent { background: var(--urgent-soft); color: var(--urgent); }

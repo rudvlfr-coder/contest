@@ -9,7 +9,7 @@ _NOT_STUDENT = re.compile(r"기성\s*작가|사업자|법인|경력\s*\d+\s*년|
 # 학교급 키워드. '중고등'처럼 붙어 쓰는 경우를 위해 개별 글자 패턴도 둔다.
 _PATTERNS = [
     ("elementary", re.compile(r"초등|초\s*/|어린이")),
-    ("middle", re.compile(r"중학|중고|중\s*/|중\s*,|중\s*·|청소년")),
+    ("middle", re.compile(r"중학|중등|중고|중\s*/|중\s*,|중\s*·|청소년")),
     ("high", re.compile(r"고등|고교|중고|고\s*/|고\s*,|/\s*고|재수생|청소년|고3|N수")),
     ("univ", re.compile(r"대학생|대학교|재학생|휴학생|대\s*학\s*\(원\)|/\s*대|청년|대학$")),
     ("grad", re.compile(r"대학원")),

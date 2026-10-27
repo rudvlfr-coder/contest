@@ -37,7 +37,7 @@ contesthub/
 ├─ dedupe.py        # 여러 사이트에 올라온 같은 공모전 찾기
 ├─ http.py          # 요청 간격·재시도를 지키는 HTTP 클라이언트
 ├─ crawl.py         # 수집 실행 (수집기 → 분류 → 중복 제거 → 저장)
-├─ collectors/      # wevity.py, contestkorea.py, itchio.py
+├─ collectors/      # wevity.py, contestkorea.py, mgood.py, itchio.py
 └─ importers/notion_csv.py
 data/
 ├─ contests.json    # 전체 공모전 데이터

@@ -3,8 +3,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from datetime import date
 
-CATEGORIES = ("웹툰", "웹소설", "게임")
-SUBCATEGORIES = ("프로그래밍", "원화", "기획", "BGM", "그래픽", "AI", "대회", "대학", "채용", "기타")
+CATEGORIES = ("웹툰", "웹소설", "게임", "대학")
+SUBCATEGORIES = ("프로그래밍", "원화", "기획", "BGM", "그래픽", "AI", "대회", "채용", "기타")
 
 # 참가 대상 태그 (코드 → 화면 표시)
 TARGET_LABELS = {

@@ -6,11 +6,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2025-07-02",
   "end_date": "2025-07-08",
   "prize_text": null,
@@ -40,7 +39,8 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "웹툰"
+   "웹툰",
+   "대학"
   ],
   "subcategories": [],
   "start_date": "2025-06-01",
@@ -70,11 +70,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "웹툰"
-  ],
-  "subcategories": [
+   "웹툰",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2025-10-31",
   "end_date": "2025-12-11",
   "prize_text": null,
@@ -1059,11 +1058,10 @@
   "apply_url": null,
   "organizer": "대학",
   "categories": [
-   "웹툰"
-  ],
-  "subcategories": [
+   "웹툰",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-03-19",
   "end_date": "2026-05-01",
   "prize_text": "입학특전",
@@ -1442,11 +1440,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "웹툰"
-  ],
-  "subcategories": [
+   "웹툰",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-04-06",
   "end_date": "2026-05-28",
   "prize_text": "3천만원",
@@ -1628,11 +1625,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-05-04",
   "end_date": "2026-06-09",
   "prize_text": "청강실기대전",
@@ -1662,7 +1658,8 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
+   "게임",
+   "대학"
   ],
   "subcategories": [
    "AI"
@@ -1788,11 +1785,10 @@
   "apply_url": null,
   "organizer": "대학",
   "categories": [
-   "웹툰"
-  ],
-  "subcategories": [
+   "웹툰",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-04-20",
   "end_date": "2026-06-26",
   "prize_text": null,
@@ -1820,11 +1816,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-06-08",
   "end_date": "2026-06-29",
   "prize_text": "60000000",
@@ -2068,11 +2063,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-06-15",
   "end_date": "2026-07-10",
   "prize_text": null,
@@ -2134,11 +2128,10 @@
   "apply_url": null,
   "organizer": "대학",
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-05-19",
   "end_date": "2026-07-14",
   "prize_text": "입학특전",
@@ -2230,11 +2223,10 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-06-15",
   "end_date": "2026-07-15",
   "prize_text": null,
@@ -2385,11 +2377,10 @@
   "apply_url": null,
   "organizer": "수성대학교",
   "categories": [
-   "웹소설"
-  ],
-  "subcategories": [
+   "웹소설",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-06-25",
   "end_date": "2026-07-26",
   "prize_text": "250만원",
@@ -2449,7 +2440,8 @@
   "apply_url": null,
   "organizer": "정화예대",
   "categories": [
-   "웹툰"
+   "웹툰",
+   "대학"
   ],
   "subcategories": [],
   "start_date": "2026-07-01",
@@ -2569,11 +2561,10 @@
   "apply_url": null,
   "organizer": "재능대학교",
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-07-01",
   "end_date": "2026-08-02",
   "prize_text": "180만원",
@@ -3179,11 +3170,10 @@
   "apply_url": null,
   "organizer": "크래프톤",
   "categories": [
-   "게임"
-  ],
-  "subcategories": [
+   "게임",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-08-10",
   "end_date": "2026-09-02",
   "prize_text": "2,400만원",
@@ -3561,7 +3551,8 @@
   "apply_url": null,
   "organizer": null,
   "categories": [
-   "웹툰"
+   "웹툰",
+   "대학"
   ],
   "subcategories": [],
   "start_date": "2026-08-18",
@@ -3850,11 +3841,10 @@
   "apply_url": null,
   "organizer": "구미대학교",
   "categories": [
-   "웹툰"
-  ],
-  "subcategories": [
+   "웹툰",
    "대학"
   ],
+  "subcategories": [],
   "start_date": "2026-07-01",
   "end_date": "2026-10-02",
   "prize_text": null,
@@ -4653,6 +4643,45 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-23266a",
+  "title": "2026 서울로미디어캔버스 ‘단편 애니메이션전’ 공모",
+  "official_url": "http://mediahub.seoul.go.kr/gongmo/2000782",
+  "apply_url": null,
+  "organizer": "서울로미디어캔버스",
+  "categories": [
+   "웹툰"
+  ],
+  "subcategories": [
+   "기획"
+  ],
+  "start_date": "2026-10-01",
+  "end_date": "2026-10-31",
+  "prize_text": "기타 :각 작가별 작품(제작)창작비 일백오십만원(1,500,000원)",
+  "prize_max_krw": 1500000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "needs_review": false,
+  "review_reasons": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610010042"
+   }
+  ],
+  "created_at": "2026-10-27T11:31",
+  "updated_at": "2026-10-27T11:31"
+ },
+ {
   "id": "2026-51441a",
   "title": "Dev&Play Jam 2026",
   "official_url": "https://itch.io/jam/devplay-jam-2026",
@@ -4765,7 +4794,7 @@
    }
   ],
   "created_at": "2026-10-25T16:29",
-  "updated_at": "2026-10-26T18:30"
+  "updated_at": "2026-10-27T11:31"
  },
  {
   "id": "2026-793299",
@@ -5044,8 +5073,8 @@
     "url": "https://itch.io/jam/playtest-feedback-exchange-jam-9"
    }
   ],
-  "created_at": "2026-10-26T18:30",
-  "updated_at": "2026-10-26T18:30"
+  "created_at": "2026-10-27T11:31",
+  "updated_at": "2026-10-27T11:31"
  },
  {
   "id": "2026-14ea44",
@@ -5761,8 +5790,8 @@
     "url": "https://itch.io/jam/b1t-jam-6"
    }
   ],
-  "created_at": "2026-10-27T08:17",
-  "updated_at": "2026-10-27T08:17"
+  "created_at": "2026-10-27T11:32",
+  "updated_at": "2026-10-27T11:32"
  },
  {
   "id": "2026-b6d6b8",
@@ -6738,8 +6767,8 @@
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111857"
    }
   ],
-  "created_at": "2026-10-27T08:16",
-  "updated_at": "2026-10-27T08:16"
+  "created_at": "2026-10-27T11:29",
+  "updated_at": "2026-10-27T11:29"
  },
  {
   "id": "2026-8cb671",
@@ -7093,8 +7122,8 @@
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111859"
    }
   ],
-  "created_at": "2026-10-27T08:16",
-  "updated_at": "2026-10-27T08:16"
+  "created_at": "2026-10-27T11:29",
+  "updated_at": "2026-10-27T11:29"
  },
  {
   "id": "2026-4cd7f1",
@@ -7127,8 +7156,8 @@
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111860"
    }
   ],
-  "created_at": "2026-10-27T08:16",
-  "updated_at": "2026-10-27T08:16"
+  "created_at": "2026-10-27T11:29",
+  "updated_at": "2026-10-27T11:29"
  },
  {
   "id": "2026-4c6fc2",
@@ -7199,6 +7228,42 @@
   ],
   "created_at": "2026-10-25T16:30",
   "updated_at": "2026-10-25T16:30"
+ },
+ {
+  "id": "2026-fccb40",
+  "title": "2026 제5회 서원대학교 웹툰 콘텐츠 공모전",
+  "official_url": "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4455",
+  "apply_url": null,
+  "organizer": "서원대학교",
+  "categories": [
+   "웹툰",
+   "대학"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-10-19",
+  "end_date": "2026-12-10",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "중등부 고등1부 고등2부",
+  "targets": [
+   "middle",
+   "high"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "needs_review": false,
+  "review_reasons": [],
+  "sources": [
+   {
+    "site": "mgood",
+    "url": "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4455"
+   }
+  ],
+  "created_at": "2026-10-27T11:31",
+  "updated_at": "2026-10-27T11:31"
  },
  {
   "id": "2026-555abf",
@@ -7309,8 +7374,8 @@
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111856"
    }
   ],
-  "created_at": "2026-10-27T08:16",
-  "updated_at": "2026-10-27T08:16"
+  "created_at": "2026-10-27T11:29",
+  "updated_at": "2026-10-27T11:29"
  },
  {
   "id": "2026-8aca3b",
