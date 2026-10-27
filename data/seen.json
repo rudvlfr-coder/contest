@@ -2090,5 +2090,41 @@
  "https://itch.io/jam/b1t-jam-6": {
   "relevant": true,
   "id": "2026-62a0ac"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610270016": {
+  "relevant": false,
+  "title": "2026 '우리가게 보탬이야기' 소상공인 우수사례 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610270028": {
+  "relevant": false,
+  "title": "2026 맞춤형 급여 안내(복지멤버십) 수기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610270037": {
+  "relevant": false,
+  "title": "제39회 무등일보 신춘문예"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610270006": {
+  "relevant": false,
+  "title": "2026 힐로웨이브 아트 프로젝트 결을 읽는 사람들 참여 작가 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610270031": {
+  "relevant": false,
+  "title": "제7회 한국섬유.패션디자인 콘테스트"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610270014": {
+  "relevant": false,
+  "title": "2026 소상공인 분야 연구논문 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610270018": {
+  "relevant": false,
+  "title": "SCX NEXT 청년 스마트건설 AI 랩"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610270025": {
+  "relevant": false,
+  "title": "2026 의왕시 청년 e-Room 창업 아이디어 공모전 참여자 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031810001&str_no=202610270016": {
+  "relevant": false,
+  "title": "2026 '우리가게 보탬이야기' 소상공인 우수사례 공모전"
  }
 }
