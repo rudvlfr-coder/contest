@@ -382,7 +382,7 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 <section class="box" id="staff-box"><h2>직원 관리 — 직원별 문의 링크</h2>
 <p class="note">직원마다 코드(영어 소문자·숫자)와 네이버 폼 주소를 넣으면, 그 직원의 공유 링크로 들어온 학생에게
 <b>무료 포트폴리오 상담</b>·<b>공모전 준비 문의</b> 버튼이 그 직원의 폼으로 연결되고 "담당 ○○○"이 표시됩니다.
-학생이 친구에게 공유한 링크에도 담당 직원이 따라가며, 처음 받은 링크의 직원이 30일 동안 유지됩니다.
+학생이 친구에게 공유한 링크에도 담당 직원이 따라갑니다. 담당 직원은 학생이 지금 연 링크의 코드로 정해집니다(다른 직원 링크를 열면 그 직원으로 바뀜).
 '공모전 문의 폼'을 비워 두면 두 버튼 모두 첫 번째 폼으로 연결됩니다. 저장 후 1~2분 뒤부터 링크가 동작합니다.</p>
 <div style="overflow-x:auto"><table class="review staff-table"><thead><tr><th>이름</th><th>코드</th><th>포트폴리오 상담 폼</th><th>공모전 문의 폼 (선택)</th><th>링크</th></tr></thead>
 <tbody id="staff-rows"></tbody></table></div>

@@ -43,8 +43,10 @@
     return t.length ? t.join(", ") : "자격 확인 필요";
   }
   // ---------------------------------------------------------------- 담당 직원 (직원별 공유 링크 ?ref=코드)
-  // 처음 받은 링크의 직원을 30일 동안 유지한다. 그 사이 다른 직원 링크로 들어와도 바꾸지 않는다.
-  var REF_KEY = "contesthub_ref", REF_DAYS = 30;
+  // 지금 연 링크의 코드가 그대로 담당 직원이 된다 (다른 직원 링크를 열면 그 직원으로 바뀜).
+  // 같은 방문(탭) 안에서 목록↔상세를 오갈 때만 기억하고, 탭을 닫으면 잊는다.
+  var REF_KEY = "contesthub_ref";
+  try { localStorage.removeItem(REF_KEY); } catch (e) { /* 예전 30일 기억 방식의 흔적 정리 */ }
   var STAFF = (function () {
     var el = document.getElementById("staff");
     try { return el ? JSON.parse(el.textContent) : {}; } catch (e) { return {}; }
@@ -53,14 +55,13 @@
   function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
   function readRef() {
     var urlRef = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
-    var saved = null;
-    try { saved = JSON.parse(localStorage.getItem(REF_KEY) || "null"); } catch (e) { saved = null; }
-    if (saved && STAFF_MAP[saved.code] && Date.now() - saved.at < REF_DAYS * 86400000) return saved.code;
     if (STAFF_MAP[urlRef]) {
-      try { localStorage.setItem(REF_KEY, JSON.stringify({ code: urlRef, at: Date.now() })); } catch (e) { /* 저장 불가 브라우저 */ }
+      try { sessionStorage.setItem(REF_KEY, urlRef); } catch (e) { /* 저장 불가 브라우저 */ }
       return urlRef;
     }
-    return "";
+    var saved = "";
+    try { saved = sessionStorage.getItem(REF_KEY) || ""; } catch (e) { saved = ""; }
+    return STAFF_MAP[saved] ? saved : "";
   }
   var REF = readRef();
   function withRef(url) {
@@ -225,7 +226,7 @@
     var p = prizeText(c);
     if (p) meta.push("상금 " + esc(p));
     return '<li class="card' + (c.id === selectedId && WIDE.matches ? " selected" : "") + '" data-id="' + esc(c.id) + '">' +
-      '<div class="card-head"><h2><a href="c/' + esc(c.id) + '/" data-open="' + esc(c.id) + '">' + esc(c.title) + "</a></h2>" +
+      '<div class="card-head"><h2><a href="' + esc(detailUrl(c)) + '" data-open="' + esc(c.id) + '">' + esc(c.title) + "</a></h2>" +
       '<span class="dday' + cls + '">' + ddayText(c) + "</span></div>" +
       '<div class="tags">' + tags.join("") + "</div>" +
       '<div class="meta"><span>' + meta.join("</span><span>") + "</span></div>" +
@@ -273,7 +274,7 @@
       '<div class="cta">' + links.join("") + "</div>" +
       '<section class="box"><dl class="facts">' + rows.map(function (r) { return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl></section>" +
       '<section class="box"><p class="note" style="margin:0 0 6px">출처</p><ul class="sources">' + sources + "</ul>" +
-      '<p class="note" style="margin:10px 0 0">공모전 ID <code>' + esc(c.id) + '</code> · <a href="c/' + esc(c.id) + '/" target="_blank">새 창으로 보기</a></p></section>';
+      '<p class="note" style="margin:10px 0 0">공모전 ID <code>' + esc(c.id) + '</code> · <a href="' + esc(detailUrl(c)) + '" target="_blank">새 창으로 보기</a></p></section>';
     pane.scrollTop = 0;
   }
   function select(id) {
