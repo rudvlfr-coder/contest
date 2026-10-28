@@ -51,6 +51,12 @@
     "code": "1019",
     "form": "http://busanwebtoonist.com/customer/tuition.asp",
     "contest_form": "https://litt.ly/sol_academy"
+   },
+   {
+    "name": "오유나 멘토",
+    "code": "0123",
+    "form": "https://bu-sangame.co.kr",
+    "contest_form": "https://bu-sangame.co.kr"
    }
   ]
  }
