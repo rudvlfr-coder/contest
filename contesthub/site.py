@@ -323,7 +323,7 @@ def _buttons(cid: str, actions: list[tuple[str, str, str]]) -> str:
                    for act, label, cls in actions)
 
 
-ACTION_LABELS = {"approve": "승인함", "hide": "숨김", "confirm": "확인함"}
+ACTION_LABELS = {"approve": "승인함", "hide": "숨김", "confirm": "공개함"}
 
 
 def render_admin(public: list[Contest], pending: list[Contest], name: str, updated: datetime,
@@ -332,7 +332,9 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
     today = updated.date()
     decisions = decisions or {}
     titles = titles or {}
-    pending_open = sorted((c for c in pending if c.status(today) != "마감"), key=lambda c: c.end_date or "9999")
+    open_pending = sorted((c for c in pending if c.status(today) != "마감"), key=lambda c: c.end_date or "9999")
+    pending_open = [c for c in open_pending if c.competitor_hits]       # 경쟁사 관련 → 승인
+    review_open = [c for c in open_pending if not c.competitor_hits]    # 확인 필요 → 공개
     pending_rows = [
         f'<tr data-row="{escape(c.id)}"><td>{escape(c.title)}<div class="note">{escape(c.organizer or "")} · 마감 {escape(fmt_short(c.end_date))}'
         f' · <code>{escape(c.id)}</code></div></td>'
@@ -341,13 +343,13 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
         f'<td class="acts">{_buttons(c.id, [("approve", "승인", "primary"), ("hide", "숨김", "")])}</td></tr>'
         for c in pending_open]
     review_rows = [
-        f'<tr data-row="{escape(c.id)}"><td><a href="../c/{escape(c.id)}/" target="_blank">{escape(c.title)}</a>'
+        f'<tr data-row="{escape(c.id)}"><td>{escape(c.title)}'
         f'<div class="note">{escape(c.organizer or "")} · 마감 {escape(fmt_short(c.end_date))} · <code>{escape(c.id)}</code></div></td>'
         f'<td>{escape(", ".join(c.categories))}{" / " + escape(", ".join(c.subcategories)) if c.subcategories else ""}'
         f'<div class="note">{escape(", ".join(c.review_reasons))}</div></td>'
         f'<td>{_source_links(c)}</td>'
-        f'<td class="acts">{_buttons(c.id, [("confirm", "확인", "primary"), ("hide", "숨김", "")])}</td></tr>'
-        for c in sorted(public, key=lambda c: c.end_date or "9999") if c.needs_review and c.status(today) != "마감"]
+        f'<td class="acts">{_buttons(c.id, [("confirm", "공개", "primary"), ("hide", "숨김", "")])}</td></tr>'
+        for c in review_open]
     done_rows = [
         f'<tr data-row="{escape(cid)}"><td>{escape(titles.get(cid, cid))}<div class="note"><code>{escape(cid)}</code></div></td>'
         f'<td>{ACTION_LABELS.get(d.get("action"), d.get("action"))}</td><td>{escape((d.get("at") or "")[:16].replace("T", " "))}</td>'
@@ -389,8 +391,9 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 <p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인하고 <b>승인</b>(사이트에 발행) 또는 <b>숨김</b>(계속 비공개)을 누르세요.
 아무것도 누르지 않으면 보류 상태로 남습니다. 마감이 지나면 이 목록에서 자동으로 사라집니다.</p>
 {_table(["제목", "걸린 이름", "출처", "처리"], pending_rows, "승인 대기 중인 공모전이 없습니다.")}</section>
-<section class="box"><h2>확인 필요 {len(review_rows)}건 — 자동 분류가 애매함</h2>
-<p class="note">사이트에는 '확인 필요' 표시와 함께 올라가 있습니다. 맞으면 <b>확인</b>(표시 지움), 맞지 않으면 <b>숨김</b>(사이트에서 내림).</p>
+<section class="box"><h2>확인 필요 {len(review_rows)}건 — 자동 분류가 애매함 · 학원·아카데미 관련</h2>
+<p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인하고 <b>공개</b>(사이트에 올림) 또는 <b>숨김</b>(계속 비공개)을 누르세요.
+아무것도 누르지 않으면 계속 비공개입니다. 마감이 지나면 이 목록에서 자동으로 사라집니다.</p>
 {_table(["제목", "구분 / 사유", "출처", "처리"], review_rows, "없음")}</section>
 <section class="box" id="staff-box"><h2>직원 관리 — 직원별 문의 링크</h2>
 <p class="note">직원마다 코드(영어 소문자·숫자)와 네이버 폼 주소를 넣으면, 그 직원의 공유 링크로 들어온 학생에게

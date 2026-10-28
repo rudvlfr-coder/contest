@@ -50,21 +50,30 @@ def competitor_hits(*texts: str | None) -> list[str]:
     return [name for name in config.keywords().get("competitors", []) if name.strip() and _squash(name) in hay]
 
 
-_UNIV_FULL = re.compile(r"[가-힣]{2,12}대학교|\[대학\]")
+# 대학 탭 = 진학과 연결되는 학교: 대학교와 전문학교(학점은행 교육기관, 예: 한국IT전문학교)
+_UNIV_FULL = re.compile(r"[가-힣A-Za-z]{2,12}(?:대학교|전문학교)|\[대학\]")
+# 학원·아카데미는 학교가 아니므로 대학 탭에 넣지 않고 '확인 필요'로 표시한다
+_ACADEMY = re.compile(r"학원|아카데미|academy", re.I)
+ACADEMY_REASON = "학원·아카데미 관련 — 확인 필요"
 
 
-def has_university(title: str) -> bool:
-    """'○○대학교', '[대학]', 또는 키워드 목록의 대학 줄임말(청강대, 한국영상대 …)이 제목에 있는지."""
-    if _UNIV_FULL.search(title):
-        return True
-    for name in config.keywords().get("universities", []):
-        # '세종대왕'처럼 뒤에 다른 글자가 붙은 경우는 제외. '한국영상대공모전'처럼 붙여 쓴 경우는 허용
-        if re.search(rf"{re.escape(name)}(?:학교|학)?(?:(?![가-힣])|(?=공모|실기|웹툰|게임|만화|애니|콘텐츠|전국))", title):
+def has_university(*texts: str | None) -> bool:
+    """'○○대학교'·'○○전문학교', '[대학]', 또는 키워드 목록의 줄임말(청강대, 한아전 …)이 있는지 (제목·주최)."""
+    for text in (t for t in texts if t):
+        if _UNIV_FULL.search(text):
             return True
+        for name in config.keywords().get("universities", []):
+            # '세종대왕'처럼 뒤에 다른 글자가 붙은 경우는 제외. '한국영상대공모전'처럼 붙여 쓴 경우는 허용
+            if re.search(rf"{re.escape(name)}(?:학교|학)?(?:(?![가-힣])|(?=공모|실기|웹툰|게임|만화|애니|콘텐츠|전국))", text):
+                return True
     return False
 
 
-def classify(title: str, body: str = "") -> Classification:
+def is_academy(*texts: str | None) -> bool:
+    return any(_ACADEMY.search(t) for t in texts if t)
+
+
+def classify(title: str, body: str = "", organizer: str | None = None) -> Classification:
     kw = config.keywords()
     t, b = title.lower(), body.lower()
     result = Classification()
@@ -84,7 +93,7 @@ def classify(title: str, body: str = "") -> Classification:
         result.categories = [c for c, s in result.scores.items() if s >= TITLE_WEIGHT or s == top]
 
     # 대학: 대학 이름이 제목에 있고, 웹툰·게임·애니 등 과목 단어가 제목·본문에 있을 때
-    if has_university(title) and (_hits(t, kw.get("univ_subjects", [])) or _hits(b, kw.get("univ_subjects", []))):
+    if has_university(title, organizer) and (_hits(t, kw.get("univ_subjects", [])) or _hits(b, kw.get("univ_subjects", []))):
         result.categories.append("대학")
         result.scores["대학"] = max(result.scores.get("대학", 0), ACCEPT_SCORE)
 

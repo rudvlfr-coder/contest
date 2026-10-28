@@ -92,6 +92,11 @@ def test_classify_university():
     assert "대학" in classify("2026년 제12회 전국 중.고교생 서강 게임/애니/만화 아이디어 공모전 서강대학교").categories
     assert "대학" in classify("2026 청강대 실기대전 [2차]", "만화/컬러 스크롤 웹툰").categories
     assert "대학" in classify("2026[대학]한국영상대공모전", "웹툰[디지털]").categories
+    # 전문학교도 대학 탭 (진학 연계 학교) — 정식 이름, 줄임말, 주최로 인식
+    assert "대학" in classify("제1회 한아전 게임 시나리오·그래픽 공모전").categories
+    assert "대학" in classify("웹툰·일러스트 공모전", "", "한국IT전문학교").categories
+    # 학원·아카데미는 대학이 아님
+    assert "대학" not in classify("OO아카데미 웹툰 공모전").categories
     # 과목과 무관한 대학 대회는 제외
     assert not classify("2026 인하대학교 전국 고등학생 디자인 실기대회", "기초디자인").relevant
     # '대학생' 대상 공모전이나 '세종대왕'은 대학 이름이 아님

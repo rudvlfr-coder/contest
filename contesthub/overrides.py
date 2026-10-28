@@ -213,10 +213,12 @@ def load_sheet() -> SheetData:
 
 
 def split_pending(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Contest], dict[str, Contest]]:
-    """경쟁사 관련 공모전을 (공개, 승인 대기)로 나눈다. '거절'은 어느 쪽에도 넣지 않는다.
+    """공모전을 (공개, 대기)로 나눈다. '거절'(숨김)은 어느 쪽에도 넣지 않는다.
 
-    경쟁사 판단: 수집할 때 본문에서 찾은 이름 + 지금 목록으로 제목·주최·대상·시상·소개를 다시 확인.
-    시트 '직접등록'으로 관리자가 넣은 건은 승인 없이 공개한다.
+    대기 = 관리자가 공개하기 전까지 사이트에 올리지 않는 공모전 (2026-10-28부터 두 종류 모두 비공개):
+    - 경쟁사 관련: 수집할 때 본문에서 찾은 이름 + 지금 목록으로 제목·주최·대상·시상·소개를 다시 확인 → '승인'해야 공개
+    - 확인 필요: 자동 분류가 애매하거나 학원·아카데미 관련 → '공개'(확인)해야 공개
+    시트 '직접등록'으로 관리자가 넣은 건은 바로 공개한다.
     """
     from .classify import competitor_hits
 
@@ -224,16 +226,36 @@ def split_pending(contests: dict[str, Contest], data: SheetData) -> tuple[dict[s
     for cid, c in contests.items():
         hits = list(dict.fromkeys(c.competitor_hits + competitor_hits(
             c.title, c.organizer, c.target_text, c.prize_text, c.summary)))
+        c.competitor_hits = hits
         from_sheet = any(s.get("site") == "sheet" for s in c.sources)
         decision = data.approvals.get(cid)
         if decision == "거절":
             continue
-        if hits and not from_sheet and decision != "승인":
-            c.competitor_hits = hits
+        if from_sheet or decision == "승인":
+            public[cid] = c
+        elif hits or c.needs_review:  # '확인'을 누른 건은 apply()에서 needs_review가 지워져 여기로 오지 않는다
             pending[cid] = c
         else:
             public[cid] = c
     return public, pending
+
+
+def apply_school_rules(contests: dict[str, Contest], keep_categories: set[str] = frozenset()) -> None:
+    """이미 수집된 공모전에도 대학·학원 규칙을 적용한다 (사이트 생성 때마다, 원본 데이터는 그대로).
+
+    - 제목·주최에 대학교·전문학교 이름이 있고 제목에 과목 단어(웹툰·만화·게임·애니 …)가 있으면 → 구분 '대학' 추가
+    - 제목·주최에 학원·아카데미가 있으면 → '확인 필요' (대학 탭에는 넣지 않음, 관리자 '확인'으로 지움)
+    """
+    from .classify import ACADEMY_REASON, _hits, has_university, is_academy
+
+    subjects = config.keywords().get("univ_subjects", [])
+    for cid, c in contests.items():
+        if (cid not in keep_categories and c.categories and "대학" not in c.categories
+                and has_university(c.title, c.organizer) and _hits(c.title.lower(), subjects)):
+            c.categories.append("대학")
+        if is_academy(c.title, c.organizer) and ACADEMY_REASON not in c.review_reasons:
+            c.review_reasons.append(ACADEMY_REASON)
+            c.needs_review = True
 
 
 def apply(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Contest], list[str]]:
@@ -258,6 +280,8 @@ def apply(contests: dict[str, Contest], data: SheetData) -> tuple[dict[str, Cont
             c.needs_review = bool(c.review_reasons)
         if "targets" in edit and edit["targets"]:
             c.student_eligible = "yes"
+    # 시트에서 구분을 직접 고친 건은 사람이 정한 값을 그대로 둔다
+    apply_school_rules(out, keep_categories={cid for cid, e in data.edits.items() if "categories" in e})
     for cid in data.confirmed:
         c = out.get(cid)
         if c is not None:

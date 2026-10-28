@@ -48,6 +48,22 @@ def test_split_pending(competitors):
     assert pending["b"].competitor_hits == ["OO아카데미"]
 
 
+def test_review_needed_is_hidden_until_published():
+    contests = {
+        "r": make("r", "애매한 공모전", needs_review=True, review_reasons=["분류 확인 필요"]),
+        "ok": make("ok", "웹툰 공모전"),
+        "sheet": make("sheet", "직접 넣은 공모전", needs_review=True, sources=[{"site": "sheet", "url": None}]),
+    }
+    applied, _ = overrides.apply(contests, overrides.SheetData())
+    public, pending = overrides.split_pending(applied, overrides.SheetData())
+    assert set(public) == {"ok", "sheet"} and set(pending) == {"r"}
+    # 관리자가 '공개'(confirm)를 누르면 사이트에 올라간다
+    data = overrides.SheetData(confirmed={"r"})
+    applied, _ = overrides.apply(contests, data)
+    public, pending = overrides.split_pending(applied, data)
+    assert "r" in public and not pending
+
+
 def test_approval_column_in_edit_tab(tmp_path):
     p = tmp_path / "edit.csv"
     p.write_text("공모전ID,승인\n2026-aaaaaa,승인\n2026-bbbbbb,거절\n2026-cccccc,보류\n", encoding="utf-8-sig")
@@ -83,6 +99,24 @@ def test_admin_decisions(tmp_path, competitors):
     assert not applied["r"].needs_review and applied["r"].review_reasons == []
     public, pending = overrides.split_pending(applied, data)
     assert set(public) == {"b", "r"} and not pending  # b는 승인돼서 공개, x는 숨김
+
+
+def test_school_rules_for_existing_contests():
+    contests = {
+        "a": make("a", "제11회 한아전 웹툰·일러스트 공모전", organizer="한국IT전문학교"),
+        "b": make("b", "2026 태권도 굿즈 아이디어 공모전", organizer="전주대학교 태권도학과"),  # 과목 단어 없음
+        "c": make("c", "2026 대원 웹소설 아카데미 공모전", organizer="대원씨아이(주)"),
+        "d": make("d", "한아전 웹툰 공모전"),  # 시트에서 구분을 직접 고친 건
+    }
+    data = overrides.SheetData(edits={"d": {"categories": ["웹툰"]}}, confirmed=set())
+    out, _ = overrides.apply(contests, data)
+    assert "대학" in out["a"].categories
+    assert "대학" not in out["b"].categories
+    assert "대학" not in out["c"].categories and out["c"].needs_review
+    assert out["d"].categories == ["웹툰"]
+    # 관리자가 '확인'을 누르면 학원·아카데미 표시가 지워진다
+    out, _ = overrides.apply(contests, overrides.SheetData(confirmed={"c"}))
+    assert not out["c"].needs_review
 
 
 def test_broken_decisions_file_is_ignored(tmp_path):

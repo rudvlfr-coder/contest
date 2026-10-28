@@ -5,7 +5,7 @@
   "use strict";
   var cfg = JSON.parse(document.getElementById("admin-config").textContent);
   var TOKEN_KEY = "contesthub_token", QUEUE_KEY = "contesthub_queue";
-  var LABELS = { approve: "승인", hide: "숨김", confirm: "확인", undo: "되돌리기" };
+  var LABELS = { approve: "승인", hide: "숨김", confirm: "공개", undo: "되돌리기" };
   var $ = function (id) { return document.getElementById(id); };
   var toast = function (m) { showToast(m); };
 
