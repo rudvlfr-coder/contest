@@ -75,6 +75,12 @@
     "code": "5050",
     "form": "http://busanwebtoonist.co.kr/customer/tuition.asp",
     "contest_form": "https://litt.ly/min_educational"
+   },
+   {
+    "name": "조재정 멘토",
+    "code": "0720",
+    "form": "http://busangame.net/",
+    "contest_form": "http://busanwebtoon.co.kr/"
    }
   ]
  }
