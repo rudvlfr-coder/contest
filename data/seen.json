@@ -2154,5 +2154,37 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610210011": {
   "relevant": false,
   "title": "2026 구리시 창업아이디어 경진대회"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111983": {
+  "relevant": true,
+  "id": "2026-27c997"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111979": {
+  "relevant": false,
+  "title": "2026 아름다운 우리말 달력 만들기 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111977": {
+  "relevant": true,
+  "id": "2026-e13257"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610280033": {
+  "relevant": false,
+  "title": "[LG전자] 장애 대학생 여러분의 일상 경험을 들려주세요 – 쓰는 대로 쓰다"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610200002": {
+  "relevant": false,
+  "title": "개관 특별기획전 참여 작가 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280023": {
+  "relevant": false,
+  "title": "2026 한·중·일 3국 초·중·고 포스터 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610280017": {
+  "relevant": false,
+  "title": "2026 제18회 전국청소년 모형항공기대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031810001&str_no=202610280017": {
+  "relevant": false,
+  "title": "2026 제18회 전국청소년 모형항공기대회"
  }
 }

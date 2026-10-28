@@ -6869,6 +6869,42 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-27c997",
+  "title": "2026 부산 지역어 알리기 한 장 만화 공모전",
+  "official_url": "https://korea.donga.ac.kr/korea/CMS/Board/Board.do?mCode=MN032&mode=view&mgr_seq=1002&board_seq=8517750",
+  "apply_url": null,
+  "organizer": "문화체육관광부",
+  "categories": [
+   "웹툰"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-10-19",
+  "end_date": "2026-11-22",
+  "prize_text": "1등 20만원 / 총상금 1천만원이하",
+  "prize_max_krw": 200000,
+  "target_text": "제한없음",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261028175356_0cd1f45a.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111983"
+   }
+  ],
+  "created_at": "2026-10-28T18:33",
+  "updated_at": "2026-10-28T18:33"
+ },
+ {
   "id": "2026-67acbf",
   "title": "하나은행 『하나원픽 CUP AI 게임창작대회』",
   "official_url": "http://hana.oasisw.ai/",
@@ -7380,6 +7416,42 @@
   ],
   "created_at": "2026-10-25T16:29",
   "updated_at": "2026-10-25T16:29"
+ },
+ {
+  "id": "2026-e13257",
+  "title": "서울미래인재재단 대표 캐릭터 공모전 (서울의 미래, 새로운 얼굴)",
+  "official_url": "https://www.seoulfuture.or.kr/home/kor/M648075107/scholarship/grow/view.do?idx=cb00d1a0008a85e71a41b8741facbffe53ce63e0a207da7b09c15b6e6df967b3&act=&eSearchValue1=&searchValue2=&searchValue4=&searchKeyword=&pageIndex=1",
+  "apply_url": null,
+  "organizer": "서울미래인재재단",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-11-16",
+  "end_date": "2026-11-30",
+  "prize_text": "1등 200만원 / 총상금 1천만원이하",
+  "prize_max_krw": 2000000,
+  "target_text": "제한없음,  - 개인 또는 팀 누구나 * 팀은 4인 이하로 구성 ■ 모집 기간 - 2026.11.16.(월) ~ 11.30.(월) 23:59 - (결과발표) 2026.12월 중 * 시상식 개최, 선정자 개별 안내 ■ 공모전 시상내역 : 총 440만원 - 대상 200만원 - 최우수상 100만원 - ",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261028174123_ded8b8fe.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111977"
+   }
+  ],
+  "created_at": "2026-10-28T18:34",
+  "updated_at": "2026-10-28T18:34"
  },
  {
   "id": "2026-fcb245",
