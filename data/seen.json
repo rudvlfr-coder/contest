@@ -2186,5 +2186,21 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031810001&str_no=202610280017": {
   "relevant": false,
   "title": "2026 제18회 전국청소년 모형항공기대회"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111917": {
+  "relevant": false,
+  "title": "2027 매일신춘문예 공모"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111909": {
+  "relevant": false,
+  "title": "2026 제1회 창원 마산국화축제 홍보 현장 디카시백일장"
+ },
+ "https://itch.io/jam/slapjam-ai-2": {
+  "relevant": true,
+  "id": "2026-2d7be7"
+ },
+ "https://itch.io/jam/solovember2026": {
+  "relevant": true,
+  "id": "2026-3e34b3"
  }
 }

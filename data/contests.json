@@ -5243,6 +5243,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-2d7be7",
+  "title": "Slapjam #2",
+  "official_url": "https://itch.io/jam/slapjam-ai-2",
+  "apply_url": null,
+  "organizer": "slapjam",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-10-30",
+  "end_date": "2026-11-01",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzMwNjg0MDA2LnBuZw==/140x111%23/XdZRhB.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/slapjam-ai-2"
+   }
+  ],
+  "created_at": "2026-10-29T08:23",
+  "updated_at": "2026-10-29T08:23"
+ },
+ {
   "id": "2026-610336",
   "title": "Checkpoint Game Jam for Indonesia, Malaysia, the Philippines & Singapore",
   "official_url": "https://itch.io/jam/checkpoint-game-jam",
@@ -7486,6 +7523,43 @@
   ],
   "created_at": "2026-07-31T09:44",
   "updated_at": "2026-07-31T09:44"
+ },
+ {
+  "id": "2026-3e34b3",
+  "title": "Solovember 2026",
+  "official_url": "https://itch.io/jam/solovember2026",
+  "apply_url": null,
+  "organizer": "Sero",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-01",
+  "end_date": "2026-12-01",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzI5OTMwMzYyLmpwZw==/140x111%23/90xfNC.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/solovember2026"
+   }
+  ],
+  "created_at": "2026-10-29T08:23",
+  "updated_at": "2026-10-29T08:23"
  },
  {
   "id": "2026-575e1d",
