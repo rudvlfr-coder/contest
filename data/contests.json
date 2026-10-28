@@ -6869,6 +6869,48 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-67acbf",
+  "title": "하나은행 『하나원픽 CUP AI 게임창작대회』",
+  "official_url": "http://hana.oasisw.ai/",
+  "apply_url": "https://hana.oasisw.ai/join",
+  "organizer": "(주)하나은행",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "기획",
+   "AI",
+   "대회"
+  ],
+  "start_date": "2026-09-22",
+  "end_date": "2026-11-22",
+  "prize_text": "상금(총상금 : 1,000만원 / 1위 : 200만원)",
+  "prize_max_krw": 10000000,
+  "target_text": "해당자 ▶ ( 만14세이상 ~만18세 이하 하나은행 고객 )",
+  "targets": [
+   "middle",
+   "high",
+   "univ",
+   "grad"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202610261612552756300.jpeg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610260029"
+   }
+  ],
+  "created_at": "2026-10-28T10:07",
+  "updated_at": "2026-10-28T10:07"
+ },
+ {
   "id": "2026-6d9a7a",
   "title": "제 27회 청소년만화축제 만화작품 공모전",
   "official_url": "https://www.power0924.org/SW_bbs/notice/view.php?zipEncode=%3Du2yPr3BU91vt1drjrMCH9MyMuto0atm90wDU91DLLMDMetpSfMvWLME",

@@ -2142,5 +2142,17 @@
  "https://itch.io/jam/1-bit-jam-15": {
   "relevant": true,
   "id": "2026-9817ea"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610260029": {
+  "relevant": true,
+  "id": "2026-67acbf"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610210013": {
+  "relevant": false,
+  "title": "2026 DB KU Startup Match 스타트업 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610210011": {
+  "relevant": false,
+  "title": "2026 구리시 창업아이디어 경진대회"
  }
 }
