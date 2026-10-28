@@ -16,7 +16,11 @@
   "at": "2026-10-27T17:05"
  },
  "_staff": {
-  "default": {},
+  "default": {
+   "form": "https://sbsgameacademy.com/2025/portfolio/portfolio.asp?curPage=1&seq=&hidDbType=&category=1&ptype=student",
+   "name": "부산지점",
+   "contest_form": "https://sbsgameacademy.com/2025/academy/teacher.asp"
+  },
   "staff": [
    {
     "name": "김경필 멘토",
