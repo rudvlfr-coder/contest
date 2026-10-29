@@ -5728,6 +5728,47 @@
   "updated_at": "2026-10-25T16:32"
  },
  {
+  "id": "2026-f0b5b6",
+  "title": "「초량천~산복도로」 스토리텔링 공모전",
+  "official_url": "http://modu.go.kr/front/epilogue/epilogueNewViewPage.do?menu_id=527&bbs_id=b92b6f1180424f70a1cd4f4b382a8209&pagetype=bbs&search_result=&search_result_cnddt=&epilogue_bgnde=&epilogue_endde=&date_range=all&epilogue_bgnde_cnddt=&epilogue_endde_cnddt=&date_r=",
+  "apply_url": null,
+  "organizer": "부산광역시",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-10-26",
+  "end_date": "2026-11-06",
+  "prize_text": "상금+상품(총상금 : 500만원 / 1위 : 300만원 / 상장 )",
+  "prize_max_krw": 5000000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202610281630209025976.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610220014"
+   }
+  ],
+  "created_at": "2026-10-29T18:37",
+  "updated_at": "2026-10-29T18:37"
+ },
+ {
   "id": "2026-61de10",
   "title": "제18회 전국초등학생 웹툰공모전",
   "official_url": "https://cafe.daum.net/ilovebeomseo/NlYu/5",
@@ -6220,6 +6261,43 @@
   ],
   "created_at": "2026-10-27T11:32",
   "updated_at": "2026-10-27T11:32"
+ },
+ {
+  "id": "2026-97cff9",
+  "title": "[코리아 인디게임 쇼케이스] 2026 인디게임 서포터즈 모집",
+  "official_url": "https://koreaindiegameshowcase.kr",
+  "apply_url": null,
+  "organizer": "한국콘텐츠진흥원",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "채용"
+  ],
+  "start_date": "2026-10-30",
+  "end_date": "2026-11-11",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": "일반인, 대학생,  - 인디게임에 관심있는 유저 누구나 (SNS 활발한 유저 우대 선정) ■ 모집 기간 - 2026년 10월 30일(금)~11월 11일(수) ■ 지원 방법 1. 공식 브랜드 페이지 방문 2. 참가신청 > 서포터즈 신청하기 클릭 3. 참가신청서 작성 및 제출 4. 최종 선정자 한해 개별 연",
+  "targets": [
+   "univ",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261029183525_35286acd.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112015"
+   }
+  ],
+  "created_at": "2026-10-29T18:36",
+  "updated_at": "2026-10-29T18:36"
  },
  {
   "id": "2026-b6d6b8",
@@ -7968,6 +8046,43 @@
   ],
   "created_at": "2026-10-25T16:30",
   "updated_at": "2026-10-25T16:32"
+ },
+ {
+  "id": "2026-091608",
+  "title": "The Eye Jam III: Folk Horror",
+  "official_url": "https://itch.io/jam/the-eye-jam3",
+  "apply_url": null,
+  "organizer": "SeeOne",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-12-04",
+  "end_date": "2026-12-14",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzI3Nzg3MzUzLnBuZw==/140x111%23/Sl%2F75p.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/the-eye-jam3"
+   }
+  ],
+  "created_at": "2026-10-29T18:38",
+  "updated_at": "2026-10-29T18:38"
  },
  {
   "id": "2026-ae070e",

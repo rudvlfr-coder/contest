@@ -2202,5 +2202,37 @@
  "https://itch.io/jam/solovember2026": {
   "relevant": true,
   "id": "2026-3e34b3"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112015": {
+  "relevant": true,
+  "id": "2026-97cff9"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610220014": {
+  "relevant": true,
+  "id": "2026-f0b5b6"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610220019": {
+  "relevant": false,
+  "title": "2026 K-공예문화페스티벌 K-문화유산 사생대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610290002": {
+  "relevant": false,
+  "title": "2027 CICA 영 코리안 아티스트 개인전 시리즈 작가 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610220009": {
+  "relevant": false,
+  "title": "2027 전시작가 공개모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610290021": {
+  "relevant": false,
+  "title": "귀 쫑긋! '우리' 활용 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610280053": {
+  "relevant": false,
+  "title": "2026 「다시, 다리다」 유휴공간 활성화 아이디어 공모전"
+ },
+ "https://itch.io/jam/the-eye-jam3": {
+  "relevant": true,
+  "id": "2026-091608"
  }
 }
