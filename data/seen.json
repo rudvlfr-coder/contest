@@ -2234,5 +2234,13 @@
  "https://itch.io/jam/the-eye-jam3": {
   "relevant": true,
   "id": "2026-091608"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112016": {
+  "relevant": true,
+  "id": "2026-ac42bd"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610260022": {
+  "relevant": false,
+  "title": "2026년 서울중구시설관리공단 ESG혁신 아이디어 공모전"
  }
 }

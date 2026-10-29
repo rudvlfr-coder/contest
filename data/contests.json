@@ -7138,6 +7138,48 @@
   "updated_at": "2026-10-25T16:30"
  },
  {
+  "id": "2026-ac42bd",
+  "title": "제9회 만화일러스트 공모전",
+  "official_url": "https://woori1318.or.kr/p_community/sub01.php?ptype=view&idx=24194&page=&code=notice0",
+  "apply_url": null,
+  "organizer": "서울시",
+  "categories": [
+   "웹툰",
+   "게임"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-11-02",
+  "end_date": "2026-11-23",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": "대학생, 청소년,  - 9세~24세 청소년 누구나 ■ 모집 기간 - 2026. 11. 2.(월) ~ 11. 23.(월) ■ 지원 방법 (온라인접수) https://naver.me/FUit9XzG ■ 공모전 시상내역 - 대상 3명: 서울시장상 - 최우수상 3명: 한국청소년활동진흥원장상 - 우수상 3명: 시",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261029184000_dd79ab33.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112016"
+   }
+  ],
+  "created_at": "2026-10-30T08:23",
+  "updated_at": "2026-10-30T08:23"
+ },
+ {
   "id": "2026-44d2bb",
   "title": "농민신문 제31회 신춘문예 작품 공모",
   "official_url": "https://www.nongmin.com/article/20260921500766",
