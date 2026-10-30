@@ -2282,5 +2282,21 @@
  "https://itch.io/jam/pixel-forge-mega-jam": {
   "relevant": true,
   "id": "2026-0e268b"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111939": {
+  "relevant": true,
+  "id": "2026-0f59f3"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111942": {
+  "relevant": true,
+  "id": "2026-f16f0f"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610090001": {
+  "relevant": false,
+  "title": "제45회 청마백일장"
+ },
+ "https://itch.io/jam/goedware-game-jam-halloween-3": {
+  "relevant": true,
+  "id": "2026-a2673e"
  }
 }

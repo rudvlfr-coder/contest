@@ -5543,6 +5543,43 @@
   "updated_at": "2026-10-28T08:19"
  },
  {
+  "id": "2026-a2673e",
+  "title": "GoedWare Game Jam Halloween Part 3 👻(+ prizes 🏆)",
+  "official_url": "https://itch.io/jam/goedware-game-jam-halloween-3",
+  "apply_url": null,
+  "organizer": "GoedWare",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-03",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzMwNDAxNDI4LnBuZw==/140x111%23/bSS4eD.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/goedware-game-jam-halloween-3"
+   }
+  ],
+  "created_at": "2026-10-31T08:21",
+  "updated_at": "2026-10-31T08:21"
+ },
+ {
   "id": "2026-42f94b",
   "title": "Game Gauntlet - SIM Jam ($1,500 in Cash Prizes, Online, Worldwide)",
   "official_url": "https://itch.io/jam/game-gauntlet-sim-jam",
@@ -7142,6 +7179,44 @@
   "updated_at": "2026-10-25T16:30"
  },
  {
+  "id": "2026-f16f0f",
+  "title": "강남구중독관리통합지원센터 캐릭터 공모전",
+  "official_url": "https://gangnamon.or.kr/sub.php?menukey=23&id=notice&idx=19",
+  "apply_url": null,
+  "organizer": "강남구중독관리통합지원센터",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-11-02",
+  "end_date": "2026-11-22",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": " - 강남구 거주 청소년 - 강남구 소재 중·고등학교 재학생 ※ 개인 참여, 1인 1작품 ■ 시상 내역 - 대상(1명): 100만 원 상당 상품권 및 상장 - 최우수상(1명): 50만 원 상당 상품권 및 상장 - 우수상(3명): 30만 원 상당 상품권 및 상장 ※ 상금에 대한 제세공과금",
+  "targets": [
+   "middle",
+   "high",
+   "univ"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261030202317_6668cd20.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111942"
+   }
+  ],
+  "created_at": "2026-10-31T08:19",
+  "updated_at": "2026-10-31T08:19"
+ },
+ {
   "id": "2026-ac42bd",
   "title": "제9회 만화일러스트 공모전",
   "official_url": "https://woori1318.or.kr/p_community/sub01.php?ptype=view&idx=24194&page=&code=notice0",
@@ -7254,6 +7329,42 @@
   ],
   "created_at": "2026-10-25T16:31",
   "updated_at": "2026-10-25T16:31"
+ },
+ {
+  "id": "2026-0f59f3",
+  "title": "타구·바쿠와 함께하는 신규 캐릭터 기념품 디자인 공모전",
+  "official_url": "https://www.dtro.or.kr/index.do?menu_link=%2Ficms%2Fbbs%2FselectBoardArticle.do%3FnttId%3D76276&bbsId=BBS_00253&menu_id=00000289",
+  "apply_url": null,
+  "organizer": "대구교통공사",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-10-29",
+  "end_date": "2026-11-29",
+  "prize_text": "1등 50만원 / 총상금 1천만원이하",
+  "prize_max_krw": 500000,
+  "target_text": "제한없음",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261030193034_4f29d5bf.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111939"
+   }
+  ],
+  "created_at": "2026-10-31T08:19",
+  "updated_at": "2026-10-31T08:19"
  },
  {
   "id": "2026-0c7e28",
