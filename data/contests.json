@@ -4777,10 +4777,14 @@
    {
     "site": "itchio",
     "url": "https://itch.io/jam/thailand-horror-jam-2026"
+   },
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/horrorjam-2026"
    }
   ],
   "created_at": "2026-10-25T16:33",
-  "updated_at": "2026-10-25T16:33"
+  "updated_at": "2026-10-30T18:38"
  },
  {
   "id": "2026-dc7fdf",
@@ -8007,6 +8011,43 @@
   ],
   "created_at": "2026-10-25T16:30",
   "updated_at": "2026-10-25T16:30"
+ },
+ {
+  "id": "2026-0e268b",
+  "title": "Pixel Forge MEGA JAM | $30k Prizes + Cash !",
+  "official_url": "https://itch.io/jam/pixel-forge-mega-jam",
+  "apply_url": null,
+  "organizer": "PIXEL FORGE",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-28",
+  "end_date": "2026-12-08",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzI5NzM3ODI3LnBuZw==/140x111%23/K7%2BdQb.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/pixel-forge-mega-jam"
+   }
+  ],
+  "created_at": "2026-10-30T18:38",
+  "updated_at": "2026-10-30T18:38"
  },
  {
   "id": "2026-fccb40",
