@@ -6541,6 +6541,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-6468e7",
+  "title": "ShroomJam 2026",
+  "official_url": "https://itch.io/jam/shroomjam-2026",
+  "apply_url": null,
+  "organizer": "PotaJoe",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-07",
+  "end_date": "2026-11-14",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/shroomjam-2026"
+   }
+  ],
+  "created_at": "2026-10-31T18:28",
+  "updated_at": "2026-10-31T18:28"
+ },
+ {
   "id": "2026-0bd475",
   "title": "2026년 하반기 현대 로맨스/로맨스 판타지/동양 로맨스",
   "official_url": "https://forms.gle/doEVzB4aBuxoJXGi9",
