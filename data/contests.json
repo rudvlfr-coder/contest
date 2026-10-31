@@ -9089,6 +9089,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2027-e75bc6",
+  "title": "5 Year Long Jam",
+  "official_url": "https://itch.io/jam/5-year-long-jam",
+  "apply_url": null,
+  "organizer": "Xeight",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2027-03-01",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzgwNzU0NzgucG5n/140x111%23/UfXRk3.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/5-year-long-jam"
+   }
+  ],
+  "created_at": "2026-11-01T08:20",
+  "updated_at": "2026-11-01T08:20"
+ },
+ {
   "id": "2027-72cdce",
   "title": "2027 창비 청소년 문학상 공모",
   "official_url": "https://www.changbi.com/contest?type=2",

@@ -2302,5 +2302,21 @@
  "https://itch.io/jam/shroomjam-2026": {
   "relevant": true,
   "id": "2026-6468e7"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202609040010": {
+  "relevant": false,
+  "title": "2026 정선 국가문화유산 전국 디카시 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610290029": {
+  "relevant": false,
+  "title": "문학광장 제122기 신인문학상 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610070002": {
+  "relevant": false,
+  "title": "2027 제3회 소원문학상"
+ },
+ "https://itch.io/jam/5-year-long-jam": {
+  "relevant": true,
+  "id": "2027-e75bc6"
  }
 }
