@@ -6815,7 +6815,9 @@
   "prize_max_krw": null,
   "target_text": "일반인, 기타",
   "targets": [
-   "general"
+   "general",
+   "univ",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -6828,10 +6830,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111449"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610070046"
    }
   ],
   "created_at": "2026-10-25T16:31",
-  "updated_at": "2026-10-25T16:31"
+  "updated_at": "2026-11-02T08:21"
  },
  {
   "id": "2026-0c4024",
@@ -7230,7 +7236,7 @@
   "start_date": "2026-11-02",
   "end_date": "2026-11-22",
   "prize_text": "총상금 다양한 혜택",
-  "prize_max_krw": null,
+  "prize_max_krw": 2900000,
   "target_text": " - 강남구 거주 청소년 - 강남구 소재 중·고등학교 재학생 ※ 개인 참여, 1인 1작품 ■ 시상 내역 - 대상(1명): 100만 원 상당 상품권 및 상장 - 최우수상(1명): 50만 원 상당 상품권 및 상장 - 우수상(3명): 30만 원 상당 상품권 및 상장 ※ 상금에 대한 제세공과금",
   "targets": [
    "middle",
@@ -7248,16 +7254,20 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111942"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610300023"
    }
   ],
   "created_at": "2026-10-31T08:19",
-  "updated_at": "2026-10-31T08:19"
+  "updated_at": "2026-11-02T08:21"
  },
  {
   "id": "2026-ac42bd",
   "title": "제9회 만화일러스트 공모전",
   "official_url": "https://woori1318.or.kr/p_community/sub01.php?ptype=view&idx=24194&page=&code=notice0",
-  "apply_url": null,
+  "apply_url": "https://naver.me/FUit9XzG",
   "organizer": "서울시",
   "categories": [
    "웹툰",
@@ -7290,10 +7300,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112016"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610290036"
    }
   ],
   "created_at": "2026-10-30T08:23",
-  "updated_at": "2026-10-30T08:23"
+  "updated_at": "2026-11-02T08:21"
  },
  {
   "id": "2026-44d2bb",
@@ -8277,6 +8291,43 @@
   ],
   "created_at": "2026-10-25T16:30",
   "updated_at": "2026-10-25T16:32"
+ },
+ {
+  "id": "2026-a94130",
+  "title": "The MFG Gambler's Jam",
+  "official_url": "https://itch.io/jam/the-mfg-gamblers-jam",
+  "apply_url": null,
+  "organizer": "augie, RetroCrow, Hack Club",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-12-06",
+  "end_date": "2026-12-13",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzMxNjk4OTMyLmdpZg==/original/Trfx4o.gif",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/the-mfg-gamblers-jam"
+   }
+  ],
+  "created_at": "2026-11-02T08:22",
+  "updated_at": "2026-11-02T08:22"
  },
  {
   "id": "2026-091608",
