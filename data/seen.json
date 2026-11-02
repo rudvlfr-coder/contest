@@ -2362,5 +2362,53 @@
  "https://itch.io/jam/the-mfg-gamblers-jam": {
   "relevant": true,
   "id": "2026-a94130"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610260012": {
+  "relevant": false,
+  "title": "2026년도 사회적가치형 청년 일경험 지원사업 우수사례 수기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611010004": {
+  "relevant": false,
+  "title": "제47회 《문명 그 화려한 역설》 69개의 표지비밀 풀기 프로젝트 공모 (1억고료 문학상 수상작)"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610310003": {
+  "relevant": false,
+  "title": "유랑 사회적협동조합 로고 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202610290007": {
+  "relevant": false,
+  "title": "2026 AI활용 전국 대학생 창업 해커톤 대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611020001": {
+  "relevant": false,
+  "title": "2026 현장문제 AX 업무혁신 아이디어 해커톤"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611020003": {
+  "relevant": false,
+  "title": "<AI 달인 꿀팁 챌린지 시즌 4> 당신의 AI 활용 꿀팁을 공유해주세요!"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610300004": {
+  "relevant": false,
+  "title": "LOTTE AX CHALLENGE 2026"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610250002": {
+  "relevant": false,
+  "title": "2026 스마트시티(지식서비스산업) 아이디어 경진대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610290007": {
+  "relevant": false,
+  "title": "2026 AI활용 전국 대학생 창업 해커톤 대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610260008": {
+  "relevant": false,
+  "title": "2026년 해양 창업아이디어 공모전 「Spark-up 1876」"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611020015": {
+  "relevant": false,
+  "title": "제 2회 Nitto Open Innovation Challenge"
+ },
+ "https://itch.io/jam/godot-wild-jam-99": {
+  "relevant": true,
+  "id": "2026-3cfb0d"
  }
 }
