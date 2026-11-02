@@ -2410,5 +2410,21 @@
  "https://itch.io/jam/godot-wild-jam-99": {
   "relevant": true,
   "id": "2026-3cfb0d"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112052": {
+  "relevant": true,
+  "id": "2026-5a4ad0"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112051": {
+  "relevant": true,
+  "id": "2026-552e5a"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112050": {
+  "relevant": false,
+  "title": "제18회 손바닥문학상"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610210006": {
+  "relevant": false,
+  "title": "2026 대학생 정책 아이디어 공모전"
  }
 }

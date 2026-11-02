@@ -7885,6 +7885,42 @@
   "updated_at": "2026-10-29T08:23"
  },
  {
+  "id": "2026-552e5a",
+  "title": "2027 서울신문 신춘문예 공모",
+  "official_url": "https://www.seoul.co.kr/news/life/culture-news/2026/11/02/20261102001005",
+  "apply_url": null,
+  "organizer": "서울신문",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-01",
+  "end_date": "2026-12-01",
+  "prize_text": "1등 700만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 7000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261102211536_71054216.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112051"
+   }
+  ],
+  "created_at": "2026-11-03T08:26",
+  "updated_at": "2026-11-03T08:26"
+ },
+ {
   "id": "2026-575e1d",
   "title": "Game Off 2026",
   "official_url": "https://itch.io/jam/game-off-2026",
@@ -8064,6 +8100,42 @@
   ],
   "created_at": "2026-10-25T16:33",
   "updated_at": "2026-10-25T16:33"
+ },
+ {
+  "id": "2026-5a4ad0",
+  "title": "2027 한국일보 신춘문예 공모",
+  "official_url": "https://www.hankookilbo.com/news/article/A2026103019130005068",
+  "apply_url": null,
+  "organizer": "한국일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-02",
+  "end_date": "2026-12-02",
+  "prize_text": "1등 500만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 5000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261102213931_e75f62d2.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112052"
+   }
+  ],
+  "created_at": "2026-11-03T08:26",
+  "updated_at": "2026-11-03T08:26"
  },
  {
   "id": "2026-827efe",
