@@ -2446,5 +2446,29 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611030025": {
   "relevant": false,
   "title": "서울 앵커 지역현안문제해결 로컬크리에이터 발굴기초 캠프"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112068": {
+  "relevant": true,
+  "id": "2026-1d71c2"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112067": {
+  "relevant": true,
+  "id": "2026-c3b202"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112062": {
+  "relevant": true,
+  "id": "2026-519d13"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112061": {
+  "relevant": false,
+  "title": "제23회 세계문학상"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112059": {
+  "relevant": false,
+  "title": "2026 강원일보 시니어문학상"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611030005": {
+  "relevant": false,
+  "title": "[보건복지부] 2026 발달장애인 인식개선 수기공모전"
  }
 }

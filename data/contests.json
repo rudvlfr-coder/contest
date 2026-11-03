@@ -7885,6 +7885,42 @@
   "updated_at": "2026-10-29T08:23"
  },
  {
+  "id": "2026-519d13",
+  "title": "2027 경남신문 신춘문예 작품 공모",
+  "official_url": "https://www.knnews.co.kr/news/articleView.php?idxno=1554253",
+  "apply_url": null,
+  "organizer": "경남신문",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-03",
+  "end_date": "2026-12-01",
+  "prize_text": "1등 300만원 / 총상금 1천만원이하",
+  "prize_max_krw": 3000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261103204022_55f21c13.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112062"
+   }
+  ],
+  "created_at": "2026-11-04T08:27",
+  "updated_at": "2026-11-04T08:27"
+ },
+ {
   "id": "2026-552e5a",
   "title": "2027 서울신문 신춘문예 공모",
   "official_url": "https://www.seoul.co.kr/news/life/culture-news/2026/11/02/20261102001005",
@@ -8172,6 +8208,76 @@
   ],
   "created_at": "2026-10-27T11:29",
   "updated_at": "2026-10-27T11:29"
+ },
+ {
+  "id": "2026-c3b202",
+  "title": "2027 경인일보 신춘문예",
+  "official_url": "https://www.kyeongin.com/article/1773942",
+  "apply_url": null,
+  "organizer": "경인일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-02",
+  "end_date": "2026-12-02",
+  "prize_text": "1등 500만원 / 총상금 1천만원이하",
+  "prize_max_krw": 5000000,
+  "target_text": "제한없음, 기타,  : 순수 신인 ※ 1. 작품이 신문이나 잡지에 소개된 적 없는 자 2. 지원 분야 수상 이력이 없는 자 3. 창작물이 출판된 적 없는 자 등 ■ 시상 및 상금 : 단편소설은 상패 및 상금 500만원, 시는 상패 및 상금 300만원(단, 당선자 없는 가작의 경우 원고료의 반액을 수여) ",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261103210420_f4473142.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112067"
+   }
+  ],
+  "created_at": "2026-11-04T08:27",
+  "updated_at": "2026-11-04T08:27"
+ },
+ {
+  "id": "2026-1d71c2",
+  "title": "2027 부산일보 신춘문예",
+  "official_url": "https://www.busan.com/view/busan/view.php?code=2026110218292075954",
+  "apply_url": null,
+  "organizer": "부산일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-02",
+  "end_date": "2026-12-03",
+  "prize_text": "1등 700만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 7000000,
+  "target_text": null,
+  "targets": [],
+  "student_eligible": "unknown",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261103211220_ec767287.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112068"
+   }
+  ],
+  "created_at": "2026-11-04T08:27",
+  "updated_at": "2026-11-04T08:27"
  },
  {
   "id": "2026-4cd7f1",
