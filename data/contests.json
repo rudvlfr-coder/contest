@@ -7419,6 +7419,48 @@
   "updated_at": "2026-10-25T16:31"
  },
  {
+  "id": "2026-0ae017",
+  "title": "타구·바쿠 캐릭터 기념품 디자인 공모전",
+  "official_url": "http://www.dtro.or.kr/index.do?menu_link=%2Ficms%2Fbbs%2FselectBoardArticle.do%3FnttId%3D76276&bbsId=BBS_00253&menu_id=00000289#wevity-111939",
+  "apply_url": null,
+  "organizer": "대구교통공사",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화",
+   "기획"
+  ],
+  "start_date": "2026-10-29",
+  "end_date": "2026-11-29",
+  "prize_text": "상금+상품(총상금 : 160만원 / 1위 : 50만원 / 상장 )",
+  "prize_max_krw": 1600000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611031639584846842.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280045"
+   }
+  ],
+  "created_at": "2026-11-04T18:47",
+  "updated_at": "2026-11-04T18:47"
+ },
+ {
   "id": "2026-0f59f3",
   "title": "타구·바쿠와 함께하는 신규 캐릭터 기념품 디자인 공모전",
   "official_url": "https://www.dtro.or.kr/index.do?menu_link=%2Ficms%2Fbbs%2FselectBoardArticle.do%3FnttId%3D76276&bbsId=BBS_00253&menu_id=00000289",
@@ -8352,6 +8394,48 @@
   ],
   "created_at": "2026-10-25T16:30",
   "updated_at": "2026-10-25T16:32"
+ },
+ {
+  "id": "2026-1664eb",
+  "title": "제1회 CLIIP AI 웹툰 영상화 공모전",
+  "official_url": "http://cliip.co.kr/",
+  "apply_url": "https://cliip.co.kr/webtoon/home#submit",
+  "organizer": "CLIIP/CLIIP WEBTOON",
+  "categories": [
+   "웹툰"
+  ],
+  "subcategories": [
+   "원화",
+   "AI"
+  ],
+  "start_date": "2026-11-03",
+  "end_date": "2026-12-05",
+  "prize_text": "기타 :총 8개 작품 선정 / 총 350만원 상당 CLIIP AI 제작 크레딧 제공 대상 1명: 100만원 상당 최우수상 2명: 각 50만원 상당 우수상 5명: 각 30만원 상당 ※ 현금이 아닌 CLIIP 서비스 전용 AI 제작 크레딧으로 제공하며, 수상 확정 후 3개월에 걸쳐 분할 지급됩니다.",
+  "prize_max_krw": 3500000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611031952519546171.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611030051"
+   }
+  ],
+  "created_at": "2026-11-04T18:47",
+  "updated_at": "2026-11-04T18:47"
  },
  {
   "id": "2026-e88a3a",
@@ -9463,6 +9547,47 @@
   ],
   "created_at": "2026-10-25T16:31",
   "updated_at": "2026-10-25T16:31"
+ },
+ {
+  "id": "2026-6a56e2",
+  "title": "GoodNovel 제2회 대형 웹소설 공모전｜WRITE YOUR WORLD",
+  "official_url": "http://www.goodnovel.com/contests/write-your-world",
+  "apply_url": "https://www.goodnovel.com/co-editor/2022?c=whIoZiDE",
+  "organizer": "GoodNovel (굿노벨)",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [
+   "기획"
+  ],
+  "start_date": "2026-11-02",
+  "end_date": "2027-05-01",
+  "prize_text": "상금(총상금 : 5,000만원 / 1위 : 1,300만원)",
+  "prize_max_krw": 50000000,
+  "target_text": "유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611041226456061475.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611040026"
+   }
+  ],
+  "created_at": "2026-11-04T18:47",
+  "updated_at": "2026-11-04T18:47"
  },
  {
   "id": "2026-d55299",

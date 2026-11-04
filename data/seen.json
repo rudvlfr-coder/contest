@@ -2470,5 +2470,37 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611030005": {
   "relevant": false,
   "title": "[보건복지부] 2026 발달장애인 인식개선 수기공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112148": {
+  "relevant": false,
+  "title": "제1회 동물사랑 디카시 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611040026": {
+  "relevant": true,
+  "id": "2026-6a56e2"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280043": {
+  "relevant": false,
+  "title": "제4회 산업기술 R&D 어린이 그림그리기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280045": {
+  "relevant": true,
+  "id": "2026-0ae017"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611030051": {
+  "relevant": true,
+  "id": "2026-1664eb"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610270044": {
+  "relevant": false,
+  "title": "보령시 웰니스 정책 제안 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611040027": {
+  "relevant": false,
+  "title": "[산림청] 산림공공데이터 활용 사례 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610280013": {
+  "relevant": false,
+  "title": "국회 미래세대 미래의제 공모전"
  }
 }
