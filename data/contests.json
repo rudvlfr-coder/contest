@@ -6956,6 +6956,44 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-3080ed",
+  "title": "Tree Eco 파충류 캐릭터 디자인 공모전",
+  "official_url": "https://tree-submit.haejo.ai/",
+  "apply_url": null,
+  "organizer": "트리에코",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화",
+   "그래픽",
+   "AI"
+  ],
+  "start_date": "2026-11-06",
+  "end_date": "2026-11-19",
+  "prize_text": "1등 100만원 / 총상금 1천만원이하",
+  "prize_max_krw": 1000000,
+  "target_text": "제한없음",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261105160531_bcad7332.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112177"
+   }
+  ],
+  "created_at": "2026-11-05T18:46",
+  "updated_at": "2026-11-05T18:46"
+ },
+ {
   "id": "2026-527bdb",
   "title": "2026 광주콘텐츠코리아랩 웹소설 원천 스토리 공모전",
   "official_url": "https://www.gicon.or.kr/board.es?mid=a10204000000&bid=0003&act=view&list_no=32260",
@@ -8739,6 +8777,43 @@
   ],
   "created_at": "2026-10-27T11:29",
   "updated_at": "2026-10-27T11:29"
+ },
+ {
+  "id": "2026-7aaefe",
+  "title": "2026 이주배경 그리기/수기 공모전 요강",
+  "official_url": "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4458",
+  "apply_url": null,
+  "organizer": "서원대학교 지역인재양성본부",
+  "categories": [
+   "웹툰",
+   "대학"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-23",
+  "end_date": "2026-12-18",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "청소년부 일반부",
+  "targets": [
+   "middle",
+   "high",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "mgood",
+    "url": "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4458"
+   }
+  ],
+  "created_at": "2026-11-05T18:47",
+  "updated_at": "2026-11-05T18:47"
  },
  {
   "id": "2026-8aca3b",
