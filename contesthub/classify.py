@@ -69,8 +69,12 @@ def has_university(*texts: str | None) -> bool:
     return False
 
 
+# '학원 로맨스', '학원물'처럼 웹툰·웹소설 장르 이름에 쓰인 '학원'은 학원 주최가 아니다
+_ACADEMY_GENRE = re.compile(r"학원\s*(?:로맨스|물|액션|드라마|판타지|코미디|공포|스릴러|추리|무협|청춘)")
+
+
 def is_academy(*texts: str | None) -> bool:
-    return any(_ACADEMY.search(t) for t in texts if t)
+    return any(_ACADEMY.search(_ACADEMY_GENRE.sub("", t)) for t in texts if t)
 
 
 def classify(title: str, body: str = "", organizer: str | None = None) -> Classification:

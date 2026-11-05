@@ -64,6 +64,32 @@ def test_review_needed_is_hidden_until_published():
     assert "r" in public and not pending
 
 
+def test_manual_contests_file(tmp_path):
+    p = tmp_path / "manual.json"
+    p.write_text('{"contests": ['
+                 '{"title": "직접 등록 웹툰 공모전", "categories": ["웹툰", "없는분야"], "start_date": "2026-11-30",'
+                 ' "end_date": "2026-12-04", "targets": ["high"], "organizer": "네이버웹툰",'
+                 ' "official_url": "https://comic.naver.com/notice", "poster_url": "javascript:x"},'
+                 '{"title": "마감일 없는 공모전"}]}', encoding="utf-8")
+    data = overrides.SheetData()
+    overrides.load_manual(data, p)
+    assert len(data.additions) == 1
+    c = data.additions[0]
+    assert c.categories == ["웹툰"] and c.targets == ["high"] and c.organizer == "네이버웹툰"
+    assert (c.start_date, c.end_date) == ("2026-11-30", "2026-12-04") and c.poster_url is None
+    assert any("마감일" in w for w in data.warnings)
+    out, _ = overrides.apply({}, data)
+    public, pending = overrides.split_pending(out, data)
+    assert c.id in public and not pending  # 직접 등록은 승인 없이 공개
+
+
+def test_real_manual_file_is_valid():
+    data = overrides.SheetData()
+    overrides.load_manual(data)
+    assert not data.warnings
+    assert all(c.end_date and c.categories for c in data.additions)
+
+
 def test_approval_column_in_edit_tab(tmp_path):
     p = tmp_path / "edit.csv"
     p.write_text("공모전ID,승인\n2026-aaaaaa,승인\n2026-bbbbbb,거절\n2026-cccccc,보류\n", encoding="utf-8-sig")

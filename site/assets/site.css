@@ -861,7 +861,7 @@ div[style*="overflow-x:auto"] {
   scrollbar-color: var(--line-strong) transparent;
 }
 
-.review {
+table.review {
   width: 100%;
   min-width: 650px;
   border-collapse: separate;
@@ -870,8 +870,8 @@ div[style*="overflow-x:auto"] {
   font-size: 0.88rem;
 }
 
-.review th,
-.review td {
+table.review th,
+table.review td {
   padding: 11px 12px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -880,12 +880,12 @@ div[style*="overflow-x:auto"] {
   vertical-align: top;
 }
 
-.review th:first-child,
-.review td:first-child {
+table.review th:first-child,
+table.review td:first-child {
   border-left: 1px solid var(--line);
 }
 
-.review thead:first-child tr:first-child th {
+table.review thead:first-child tr:first-child th {
   border-top: 1px solid var(--line);
   background: var(--surface-soft);
   color: var(--text-soft);
@@ -894,31 +894,31 @@ div[style*="overflow-x:auto"] {
   white-space: nowrap;
 }
 
-.review thead:first-child tr:first-child th:first-child {
+table.review thead:first-child tr:first-child th:first-child {
   border-top-left-radius: var(--radius-sm);
 }
 
-.review thead:first-child tr:first-child th:last-child {
+table.review thead:first-child tr:first-child th:last-child {
   border-top-right-radius: var(--radius-sm);
 }
 
-.review tbody:last-child tr:last-child td:first-child {
+table.review tbody:last-child tr:last-child td:first-child {
   border-bottom-left-radius: var(--radius-sm);
 }
 
-.review tbody:last-child tr:last-child td:last-child {
+table.review tbody:last-child tr:last-child td:last-child {
   border-bottom-right-radius: var(--radius-sm);
 }
 
-.review tr.queued td {
+table.review tr.queued td {
   background: var(--warning-soft);
 }
 
-.review .note {
+table.review .note {
   margin: 4px 0 0;
 }
 
-.review input {
+table.review input {
   min-width: 150px;
 }
 
@@ -1061,8 +1061,8 @@ div[style*="overflow-x:auto"] {
   .tag,
   .meta,
   .note,
-  .review,
-  .review thead:first-child tr:first-child th,
+  table.review,
+  table.review thead:first-child tr:first-child th,
   .contactbar .who,
   .contactbar .btn,
   .savebar span,

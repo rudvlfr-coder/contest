@@ -40,6 +40,47 @@ DECISIONS_PATH = config.ROOT / "data" / "decisions.json"
 DECISION_ACTIONS = {"approve": "승인", "hide": "거절", "confirm": "확인"}
 
 
+MANUAL_PATH = config.CONFIG_DIR / "manual_contests.json"
+_MANUAL_FIELDS = ("organizer", "start_date", "end_date", "target_text", "prize_text", "summary")
+
+
+def load_manual(data: SheetData, path: Path = MANUAL_PATH) -> None:
+    """config/manual_contests.json의 직접 등록 공모전 → 승인 없이 공개 (출처 'manual')."""
+    if not path.exists():
+        return
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8")).get("contests", [])
+    except ValueError as e:
+        data.warnings.append(f"직접 등록 파일(config/manual_contests.json)을 읽지 못함: {e}")
+        return
+    for n, row in enumerate(rows, start=1):
+        where = f"직접 등록 파일 {n}번째"
+        title, end = (row.get("title") or "").strip(), parse_date(row.get("end_date") or "")
+        if not title or not end:
+            data.warnings.append(f"{where}: 제목과 마감일(YYYY-MM-DD)은 꼭 있어야 함 → 건너뜀")
+            continue
+        start = parse_date(row.get("start_date") or "")
+        start_s = start.isoformat() if start else None
+        c = Contest(
+            id=make_id(title, start_s, end.isoformat()),
+            title=title,
+            categories=[x for x in row.get("categories", []) if x in CATEGORIES],
+            subcategories=[x for x in row.get("subcategories", []) if x in SUBCATEGORIES],
+            targets=[x for x in row.get("targets", []) if x in TARGET_LABELS],
+            official_url=clean_url(row.get("official_url")),
+            apply_url=clean_url(row.get("apply_url")),
+            poster_url=row.get("poster_url") if str(row.get("poster_url", "")).startswith("https://") else None,
+            prize_max_krw=parse_prize(row.get("prize_text")),
+            sources=[{"site": "manual", "url": clean_url(row.get("official_url"))}],
+        )
+        for f in _MANUAL_FIELDS:
+            if row.get(f):
+                setattr(c, f, row[f])
+        c.start_date, c.end_date = start_s, end.isoformat()
+        c.student_eligible = "yes" if c.targets else "unknown"
+        data.additions.append(c)
+
+
 def load_decisions(data: SheetData, path: Path = DECISIONS_PATH) -> dict:
     """관리자 페이지에서 내린 결정을 반영한다. 시트보다 나중에 적용되므로 시트와 겹치면 이쪽이 우선."""
     if not path.exists():
@@ -206,6 +247,7 @@ def load_sheet() -> SheetData:
                     data.sites[row["사이트"]] = row.get("사용", "") in YES
         except Exception as e:
             data.warnings.append(f"시트(sites_csv)를 읽지 못함: {e}")
+    load_manual(data)
     load_decisions(data)
     for w in data.warnings:
         log.warning(w)
@@ -227,7 +269,7 @@ def split_pending(contests: dict[str, Contest], data: SheetData) -> tuple[dict[s
         hits = list(dict.fromkeys(c.competitor_hits + competitor_hits(
             c.title, c.organizer, c.target_text, c.prize_text, c.summary)))
         c.competitor_hits = hits
-        from_sheet = any(s.get("site") == "sheet" for s in c.sources)
+        from_sheet = any(s.get("site") in ("sheet", "manual") for s in c.sources)  # 관리자가 직접 등록한 건
         decision = data.approvals.get(cid)
         if decision == "거절":
             continue
@@ -253,7 +295,8 @@ def apply_school_rules(contests: dict[str, Contest], keep_categories: set[str] =
         if (cid not in keep_categories and c.categories and "대학" not in c.categories
                 and has_university(c.title, c.organizer) and _hits(c.title.lower(), subjects)):
             c.categories.append("대학")
-        if is_academy(c.title, c.organizer) and ACADEMY_REASON not in c.review_reasons:
+        admin_entered = any(s.get("site") in ("sheet", "manual") for s in c.sources)
+        if not admin_entered and is_academy(c.title, c.organizer) and ACADEMY_REASON not in c.review_reasons:
             c.review_reasons.append(ACADEMY_REASON)
             c.needs_review = True
 

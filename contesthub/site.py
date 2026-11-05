@@ -249,7 +249,8 @@ def render_detail(c: Contest, name: str, updated: datetime) -> str:
     if c.end_date:
         links.append('<a class="btn" href="event.ics" download>캘린더에 마감일 추가</a>')
 
-    site_names = {"notion": "기존 노션 목록", "wevity": "위비티", "contestkorea": "콘테스트코리아", "itchio": "itch.io"}
+    site_names = {"notion": "기존 노션 목록", "wevity": "위비티", "contestkorea": "콘테스트코리아", "mgood": "엠굿",
+                  "itchio": "itch.io", "sheet": "직접등록", "manual": "직접등록"}
     sources = "".join(
         f'<li>{escape(site_names.get(s["site"], s["site"]))}'
         + (f' — <a href="{escape(s["url"])}" target="_blank" rel="noopener">원문</a>' if s.get("url") else "") + "</li>"
@@ -296,7 +297,7 @@ def render_ics(c: Contest, page_url: str) -> str:
 # ---------------------------------------------------------------- 관리자 페이지
 
 SITE_NAMES = {"notion": "노션", "wevity": "위비티", "contestkorea": "콘테스트코리아", "mgood": "엠굿",
-              "itchio": "itch.io", "sheet": "직접등록"}
+              "itchio": "itch.io", "sheet": "직접등록", "manual": "직접등록"}
 
 
 def _id_cell(c: Contest) -> str:

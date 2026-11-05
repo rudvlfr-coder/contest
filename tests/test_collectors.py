@@ -95,6 +95,10 @@ def test_classify_university():
     # 전문학교도 대학 탭 (진학 연계 학교) — 정식 이름, 줄임말, 주최로 인식
     assert "대학" in classify("제1회 한아전 게임 시나리오·그래픽 공모전").categories
     assert "대학" in classify("웹툰·일러스트 공모전", "", "한국IT전문학교").categories
+    # '학원 로맨스' 같은 장르 이름은 학원 주최가 아님
+    from contesthub.classify import is_academy
+    assert not is_academy("연재직행열차 4기 — 학원 로맨스 웹툰 투고")
+    assert is_academy("SBS아카데미게임학원 일러스트 공모전") and is_academy("○○미술학원 공모전")
     # 학원·아카데미는 대학이 아님
     assert "대학" not in classify("OO아카데미 웹툰 공모전").categories
     # 과목과 무관한 대학 대회는 제외

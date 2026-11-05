@@ -1,0 +1,35 @@
+{
+  "_설명": "자동 수집이 안 되는 공모전을 직접 등록하는 파일. 여기 적은 공모전은 승인 없이 바로 공개된다. 이 파일을 GitHub에 올리면 1~2분 뒤 사이트에 반영된다. 필수: title, end_date(YYYY-MM-DD). targets 코드: elementary, middle, high, univ, grad, general",
+  "contests": [
+    {
+      "title": "2026 네이버웹툰 연재직행열차 4기 — 학원 로맨스 웹툰 투고",
+      "organizer": "네이버웹툰",
+      "categories": ["웹툰"],
+      "subcategories": [],
+      "start_date": "2026-11-30",
+      "end_date": "2026-12-04",
+      "targets": ["high", "univ", "grad", "general"],
+      "target_text": "만 15세 이상, 신인·경력 작가 누구나",
+      "prize_text": "선정 시 네이버웹툰 정식 연재 (결과 발표 12.11, 발표 후 6개월 내 연재 오픈 목표)",
+      "summary": "제안부터 연재 확정까지 2주. 설렘 가득한 학원 로맨스 웹툰 모집. 제출: 1화 원고(JPG, 가로 690px) + 2~3화 콘티 + 자유 형식 시놉시스. 접수 시작일 0시 ~ 마감일 23시 59분 59초.",
+      "official_url": "https://comic.naver.com/notice/detail?noticeId=2025",
+      "apply_url": "https://joinus.comic.naver.com/contest/author",
+      "poster_url": "https://naverwebtoon-phinf.pstatic.net/20260128_48/1769574662063ID9rE_PNG/upload_15388969969223295173.PNG"
+    },
+    {
+      "title": "2026 네이버웹툰 연재직행열차 4기 — 병맛 코미디 웹툰 투고",
+      "organizer": "네이버웹툰",
+      "categories": ["웹툰"],
+      "subcategories": [],
+      "start_date": "2026-12-14",
+      "end_date": "2026-12-18",
+      "targets": ["high", "univ", "grad", "general"],
+      "target_text": "만 15세 이상, 신인·경력 작가 누구나",
+      "prize_text": "선정 시 네이버웹툰 정식 연재 (결과 발표 12.28, 발표 후 6개월 내 연재 오픈 목표)",
+      "summary": "제안부터 연재 확정까지 2주. 뇌 빼고 봐야 하는 예측불허 병맛 코미디 웹툰 모집. 제출: 1화 원고(JPG, 가로 690px) + 2~3화 콘티 + 자유 형식 시놉시스. 접수 시작일 0시 ~ 마감일 23시 59분 59초.",
+      "official_url": "https://comic.naver.com/notice/detail?noticeId=2025",
+      "apply_url": "https://joinus.comic.naver.com/contest/author",
+      "poster_url": "https://naverwebtoon-phinf.pstatic.net/20260128_48/1769574662063ID9rE_PNG/upload_15388969969223295173.PNG"
+    }
+  ]
+}

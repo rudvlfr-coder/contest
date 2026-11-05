@@ -252,7 +252,7 @@
   // ---------------------------------------------------------------- PC: 오른쪽 상세 영역 (5:5 분할)
   var WIDE = window.matchMedia("(min-width: 1024px)");
   var selectedId = "";
-  var SOURCE_NAMES = { notion: "기존 노션 목록", wevity: "위비티", contestkorea: "콘테스트코리아", mgood: "엠굿", itchio: "itch.io", sheet: "직접등록" };
+  var SOURCE_NAMES = { notion: "기존 노션 목록", wevity: "위비티", contestkorea: "콘테스트코리아", mgood: "엠굿", itchio: "itch.io", sheet: "직접등록", manual: "직접등록" };
   function fullDate(s) { var d = parseDay(s); return d ? d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + "(" + WEEK[d.getDay()] + ")" : "미정"; }
   function safeHref(u) { return /^https?:\/\//i.test(u || "") ? esc(u) : ""; }
 
