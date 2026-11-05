@@ -6231,6 +6231,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-c148bd",
+  "title": "Folklore Jam 2026",
+  "official_url": "https://itch.io/jam/folklorejam26",
+  "apply_url": null,
+  "organizer": "W.H. Arthur, unseeliejess, Lucky Newt Games, Lari Assmuth",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-09",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzI5OTEyOTExLmpwZw==/140x111%23/e43Sp9.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/folklorejam26"
+   }
+  ],
+  "created_at": "2026-11-06T08:31",
+  "updated_at": "2026-11-06T08:31"
+ },
+ {
   "id": "2026-1f3990",
   "title": "2026 부천시 웹툰융합 공모전",
   "official_url": "https://www.bc.ac.kr/bcu/pr/notice01.do?mode=view&articleNo=247251&article.offset=0&articleLimit=10",
@@ -9622,6 +9659,42 @@
   ],
   "created_at": "2026-10-25T16:31",
   "updated_at": "2026-10-25T16:31"
+ },
+ {
+  "id": "2026-199ca4",
+  "title": "제11회 디멘시아문학상 공모전",
+  "official_url": "https://www.dementianews.co.kr/news/articleView.html?idxno=11252",
+  "apply_url": null,
+  "organizer": "디멘시아북스",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-02",
+  "end_date": "2027-04-30",
+  "prize_text": "1등 150만원 / 총상금 1천만원이하",
+  "prize_max_krw": 1500000,
+  "target_text": "제한없음, : 제한 없음 ■ 응모 기간: 2026년 11월 2일(월) ~ 2027년 4월 30일(금) ■ 모집 부문 및 작품 분량 (1) 소설 - 200자 원고지 500매 이상 - A4 기준 약 60페이지 안팎 - A4 1페이지 분량 작품 개요 첨부 (기획 의도, 주요 등장인물 소개, 결말을 포함",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261105203754_a34f667a.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112089"
+   }
+  ],
+  "created_at": "2026-11-06T08:30",
+  "updated_at": "2026-11-06T08:30"
  },
  {
   "id": "2026-6a56e2",
