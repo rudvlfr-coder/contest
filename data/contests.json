@@ -6837,6 +6837,43 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-9f4ae2",
+  "title": "Pizza Jam (✨Pizza Prize!✨)",
+  "official_url": "https://itch.io/jam/pizza-jam-pizza-prize-17",
+  "apply_url": null,
+  "organizer": "ComputerJames",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-16",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzMwNTk0OTc5LnBuZw==/140x111%23/BeoaHb.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/pizza-jam-pizza-prize-17"
+   }
+  ],
+  "created_at": "2026-11-07T08:26",
+  "updated_at": "2026-11-07T08:26"
+ },
+ {
   "id": "2026-b7f770",
   "title": "LÖVE Jam 2026 [B-SIDE]",
   "official_url": "https://itch.io/jam/lve-jam-2026-b-side",

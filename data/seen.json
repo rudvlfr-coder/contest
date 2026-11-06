@@ -2602,5 +2602,9 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610300027": {
   "relevant": false,
   "title": "2026년 굿에어스쿨 공모전"
+ },
+ "https://itch.io/jam/pizza-jam-pizza-prize-17": {
+  "relevant": true,
+  "id": "2026-9f4ae2"
  }
 }
