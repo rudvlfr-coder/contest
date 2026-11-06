@@ -6651,6 +6651,45 @@
   "updated_at": "2026-08-20T12:14"
  },
  {
+  "id": "2026-42a179",
+  "title": "생성형 AI를 활용한 평택시청소년재단 캐릭터(마스코트) 공모전",
+  "official_url": "https://www.pyf.or.kr/web/lay1/bbs/S1T236C44/H/10/view.do?article_seq=3913&cpage=1&rows=10&condition=TITLE&keyword=ai&site_id=",
+  "apply_url": null,
+  "organizer": "평택시",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화",
+   "AI"
+  ],
+  "start_date": "2026-11-06",
+  "end_date": "2026-11-15",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": "대학생, 청소년, 기타,  평택시에 거주하거나 평택시 소재 학교에 재학 중인 9~24세 청소년 개인 참가(1인 1작품) ■ 모집 기간 접수: 2026. 11. 6.(금) ~ 11. 15.(일) 심사: 2026. 11. 16.(월) ~ 11. 29.(일) 결과 발표: 2026. 12. 1.(화) 예정 ※ 일정은 ",
+  "targets": [
+   "middle",
+   "high",
+   "univ"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261106164003_fe49297b.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112204"
+   }
+  ],
+  "created_at": "2026-11-06T18:49",
+  "updated_at": "2026-11-06T18:49"
+ },
+ {
   "id": "2026-7c79c6",
   "title": "2026 4TH 메타툰 여성향 성인 단편 노블코믹스 작화 모집 공모전",
   "official_url": "https://www.metatoon.co.kr/fair",
@@ -6996,7 +7035,7 @@
   "id": "2026-3080ed",
   "title": "Tree Eco 파충류 캐릭터 디자인 공모전",
   "official_url": "https://tree-submit.haejo.ai/",
-  "apply_url": null,
+  "apply_url": "https://tree-submit.haejo.ai",
   "organizer": "트리에코",
   "categories": [
    "게임"
@@ -7012,7 +7051,12 @@
   "prize_max_krw": 1000000,
   "target_text": "제한없음",
   "targets": [
-   "general"
+   "general",
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -7025,10 +7069,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112177"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611050005"
    }
   ],
   "created_at": "2026-11-05T18:46",
-  "updated_at": "2026-11-05T18:46"
+  "updated_at": "2026-11-06T18:50"
  },
  {
   "id": "2026-527bdb",
@@ -7420,6 +7468,43 @@
   ],
   "created_at": "2026-10-30T08:23",
   "updated_at": "2026-11-02T08:21"
+ },
+ {
+  "id": "2026-7b9471",
+  "title": "제1회 AI 숏드라마 시나리오 공모전",
+  "official_url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112212",
+  "apply_url": null,
+  "organizer": "다음",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-11-05",
+  "end_date": "2026-11-26",
+  "prize_text": "총상금 3천만원~1천만원",
+  "prize_max_krw": 30000000,
+  "target_text": "일반인, 대학생, : 회당 2분 내외 분량의 15부작 숏드라마 시나리오 (총 30분 내외) - 공모 장르: SF / 판타지 / 하이틴 / 로맨스 / 코미디 / 액션 등 장르 자유 ※ 선정성·폭력성 등 서비스 제공에 적절하지 않은 경우 선정에서 제외될 수 있음 ■ 지원 자격 - 숏드라마 제작에 관심 있는 ",
+  "targets": [
+   "univ",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261106174156_cebbf45b.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112212"
+   }
+  ],
+  "created_at": "2026-11-06T18:49",
+  "updated_at": "2026-11-06T18:49"
  },
  {
   "id": "2026-44d2bb",
@@ -8925,6 +9010,47 @@
   ],
   "created_at": "2026-10-25T16:33",
   "updated_at": "2026-10-25T16:33"
+ },
+ {
+  "id": "2026-5af942",
+  "title": "2026 제4회 전남광주 북구청장배 전국 아마추어 e스포츠 대회",
+  "official_url": "http://www.readyon.kr/tournament/697c0d48-c26c-4506-a478-37039e0ca495?tab=notices",
+  "apply_url": null,
+  "organizer": "전남광주통합특별시북구",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "대회"
+  ],
+  "start_date": "2026-10-19",
+  "end_date": "2026-12-27",
+  "prize_text": "상금(총상금 : 1,000만원 / 1위 : 200만원)",
+  "prize_max_krw": 10000000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/category_01_학습문예_콘테스트코리아 - 대한민국 누구나 함께하는 대회정보 포털[3].jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611020032"
+   }
+  ],
+  "created_at": "2026-11-06T18:50",
+  "updated_at": "2026-11-06T18:50"
  },
  {
   "id": "2026-0f5f18",

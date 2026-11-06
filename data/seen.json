@@ -2566,5 +2566,41 @@
  "https://itch.io/jam/folklorejam26": {
   "relevant": true,
   "id": "2026-c148bd"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112204": {
+  "relevant": true,
+  "id": "2026-42a179"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112212": {
+  "relevant": true,
+  "id": "2026-7b9471"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112201": {
+  "relevant": false,
+  "title": "2026 세명 대학언론상 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611020041": {
+  "relevant": false,
+  "title": "2026년 인권존중사례 수기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611050005": {
+  "relevant": true,
+  "id": "2026-3080ed"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611050026": {
+  "relevant": false,
+  "title": "(재)양산문화재단 CI 재공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611020032": {
+  "relevant": true,
+  "id": "2026-5af942"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611060004": {
+  "relevant": false,
+  "title": "LG 어나더 아이디어 챌린지"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610300027": {
+  "relevant": false,
+  "title": "2026년 굿에어스쿨 공모전"
  }
 }
