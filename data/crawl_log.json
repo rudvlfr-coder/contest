@@ -1474,5 +1474,57 @@
   "errors": [],
   "posters": 0,
   "finished_at": "2026-11-07T08:26:12"
+ },
+ {
+  "site": "wevity",
+  "started_at": "2026-11-07T18:33:27",
+  "listed": 74,
+  "already_seen": 74,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-07T18:34:03"
+ },
+ {
+  "site": "contestkorea",
+  "started_at": "2026-11-07T18:34:03",
+  "listed": 193,
+  "already_seen": 193,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-07T18:34:34"
+ },
+ {
+  "site": "mgood",
+  "started_at": "2026-11-07T18:34:34",
+  "listed": 4,
+  "already_seen": 4,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-07T18:34:46"
+ },
+ {
+  "site": "itchio",
+  "started_at": "2026-11-07T18:34:46",
+  "listed": 33,
+  "already_seen": 33,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-07T18:34:58"
  }
 ]
