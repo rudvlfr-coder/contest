@@ -2606,5 +2606,29 @@
  "https://itch.io/jam/pizza-jam-pizza-prize-17": {
   "relevant": true,
   "id": "2026-9f4ae2"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610190063": {
+  "relevant": false,
+  "title": "2026 연세노벨위크 제2회 연세국제창작공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610020033": {
+  "relevant": false,
+  "title": "제36회 시장경제칼럼 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610210033": {
+  "relevant": false,
+  "title": "2027 영천예술창작스튜디오 19기 입주작가 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202610300011": {
+  "relevant": false,
+  "title": "국가무형유산 상설공연 창작 콘텐츠 개발을 위한 대국민 아이디어 발굴대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202609020095": {
+  "relevant": false,
+  "title": "제2회 양평군 건축문화상"
+ },
+ "https://itch.io/jam/tf26": {
+  "relevant": true,
+  "id": "2026-de4ea9"
  }
 }

@@ -8017,6 +8017,43 @@
   "updated_at": "2026-10-25T16:29"
  },
  {
+  "id": "2026-de4ea9",
+  "title": "Transformation Game Jam 2026",
+  "official_url": "https://itch.io/jam/tf26",
+  "apply_url": null,
+  "organizer": "MutaSheep, Malic",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-30",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "https://img.itch.zone/aW1nLzI5OTUyMzA4LnBuZw==/140x111%23/h8BB3o.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/tf26"
+   }
+  ],
+  "created_at": "2026-11-09T08:22",
+  "updated_at": "2026-11-09T08:22"
+ },
+ {
   "id": "2026-e13257",
   "title": "서울미래인재재단 대표 캐릭터 공모전 (서울의 미래, 새로운 얼굴)",
   "official_url": "https://www.seoulfuture.or.kr/home/kor/M648075107/scholarship/grow/view.do?idx=cb00d1a0008a85e71a41b8741facbffe53ce63e0a207da7b09c15b6e6df967b3&act=&eSearchValue1=&searchValue2=&searchValue4=&searchKeyword=&pageIndex=1",
