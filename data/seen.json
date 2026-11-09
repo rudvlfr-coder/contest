@@ -2686,5 +2686,33 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031810001&str_no=202611090020": {
   "relevant": false,
   "title": "미래 건설교통신기술인 장학사업 안내"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112182": {
+  "relevant": false,
+  "title": "제25회 전국여성환경백일장"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112178": {
+  "relevant": true,
+  "id": "2026-3206ea"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112176": {
+  "relevant": true,
+  "id": "2026-5a4ad0"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112175": {
+  "relevant": true,
+  "id": "2026-4b7cac"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112174": {
+  "relevant": true,
+  "id": "2026-75a517"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112172": {
+  "relevant": true,
+  "id": "2026-383c31"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112170": {
+  "relevant": true,
+  "id": "2026-039e61"
  }
 }

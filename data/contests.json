@@ -7580,6 +7580,42 @@
   "updated_at": "2026-10-25T16:31"
  },
  {
+  "id": "2026-4b7cac",
+  "title": "2027 동아신춘문예",
+  "official_url": "https://sinchoon.donga.com/",
+  "apply_url": null,
+  "organizer": "동아일보사",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-06",
+  "end_date": "2026-11-27",
+  "prize_text": "1등 3,000만원 / 총상금 5천만원이상",
+  "prize_max_krw": 30000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109230655_88001923.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112175"
+   }
+  ],
+  "created_at": "2026-11-10T08:26",
+  "updated_at": "2026-11-10T08:26"
+ },
+ {
   "id": "2026-76817c",
   "title": "2027 불교신문 신춘문예 공모",
   "official_url": "http://www.ibulgyo.com/news/articleView.html?idxno=443178",
@@ -8460,6 +8496,44 @@
   "updated_at": "2026-10-25T16:33"
  },
  {
+  "id": "2026-383c31",
+  "title": "2027년 문화일보 신춘문예",
+  "official_url": "https://www.munhwa.com/article/11629368",
+  "apply_url": null,
+  "organizer": "문화일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-11-06",
+  "end_date": "2026-12-02",
+  "prize_text": "1등 300만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 3000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109224157_230e860f.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112172"
+   }
+  ],
+  "created_at": "2026-11-10T08:26",
+  "updated_at": "2026-11-10T08:26"
+ },
+ {
   "id": "2026-5a4ad0",
   "title": "2027 한국일보 신춘문예 공모",
   "official_url": "https://www.hankookilbo.com/news/article/A2026103019130005068",
@@ -8490,10 +8564,50 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112052"
+   },
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112176"
    }
   ],
   "created_at": "2026-11-03T08:26",
-  "updated_at": "2026-11-03T08:26"
+  "updated_at": "2026-11-10T08:26"
+ },
+ {
+  "id": "2026-75a517",
+  "title": "2027년 조선일보 신춘문예",
+  "official_url": "https://www.chosun.com/special/announcement/2026/11/06/3ZJE7OBAXFEEDFJAQNLC43HHYA/",
+  "apply_url": null,
+  "organizer": "조선일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-06",
+  "end_date": "2026-12-02",
+  "prize_text": "1등 700만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 7000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109225832_ba686aa7.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112174"
+   }
+  ],
+  "created_at": "2026-11-10T08:26",
+  "updated_at": "2026-11-10T08:26"
  },
  {
   "id": "2026-827efe",
@@ -8636,6 +8750,80 @@
   ],
   "created_at": "2026-10-27T11:29",
   "updated_at": "2026-10-27T11:29"
+ },
+ {
+  "id": "2026-039e61",
+  "title": "2027 전북일보 신춘문예 공모",
+  "official_url": "https://www.jjan.kr/boardDetail?seq=50982",
+  "apply_url": null,
+  "organizer": "전북일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-11-04",
+  "end_date": "2026-12-04",
+  "prize_text": "1등 300만원 / 총상금 1천만원이하",
+  "prize_max_krw": 3000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109223241_b6a163de.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112170"
+   }
+  ],
+  "created_at": "2026-11-10T08:26",
+  "updated_at": "2026-11-10T08:26"
+ },
+ {
+  "id": "2026-3206ea",
+  "title": "2027년 경향신문 신춘문예",
+  "official_url": "https://www.khan.co.kr/article/202611060600061",
+  "apply_url": null,
+  "organizer": "경향신문",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-06",
+  "end_date": "2026-12-04",
+  "prize_text": "1등 500만원 / 총상금 3천만원~1천만원",
+  "prize_max_krw": 5000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261110002529_70c03543.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112178"
+   }
+  ],
+  "created_at": "2026-11-10T08:26",
+  "updated_at": "2026-11-10T08:26"
  },
  {
   "id": "2026-4c6fc2",
