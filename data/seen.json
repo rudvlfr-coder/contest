@@ -2630,5 +2630,61 @@
  "https://itch.io/jam/tf26": {
   "relevant": true,
   "id": "2026-de4ea9"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112262": {
+  "relevant": true,
+  "id": "2026-7a59d9"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112246": {
+  "relevant": true,
+  "id": "2026-768608"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112240": {
+  "relevant": true,
+  "id": "2026-725b93"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611090008": {
+  "relevant": false,
+  "title": "2026년 제6회 진료정보교류 사업 우수사례 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611080001": {
+  "relevant": false,
+  "title": "제 20회 백석 글판 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611040062": {
+  "relevant": false,
+  "title": "제1회 동물사랑 디카시 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611060028": {
+  "relevant": false,
+  "title": "2026 세명 대학언론상"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611090003": {
+  "relevant": true,
+  "id": "2026-768608"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611070021": {
+  "relevant": false,
+  "title": "Korea Local Marketing Hackathon 2026"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611020027": {
+  "relevant": false,
+  "title": "2026년 경상북도 도민 대상 규제개선 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611050035": {
+  "relevant": false,
+  "title": "2026 청년의 시간(성남 청년 참여 예산제) 참가팀 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611020014": {
+  "relevant": false,
+  "title": "제1회 하나증권 청년 금융 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611020029": {
+  "relevant": false,
+  "title": "2026년 공공데이터 활용 경진대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031810001&str_no=202611090020": {
+  "relevant": false,
+  "title": "미래 건설교통신기술인 장학사업 안내"
  }
 }

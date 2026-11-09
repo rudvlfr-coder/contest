@@ -7893,6 +7893,52 @@
   "updated_at": "2026-10-27T11:29"
  },
  {
+  "id": "2026-768608",
+  "title": "제57회 대원 수퍼만화 대상",
+  "official_url": "https://www.dwci.co.kr/front/event/noticeView?iIdx=118",
+  "apply_url": null,
+  "organizer": "대원씨아이(주)",
+  "categories": [
+   "웹툰"
+  ],
+  "subcategories": [
+   "원화",
+   "기획"
+  ],
+  "start_date": "2026-11-09",
+  "end_date": "2026-11-30",
+  "prize_text": "1등 1,000만원 / 총상금 1천만원이하",
+  "prize_max_krw": 10000000,
+  "target_text": "제한없음,  - 다른 공모전의 시상 내역이 없는 순수 창작물 (타 공모전 수상 여부 확인 시 수상이 취소될 수 있습니다) ■ 모집 기간 - 2026.11.09(월) ~ 2026.11.30(월) ■ 접수 및 문의처 - 접수처 : 웹툰 con1@dwci.co.kr 웹소설 dw_19plus@dwci.c",
+  "targets": [
+   "general",
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109160620_b2944c7f.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112246"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611090003"
+   }
+  ],
+  "created_at": "2026-11-09T18:47",
+  "updated_at": "2026-11-09T18:48"
+ },
+ {
   "id": "2026-8cb671",
   "title": "제 2회 창비교육 동화 공모전 이야기친구상",
   "official_url": "https://books.changbiedu.com/Home/NewsDetail?newsid=270",
@@ -9459,6 +9505,42 @@
   "updated_at": "2026-10-25T16:32"
  },
  {
+  "id": "2026-725b93",
+  "title": "제1회 ALONA 웹소설 공모전",
+  "official_url": "https://wealona.com/#/contest",
+  "apply_url": null,
+  "organizer": "알로나",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-16",
+  "end_date": "2027-01-10",
+  "prize_text": "1등 50만원 / 총상금 1천만원이하",
+  "prize_max_krw": 500000,
+  "target_text": "일반인, 대학생,  만 19세 이상 응모일 기준 ALONA 회원 중 휴대폰 본인인증을 마친 분 한 사람 한 계정 응모 작품 수와 수상 작품 수에는 제한이 없습니다 (작품마다 따로 응모) 공동 창작 작품은 받지 않습니다 ■ 일정 - 접수: 2026년 11월 16일월 0시부터 2027년 1월 10일 일요일 ",
+  "targets": [
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109093116_952e8b24.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112240"
+   }
+  ],
+  "created_at": "2026-11-09T18:48",
+  "updated_at": "2026-11-09T18:48"
+ },
+ {
   "id": "2027-f1ad13",
   "title": "2027 오펜 공모전 (스토리텔러)",
   "official_url": "https://open.cjenm.com/ko/applyinfo/story/",
@@ -9491,6 +9573,48 @@
   ],
   "created_at": "2026-10-25T16:31",
   "updated_at": "2026-10-25T16:31"
+ },
+ {
+  "id": "2026-7a59d9",
+  "title": "폰트 출시 기념 ㅂㅇㅅㅁ 디자인 공모전",
+  "official_url": "https://www.oklasik.com/font/",
+  "apply_url": null,
+  "organizer": "밝은성모안과의원",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-11-09",
+  "end_date": "2027-01-22",
+  "prize_text": "1등 300만원 / 총상금 1천만원이하",
+  "prize_max_krw": 3000000,
+  "target_text": "대학생, 청소년,  - 만 15세 이상 누구나 (2010년생 및 이전 출생자) - 개인 또는 팀(최대 3인)으로 참여 가능 - 1인(팀)당 부문 구분 없이 최대 3점까지 출품 가능 ■ 공모 일정 - 접수 : 2026년 11월 09일(월) ~ 2027년 01월 22일(금) - 심사 : 2027년 01월 2",
+  "targets": [
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261109181003_00584828.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112262"
+   }
+  ],
+  "created_at": "2026-11-09T18:47",
+  "updated_at": "2026-11-09T18:47"
  },
  {
   "id": "2027-e6bc50",
