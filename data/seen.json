@@ -2738,5 +2738,25 @@
  "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4459": {
   "relevant": false,
   "title": "2026년 어린이조선일보 글로벌 미술대회 & 루브르 박물관 전시대회"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111880": {
+  "relevant": false,
+  "title": "제5회 한국여성작가 회화공모전 & K-WOMEN IN PARIS"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111838": {
+  "relevant": false,
+  "title": "제1회 중앙일보 어린이 미술대회"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112226": {
+  "relevant": true,
+  "id": "2026-2da30f"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112222": {
+  "relevant": true,
+  "id": "2026-f5262b"
+ },
+ "https://itch.io/jam/godot-wild-jam-100": {
+  "relevant": true,
+  "id": "2026-181136"
  }
 }
