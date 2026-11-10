@@ -6511,18 +6511,21 @@
   "categories": [
    "웹툰"
   ],
-  "subcategories": [],
+  "subcategories": [
+   "기획"
+  ],
   "start_date": "2026-10-13",
   "end_date": "2026-11-13",
   "prize_text": "총상금 다양한 혜택",
-  "prize_max_krw": null,
+  "prize_max_krw": 50000,
   "target_text": ": 서울지역 어린이·청소년(만9세~24세) ※ 개인 응모, 1인 1작품 ■ 공모주제: 내 일상에서 발견한 변화가 필요한 한 가지 - 학교, 동네, 대중교통, 청소년시설, 온라인 공간 등 일상에서 바뀌었으면 하는 점이나 더 나아졌으면 하는 점을 찾아 개선 아이디어를 인스타툰으로 표현 ■ ",
   "targets": [
    "elementary",
    "middle",
    "high",
    "univ",
-   "grad"
+   "grad",
+   "general"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -6535,10 +6538,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111579"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611090052"
    }
   ],
   "created_at": "2026-10-25T16:29",
-  "updated_at": "2026-10-25T16:29"
+  "updated_at": "2026-11-10T18:44"
  },
  {
   "id": "2026-4e3b04",

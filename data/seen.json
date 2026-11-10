@@ -2714,5 +2714,29 @@
  "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112170": {
   "relevant": true,
   "id": "2026-039e61"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611030033": {
+  "relevant": false,
+  "title": "G구로수호대 기후행동 실천수기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611030034": {
+  "relevant": false,
+  "title": "필전 2026 조선 백일장"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611090052": {
+  "relevant": true,
+  "id": "2026-df7875"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611090047": {
+  "relevant": false,
+  "title": "폰트 출시 기념 ㅂㅇㅅㅁ 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611030022": {
+  "relevant": false,
+  "title": "2026 PAC 공모전"
+ },
+ "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4459": {
+  "relevant": false,
+  "title": "2026년 어린이조선일보 글로벌 미술대회 & 루브르 박물관 전시대회"
  }
 }
