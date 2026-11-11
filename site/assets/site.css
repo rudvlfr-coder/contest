@@ -1267,6 +1267,50 @@ table.review input {
   }
 }
 
+/* 관리자: 공모전 직접 등록 */
+.manual-form {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.manual-form label {
+  display: grid;
+  gap: 4px;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.manual-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.manual-field {
+  display: grid;
+  gap: 4px;
+}
+
+.manual-field > span {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.manual-field .chips {
+  flex-wrap: wrap;
+  margin-top: 0;
+  overflow: visible;
+}
+
+.manual-actions {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 0;
+}
+
 /* 분야 아이콘 배지 (목록 카드 왼쪽) */
 .card.has-badge {
   display: grid;

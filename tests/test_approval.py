@@ -83,9 +83,43 @@ def test_manual_contests_file(tmp_path):
     assert c.id in public and not pending  # 직접 등록은 승인 없이 공개
 
 
+def test_admin_manual_list_and_autofill(tmp_path, monkeypatch):
+    dec = tmp_path / "decisions.json"
+    dec.write_text('{"_manual": ['
+                   '{"key": "m1", "url": "https://example.com/a", "title": "", "end_date": "2099-12-01",'
+                   ' "categories": ["게임"], "targets": ["high"]},'
+                   '{"key": "m2", "url": "https://example.com/b", "title": "직접 쓴 제목", "end_date": "2099-12-02",'
+                   ' "categories": ["웹툰"], "poster_url": "https://example.com/p.png"},'
+                   '{"key": "m3", "url": "https://example.com/c", "title": "", "end_date": "2099-12-03", "categories": ["웹툰"]},'
+                   '{"key": "m4", "url": "https://example.com/d", "title": "마감일 없음", "categories": ["웹툰"]}]}',
+                   encoding="utf-8")
+    file = tmp_path / "manual.json"
+    file.write_text('{"contests": [{"title": "예전 파일 공모전", "end_date": "2099-01-01"}]}', encoding="utf-8")
+
+    calls = []
+
+    def fake_fetch(url):
+        calls.append(url)
+        if url.endswith("/c"):
+            raise RuntimeError("접속 실패")
+        return {"title": "링크에서 가져온 제목", "image": "https://example.com/og.png", "description": "링크 설명"}
+
+    monkeypatch.setattr(overrides, "fetch_meta", fake_fetch)
+    data = overrides.SheetData()
+    info = overrides.load_manual(data, path=file, decisions_path=dec, fetch=True)
+
+    titles = {c.title for c in data.additions}
+    assert titles == {"링크에서 가져온 제목", "직접 쓴 제목"}  # 관리자 목록이 있으면 예전 파일은 무시
+    auto = [c for c in data.additions if c.title == "링크에서 가져온 제목"][0]
+    assert auto.poster_url == "https://example.com/og.png" and auto.summary == "링크 설명"
+    assert info["m1"]["auto"] and calls.count("https://example.com/b") == 0  # 제목·포스터가 다 있으면 링크를 열지 않음
+    assert info["m3"]["error"] and info["m4"]["error"] == "마감일 없음"
+    assert any("제목이 없고" in w for w in data.warnings)
+
+
 def test_real_manual_file_is_valid():
     data = overrides.SheetData()
-    overrides.load_manual(data)
+    overrides.load_manual(data, fetch=False)
     assert not data.warnings
     assert all(c.end_date and c.categories for c in data.additions)
 

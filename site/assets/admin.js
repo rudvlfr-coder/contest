@@ -134,6 +134,113 @@
   $("qr-close").addEventListener("click", function () { $("qr-modal").hidden = true; });
   $("qr-modal").addEventListener("click", function (e) { if (e.target === this) this.hidden = true; });
 
+  // ---------------------------------------------------------------- 공모전 직접 등록 (decisions.json의 "_manual")
+  var MANUAL_KEY = "contesthub_manual_draft";
+  var manualDraft = load(MANUAL_KEY, null);
+  var manualDirty = !!manualDraft;
+  if (!manualDraft) manualDraft = JSON.parse(JSON.stringify(cfg.manual || []));
+  var manualInfo = cfg.manualInfo || {};
+  var editingKey = "";
+  var picked = { cats: [], subs: [], targets: [] };
+
+  function chipGroup(id, values, labels, group) {
+    $(id).innerHTML = values.map(function (v) {
+      return '<button class="chip" type="button" aria-pressed="false" data-group="' + group + '" data-val="' + esc(v) + '">' + esc(labels ? labels[v] : v) + "</button>";
+    }).join("");
+  }
+  chipGroup("m-cats", cfg.categories || [], null, "cats");
+  chipGroup("m-subs", cfg.subcategories || [], null, "subs");
+  chipGroup("m-targets", Object.keys(cfg.targets || {}), cfg.targets || {}, "targets");
+  function renderChips() {
+    document.querySelectorAll("#manual-box [data-group]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(picked[b.getAttribute("data-group")].indexOf(b.getAttribute("data-val")) >= 0));
+    });
+  }
+  document.getElementById("manual-box").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-group]");
+    if (!b) return;
+    var list = picked[b.getAttribute("data-group")], v = b.getAttribute("data-val"), i = list.indexOf(v);
+    if (i >= 0) list.splice(i, 1); else list.push(v);
+    renderChips();
+  });
+
+  function host(u) { try { return new URL(u).host; } catch (e) { return u || ""; } }
+  function renderManual() {
+    var today = new Date().toISOString().slice(0, 10);
+    var rows = manualDraft.slice().sort(function (a, b) { return (b.end_date || "") < (a.end_date || "") ? -1 : 1; });
+    $("manual-rows").innerHTML = rows.map(function (m) {
+      var info = manualInfo[m.key] || {};
+      var title = m.title || info.title;
+      var label = title ? esc(title) : '<span class="note">제목은 반영 후 링크에서 자동으로 채워집니다</span>';
+      var notes = [];
+      if (!m.title && info.title) notes.push("제목 자동");
+      if (info.error) notes.push('<span class="tag review">' + esc(info.error) + "</span>");
+      if ((m.end_date || "") < today) notes.push("마감");
+      return '<tr data-key="' + esc(m.key) + '"' + (m.key === editingKey ? ' class="queued"' : "") + "><td>" + label +
+        '<div class="note">' + esc(host(m.url || m.official_url)) + (notes.length ? " · " + notes.join(" · ") : "") + "</div></td>" +
+        "<td>" + esc((m.start_date || "") + " ~ " + (m.end_date || "")) + "</td>" +
+        "<td>" + esc((m.categories || []).join(", ")) + "</td>" +
+        '<td class="acts"><button class="btn small" type="button" data-manual="edit">수정</button>' +
+        '<button class="btn small" type="button" data-manual="del">삭제</button></td></tr>';
+    }).join("") || '<tr><td colspan="4">직접 등록한 공모전이 없습니다.</td></tr>';
+  }
+  function fillForm(m) {
+    $("m-url").value = m.url || m.official_url || "";
+    $("m-title").value = m.title || "";
+    $("m-start").value = m.start_date || "";
+    $("m-end").value = m.end_date || "";
+    $("m-prize").value = m.prize_text || "";
+    $("m-summary").value = m.summary || "";
+    $("m-apply").value = m.apply_url || "";
+    picked = { cats: (m.categories || []).slice(), subs: (m.subcategories || []).slice(), targets: (m.targets || []).slice() };
+    renderChips();
+  }
+  function resetForm() {
+    editingKey = ""; fillForm({});
+    $("m-add").textContent = "목록에 추가"; $("m-cancel").hidden = true;
+    renderManual();
+  }
+  function markManual() { manualDirty = true; store(MANUAL_KEY, manualDraft); renderManual(); renderQueue(); }
+
+  $("m-add").addEventListener("click", function () {
+    var url = $("m-url").value.trim(), end = $("m-end").value, start = $("m-start").value;
+    if (!/^https?:\/\/\S+$/i.test(url)) { toast("공고 링크를 https://로 시작하는 주소로 넣어 주세요"); $("m-url").focus(); return; }
+    if (!end) { toast("마감일을 넣어 주세요"); $("m-end").focus(); return; }
+    if (start && start > end) { toast("접수 시작이 마감일보다 늦어요"); return; }
+    if (!picked.cats.length) { toast("구분(웹툰·웹소설·게임·대학)을 하나 이상 골라 주세요"); return; }
+    var old = editingKey ? manualDraft.filter(function (m) { return m.key === editingKey; })[0] : null;
+    var entry = Object.assign({}, old || {}, {
+      key: editingKey || "m" + Date.now().toString(36),
+      url: url, title: $("m-title").value.trim(), start_date: start, end_date: end,
+      categories: picked.cats.slice(), subcategories: picked.subs.slice(), targets: picked.targets.slice(),
+      prize_text: $("m-prize").value.trim(), summary: $("m-summary").value.trim(), apply_url: $("m-apply").value.trim()
+    });
+    delete entry.official_url;  // 예전 파일 형식의 이름을 url로 통일
+    if (old) manualDraft[manualDraft.indexOf(old)] = entry; else manualDraft.push(entry);
+    toast(old ? "수정했어요. 아래 반영하기를 눌러 주세요" : "목록에 추가했어요. 아래 반영하기를 눌러 주세요");
+    resetForm(); markManual();
+  });
+  $("m-cancel").addEventListener("click", resetForm);
+  $("manual-rows").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-manual]");
+    if (!b) return;
+    var key = b.closest("tr").getAttribute("data-key");
+    var m = manualDraft.filter(function (x) { return x.key === key; })[0];
+    if (!m) return;
+    if (b.getAttribute("data-manual") === "del") {
+      if (confirm("'" + (m.title || (manualInfo[key] || {}).title || host(m.url)) + "'을(를) 삭제할까요? 사이트에서도 내려갑니다.")) {
+        manualDraft.splice(manualDraft.indexOf(m), 1);
+        if (editingKey === key) resetForm();
+        markManual();
+      }
+      return;
+    }
+    editingKey = key; fillForm(m);
+    $("m-add").textContent = "수정 완료"; $("m-cancel").hidden = false;
+    renderManual();
+    $("manual-box").scrollIntoView({ behavior: "smooth" });
+  });
+
   // ---------------------------------------------------------------- 대기열
   var queue = load(QUEUE_KEY, {});
   function renderQueue() {
@@ -145,10 +252,11 @@
       if (act && !tag) { tag = document.createElement("span"); tag.className = "tag review queued-tag"; tr.querySelector(".acts").prepend(tag); }
       if (tag) { if (act) tag.textContent = LABELS[act] + " 예정"; else tag.remove(); }
     });
-    $("savebar").hidden = ids.length === 0 && !staffDirty;
+    $("savebar").hidden = ids.length === 0 && !staffDirty && !manualDirty;
     var parts = [];
     if (ids.length) parts.push(ids.length + "건 반영 대기");
     if (staffDirty) parts.push("직원 정보 변경");
+    if (manualDirty) parts.push("직접 등록 변경");
     $("save-count").textContent = parts.join(" · ");
   }
   document.addEventListener("click", function (e) {
@@ -161,6 +269,11 @@
   });
   $("save-cancel").addEventListener("click", function () {
     queue = {}; store(QUEUE_KEY, queue);
+    if (manualDirty) {
+      manualDirty = false; store(MANUAL_KEY, null);
+      manualDraft = JSON.parse(JSON.stringify(cfg.manual || []));
+      resetForm();
+    }
     if (staffDirty) {
       staffDirty = false; store(STAFF_KEY, null);
       staffDraft = JSON.parse(JSON.stringify(cfg.staff || {}));
@@ -197,9 +310,11 @@
         else decisions[id] = { action: queue[id], at: now };
       });
       if (staffDirty) decisions._staff = cleanedStaff();
+      // 예전 파일(config/manual_contests.json)의 등록분은 첫 저장 때 함께 옮겨 담는다
+      if (manualDirty || cfg.manualOrigin === "file") decisions._manual = manualDraft;
       var n = Object.keys(queue).length;
       return api("PUT", {
-        message: "관리자 결정 " + n + "건" + (staffDirty ? " · 직원 정보" : ""),
+        message: "관리자 결정 " + n + "건" + (staffDirty ? " · 직원 정보" : "") + (manualDirty ? " · 직접 등록" : ""),
         content: encode(JSON.stringify(decisions, null, 1) + "\n"),
         sha: file ? file.sha : undefined,
         branch: cfg.branch
@@ -220,6 +335,10 @@
     save(false).then(function () {
       queue = {}; store(QUEUE_KEY, queue);
       if (staffDirty) { cfg.staff = cleanedStaff(); staffDirty = false; store(STAFF_KEY, null); }
+      if (manualDirty || cfg.manualOrigin === "file") {
+        cfg.manual = JSON.parse(JSON.stringify(manualDraft)); cfg.manualOrigin = "admin";
+        manualDirty = false; store(MANUAL_KEY, null);
+      }
       renderQueue();
       toast("저장했어요. 1~2분 뒤 사이트와 이 페이지에 반영됩니다");
     }, function (e) {
@@ -229,5 +348,6 @@
 
   renderToken();
   renderStaff();
+  renderManual();
   renderQueue();
 })();

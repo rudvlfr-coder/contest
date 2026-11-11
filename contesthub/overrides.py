@@ -9,7 +9,9 @@ import csv
 import io
 import json
 import logging
+import re
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 
 import httpx
@@ -32,6 +34,7 @@ class SheetData:
     sites: dict[str, bool] = field(default_factory=dict)
     approvals: dict[str, str] = field(default_factory=dict)  # 공모전ID → '승인' / '거절'
     confirmed: set[str] = field(default_factory=set)  # '확인 필요' 표시를 지울 공모전ID
+    manual_info: dict = field(default_factory=dict)  # 직접 등록 key → 자동 채움 결과 (관리자 페이지 표시용)
     warnings: list[str] = field(default_factory=list)
 
 
@@ -41,23 +44,121 @@ DECISION_ACTIONS = {"approve": "승인", "hide": "거절", "confirm": "확인"}
 
 
 MANUAL_PATH = config.CONFIG_DIR / "manual_contests.json"
-_MANUAL_FIELDS = ("organizer", "start_date", "end_date", "target_text", "prize_text", "summary")
+_MANUAL_FIELDS = ("organizer", "target_text", "prize_text", "summary")
 
 
-def load_manual(data: SheetData, path: Path = MANUAL_PATH) -> None:
-    """config/manual_contests.json의 직접 등록 공모전 → 승인 없이 공개 (출처 'manual')."""
-    if not path.exists():
-        return
-    try:
-        rows = json.loads(path.read_text(encoding="utf-8")).get("contests", [])
-    except ValueError as e:
-        data.warnings.append(f"직접 등록 파일(config/manual_contests.json)을 읽지 못함: {e}")
-        return
+def manual_rows(path: Path = MANUAL_PATH, decisions_path: Path = DECISIONS_PATH) -> tuple[list[dict], str]:
+    """직접 등록 목록. 관리자 페이지에서 한 번이라도 저장했으면(decisions.json의 '_manual') 그것만 쓰고,
+    아니면 예전 방식의 config/manual_contests.json을 쓴다 (첫 저장 때 관리자 페이지가 옮겨 담음)."""
+    if decisions_path.exists():
+        try:
+            decisions = json.loads(decisions_path.read_text(encoding="utf-8") or "{}")
+        except ValueError:
+            decisions = {}
+        if isinstance(decisions.get("_manual"), list):
+            return decisions["_manual"], "admin"
+    if path.exists():
+        try:
+            rows = json.loads(path.read_text(encoding="utf-8")).get("contests", [])
+        except ValueError:
+            return [], "file-error"
+        return [dict(r, key=r.get("key") or f"f{n}") for n, r in enumerate(rows, start=1)], "file"
+    return [], "none"
+
+
+def _naver_webtoon_notice(url: str) -> dict | None:
+    """네이버웹툰 공지(comic.naver.com/notice/detail?noticeId=N)는 화면을 스크립트로 그려서 og 태그가 비어 있다.
+    네이버가 공지 화면에 쓰는 공개 JSON에서 제목과 첫 이미지를 가져온다."""
+    import re
+
+    m = re.match(r"https?://(?:m\.)?comic\.naver\.com/notice/detail\?.*noticeId=(\d+)", url)
+    if not m:
+        return None
+    r = httpx.get(f"https://comic.naver.com/api/notice/detail?noticeId={m.group(1)}", timeout=12,
+                  headers={"User-Agent": config.settings()["user_agent"], "Referer": url})
+    r.raise_for_status()
+    notice = r.json().get("notice") or {}
+    img = re.search(r'src="(https://[^"]+)"', notice.get("content") or "")
+    return {"title": notice.get("subject") or "", "image": img.group(1) if img else "", "description": ""}
+
+
+def _usable(meta: dict) -> dict:
+    """사이트 이름뿐인 제목('네이버웹툰', '월간 미대입시')과 로고 이미지는 자동 채움에 쓰지 않는다."""
+    title = (meta.get("title") or "").strip()
+    if len(title.replace(" ", "")) <= 8:
+        title = ""
+    image = meta.get("image") or ""
+    if re.search(r"logo|favicon", image, re.I):
+        image = ""
+    return {"title": title, "image": image, "description": meta.get("description") or ""}
+
+
+def fetch_meta(url: str) -> dict:
+    """공고 링크를 열어 제목·대표 이미지·설명을 가져온다 (og:title, og:image, <title>). 쓸 수 없는 값은 비운다."""
+    from bs4 import BeautifulSoup
+
+    from .http import ssl_context
+
+    special = _naver_webtoon_notice(url)
+    if special is not None:
+        return _usable(special)
+    r = httpx.get(url, timeout=12, follow_redirects=True, verify=ssl_context(),
+                  headers={"User-Agent": config.settings()["user_agent"], "Accept-Language": "ko-KR,ko;q=0.9"})
+    r.raise_for_status()
+    s = BeautifulSoup(r.text, "html.parser")
+
+    def meta(*names):
+        for n in names:
+            tag = s.find("meta", attrs={"property": n}) or s.find("meta", attrs={"name": n})
+            if tag and (tag.get("content") or "").strip():
+                return tag["content"].strip()
+        return ""
+
+    title = meta("og:title", "twitter:title") or (s.title.get_text(strip=True) if s.title else "")
+    image = meta("og:image", "twitter:image")
+    if image:
+        image = str(httpx.URL(str(r.url)).join(image))
+    return _usable({"title": title, "image": image if image.startswith("https://") else "",
+                    "description": meta("og:description", "description")})
+
+
+def load_manual(data: SheetData, path: Path = MANUAL_PATH, decisions_path: Path = DECISIONS_PATH,
+                fetch: bool = True) -> dict[str, dict]:
+    """직접 등록 공모전 → 승인 없이 공개 (출처 'manual').
+
+    제목·포스터가 비어 있으면 공고 링크에서 자동으로 가져온다 (마감 전인 것만). 마감일은 꼭 사람이 넣는다.
+    돌려주는 값: 등록 key → {id, title, poster_url, auto, error} (관리자 페이지 목록 표시용)
+    """
+    rows, origin = manual_rows(path, decisions_path)
+    if origin == "file-error":
+        data.warnings.append("직접 등록 파일(config/manual_contests.json)을 읽지 못함")
+    info: dict[str, dict] = {}
+    today = date.today().isoformat()
     for n, row in enumerate(rows, start=1):
-        where = f"직접 등록 파일 {n}번째"
-        title, end = (row.get("title") or "").strip(), parse_date(row.get("end_date") or "")
-        if not title or not end:
-            data.warnings.append(f"{where}: 제목과 마감일(YYYY-MM-DD)은 꼭 있어야 함 → 건너뜀")
+        key = row.get("key") or f"m{n}"
+        url = clean_url(row.get("url") or row.get("official_url"))
+        end = parse_date(row.get("end_date") or "")
+        title = (row.get("title") or "").strip()
+        poster = row.get("poster_url") if str(row.get("poster_url", "")).startswith("https://") else None
+        summary = row.get("summary") or ""
+        where = f"직접 등록 '{title or url or key}'"
+        auto, error = False, ""
+        if not end:
+            data.warnings.append(f"{where}: 마감일(YYYY-MM-DD)이 없어 건너뜀")
+            info[key] = {"id": "", "title": title, "error": "마감일 없음"}
+            continue
+        if fetch and url and (not title or not poster) and end.isoformat() >= today:
+            try:
+                m = fetch_meta(url)
+                if not title and m["title"]:
+                    title, auto = m["title"], True
+                poster = poster or m["image"] or None
+                summary = summary or m["description"][:200]
+            except Exception as e:
+                error = f"링크에서 정보를 가져오지 못함 ({type(e).__name__})"
+        if not title:
+            data.warnings.append(f"{where}: 제목이 없고 링크에서도 가져오지 못해 건너뜀 — 제목을 직접 입력하세요")
+            info[key] = {"id": "", "title": "", "error": error or "제목 없음"}
             continue
         start = parse_date(row.get("start_date") or "")
         start_s = start.isoformat() if start else None
@@ -67,18 +168,24 @@ def load_manual(data: SheetData, path: Path = MANUAL_PATH) -> None:
             categories=[x for x in row.get("categories", []) if x in CATEGORIES],
             subcategories=[x for x in row.get("subcategories", []) if x in SUBCATEGORIES],
             targets=[x for x in row.get("targets", []) if x in TARGET_LABELS],
-            official_url=clean_url(row.get("official_url")),
+            official_url=url,
             apply_url=clean_url(row.get("apply_url")),
-            poster_url=row.get("poster_url") if str(row.get("poster_url", "")).startswith("https://") else None,
+            poster_url=poster,
             prize_max_krw=parse_prize(row.get("prize_text")),
-            sources=[{"site": "manual", "url": clean_url(row.get("official_url"))}],
+            start_date=start_s,
+            end_date=end.isoformat(),
+            sources=[{"site": "manual", "url": url}],
         )
         for f in _MANUAL_FIELDS:
             if row.get(f):
                 setattr(c, f, row[f])
-        c.start_date, c.end_date = start_s, end.isoformat()
+        if summary:
+            c.summary = summary
         c.student_eligible = "yes" if c.targets else "unknown"
         data.additions.append(c)
+        info[key] = {"id": c.id, "title": title, "poster_url": poster or "", "auto": auto, "error": error}
+    data.manual_info = info
+    return info
 
 
 def load_decisions(data: SheetData, path: Path = DECISIONS_PATH) -> dict:
@@ -228,7 +335,8 @@ def _keywords(rows: list[dict], data: SheetData) -> None:
         data.keywords = merged
 
 
-def load_sheet() -> SheetData:
+def load_sheet(fetch_manual: bool = False) -> SheetData:
+    """시트·직접 등록·관리자 결정을 읽는다. fetch_manual=True면 직접 등록 공모전의 빈 제목·포스터를 링크에서 채운다 (사이트 생성 때)."""
     sheet = config.settings().get("sheet", {})
     data = SheetData()
     readers = {"edit_csv": _edits, "add_csv": _additions, "keywords_csv": _keywords}
@@ -247,7 +355,7 @@ def load_sheet() -> SheetData:
                     data.sites[row["사이트"]] = row.get("사용", "") in YES
         except Exception as e:
             data.warnings.append(f"시트(sites_csv)를 읽지 못함: {e}")
-    load_manual(data)
+    load_manual(data, fetch=fetch_manual)
     load_decisions(data)
     for w in data.warnings:
         log.warning(w)

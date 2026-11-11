@@ -2,6 +2,21 @@
   "_설명": "자동 수집이 안 되는 공모전을 직접 등록하는 파일. 여기 적은 공모전은 승인 없이 바로 공개된다. 이 파일을 GitHub에 올리면 1~2분 뒤 사이트에 반영된다. 필수: title, end_date(YYYY-MM-DD). targets 코드: elementary, middle, high, univ, grad, general",
   "contests": [
     {
+      "title": "메이플스토리 제2회 금손 어워즈 — 유저 제작 아이템 공모전",
+      "organizer": "넥슨 메이플스토리",
+      "categories": ["게임"],
+      "subcategories": ["원화"],
+      "start_date": "2026-10-22",
+      "end_date": "2026-11-11",
+      "targets": ["general"],
+      "target_text": "메이플스토리 계정(메이플ID)이 있는 누구나 — 공식 페이지에서 로그인 후 접수",
+      "prize_text": "최종 선정작은 메이플스토리 게임 안에서 아이템으로 판매 + 수상 보상 (세부 보상은 공식 페이지 참고)",
+      "summary": "직접 디자인한 아이템이 게임에 출시되는 메이플스토리 유저 공모전 (2021년 1회 이후 5년 만). 부문: 헤어(10명), 성형(10명), 의상 세트(10명), 펫(3명), 솔 헤카테 스킨(3명, 신설). 부문별 제작 가이드·양식을 내려받아 작업하고, 제출 전 가이드라인 AI 검사를 거침. 접수 마감 11.11(수) 23:59 → 내부 심사 11.12~11.29 → 1차 투표 11.30~12.6 → 최종 수상작은 추후 발표.",
+      "official_url": "https://maplestory.nexon.com/promotion/event/2026/20261015/event01",
+      "apply_url": "https://maplestory.nexon.com/promotion/event/2026/20261015/event01",
+      "poster_url": "https://lwi.nexon.com/maplestory/2026/1015_goldenHandsAwards_2C0CF061DB7AF68E/exception/meta.png"
+    },
+    {
       "title": "2026 네이버웹툰 연재직행열차 4기 — 학원 로맨스 웹툰 투고",
       "organizer": "네이버웹툰",
       "categories": ["웹툰"],

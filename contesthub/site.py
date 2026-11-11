@@ -9,7 +9,7 @@ from html import escape
 from pathlib import Path
 
 from . import config, overrides, store
-from .models import TARGET_LABELS, Contest
+from .models import CATEGORIES, SUBCATEGORIES, TARGET_LABELS, Contest
 
 ASSETS = config.ROOT / "site" / "assets"
 DIST = config.ROOT / "site" / "dist"
@@ -329,7 +329,8 @@ ACTION_LABELS = {"approve": "승인함", "hide": "숨김", "confirm": "공개함
 
 def render_admin(public: list[Contest], pending: list[Contest], name: str, updated: datetime,
                  warnings: list[str] | None = None, runs: list[dict] | None = None,
-                 decisions: dict | None = None, titles: dict[str, str] | None = None) -> str:
+                 decisions: dict | None = None, titles: dict[str, str] | None = None,
+                 manual_info: dict | None = None) -> str:
     today = updated.date()
     decisions = decisions or {}
     titles = titles or {}
@@ -372,8 +373,13 @@ def render_admin(public: list[Contest], pending: list[Contest], name: str, updat
         items = "".join(f"<li>{escape(w)}</li>" for w in warnings)
         warn_html = f'<section class="box"><h2 style="margin:0 0 6px;font-size:16px">구글 시트에서 반영하지 못한 내용</h2><ul class="sources">{items}</ul></section>'
 
+    rows, origin = overrides.manual_rows()
     admin_cfg = {"repo": config.settings().get("github_repo", ""), "path": "data/decisions.json", "branch": "main",
-                 "staff": decisions.get("_staff") or {"default": {}, "staff": []}}
+                 "staff": decisions.get("_staff") or {"default": {}, "staff": []},
+                 # 직접 등록: 목록 + 자동 채움 결과. origin이 'file'이면 첫 저장 때 decisions.json으로 옮겨 담는다
+                 "manual": rows, "manualOrigin": origin, "manualInfo": manual_info or {},
+                 "categories": list(CATEGORIES), "subcategories": list(SUBCATEGORIES),
+                 "targets": TARGET_LABELS}
     body = header("../", name, updated) + f"""
 <main class="wrap detail admin"><h1>관리자</h1>
 <p class="note">이 페이지는 검색에 노출되지 않지만 주소를 아는 사람은 볼 수 있습니다. 버튼으로 내린 결정은
@@ -396,6 +402,26 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 <p class="note">사이트에 아직 올라가지 않은 공모전입니다. 출처를 확인하고 <b>공개</b>(사이트에 올림) 또는 <b>숨김</b>(계속 비공개)을 누르세요.
 아무것도 누르지 않으면 계속 비공개입니다. 마감이 지나면 이 목록에서 자동으로 사라집니다.</p>
 {_table(["제목", "구분 / 사유", "출처", "처리"], review_rows, "없음")}</section>
+<section class="box" id="manual-box"><h2>공모전 직접 등록</h2>
+<p class="note">자동으로 수집되지 않는 공모전을 넣습니다. <b>공고 링크·마감일·구분</b>만 넣으면 제목과 포스터는 링크에서 자동으로 가져옵니다
+(가져오지 못하거나 이상하면 직접 입력). 날짜는 공고마다 형식이 달라 자동으로 읽지 않으니 꼭 넣어 주세요.
+직접 등록한 공모전은 승인 없이 바로 공개되고, <b>반영하기</b> 후 1분 안팎에 사이트에 나옵니다.</p>
+<div class="manual-form">
+<label><span>공고 링크 <b>*</b></span><input id="m-url" type="url" placeholder="https://..." autocomplete="off"></label>
+<label>제목<input id="m-title" placeholder="비워 두면 링크에서 자동으로 가져옵니다"></label>
+<div class="manual-row"><label>접수 시작<input id="m-start" type="date"></label><label><span>마감일 <b>*</b></span><input id="m-end" type="date"></label></div>
+<div class="manual-field"><span>구분 <b>*</b></span><div class="chips" id="m-cats"></div></div>
+<div class="manual-field"><span>장르</span><div class="chips" id="m-subs"></div></div>
+<div class="manual-field"><span>대상</span><div class="chips" id="m-targets"></div></div>
+<label>상금·혜택<input id="m-prize" placeholder="예) 최대 1,000만 원 / 정식 연재"></label>
+<label>한 줄 소개<input id="m-summary" placeholder="비워 두면 링크의 설명을 가져옵니다"></label>
+<label>접수 페이지 (선택)<input id="m-apply" type="url" placeholder="공고와 접수 주소가 다를 때만"></label>
+<p class="manual-actions"><button class="btn primary" id="m-add" type="button">목록에 추가</button>
+<button class="btn" id="m-cancel" type="button" hidden>수정 취소</button></p>
+</div>
+<div style="overflow-x:auto"><table class="review"><thead><tr><th>제목</th><th>접수 기간</th><th>구분</th><th>처리</th></tr></thead>
+<tbody id="manual-rows"></tbody></table></div>
+</section>
 <section class="box" id="staff-box"><h2>직원 관리 — 직원별 문의 링크</h2>
 <p class="note">직원마다 코드(영어 소문자·숫자)와 네이버 폼 주소를 넣으면, 그 직원의 공유 링크로 들어온 학생에게
 <b>무료 포트폴리오 상담</b>·<b>공모전 준비 문의</b> 버튼이 그 직원의 폼으로 연결되고 "담당 ○○○"이 표시됩니다.
@@ -433,7 +459,7 @@ Generate new token → Repository access: <b>Only select repositories</b>에서 
 
 def build(out: Path = DIST) -> dict:
     # 구글 시트의 숨김·수정·직접등록·승인을 반영 (원본 data/contests.json은 바꾸지 않는다)
-    sheet = overrides.load_sheet()
+    sheet = overrides.load_sheet(fetch_manual=True)
     config.override_keywords(sheet.keywords)
     raw = store.load()
     applied, warnings = overrides.apply(raw, sheet)
@@ -465,6 +491,7 @@ def build(out: Path = DIST) -> dict:
     (admin_dir / "index.html").write_text(
         render_admin(contests, list(pending.values()), name, updated, warnings, runs,
                      decisions=decisions,
-                     titles={cid: c.title for cid, c in raw.items()}), encoding="utf-8")
+                     titles={cid: c.title for cid, c in raw.items()},
+                     manual_info=sheet.manual_info), encoding="utf-8")
     return {"name": name, "contests": len(contests), "pending": len(pending), "out": str(out),
             "admin": admin_dir.name, "staff": len(_PUBLIC_STAFF["staff"]), "warnings": warnings}
