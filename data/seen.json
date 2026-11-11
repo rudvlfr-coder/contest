@@ -2758,5 +2758,37 @@
  "https://itch.io/jam/godot-wild-jam-100": {
   "relevant": true,
   "id": "2026-181136"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112313": {
+  "relevant": true,
+  "id": "2026-c8202d"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611100061": {
+  "relevant": false,
+  "title": "[보건복지부] 2026 발달장애인 인식개선 수기공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611040025": {
+  "relevant": false,
+  "title": "2026년 폐교대학 통합 증명발급 서비스 수기 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611110016": {
+  "relevant": false,
+  "title": "제5회 영상문학대상 작품 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611100010": {
+  "relevant": false,
+  "title": "한국연구재단 창립 50주년 기념 대국민 엠블럼 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611110001": {
+  "relevant": false,
+  "title": "2027년 목포KR갤러리 전시 작가 대관 공고"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611100011": {
+  "relevant": false,
+  "title": "2026 K-콘텐츠 관광마케팅 기초 아카데미 모집"
+ },
+ "https://itch.io/jam/hand-crafted-jam": {
+  "relevant": true,
+  "id": "2026-0ca395"
  }
 }
