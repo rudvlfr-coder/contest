@@ -2790,5 +2790,17 @@
  "https://itch.io/jam/hand-crafted-jam": {
   "relevant": true,
   "id": "2026-0ca395"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112233": {
+  "relevant": true,
+  "id": "2026-fd1d7b"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112229": {
+  "relevant": false,
+  "title": "한국연구재단 창립 50주년 기념 대국민 엠블럼 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112237": {
+  "relevant": true,
+  "id": "2026-6a56e2"
  }
 }

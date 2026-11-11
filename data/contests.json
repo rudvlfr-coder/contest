@@ -7733,6 +7733,47 @@
   "updated_at": "2026-10-25T16:31"
  },
  {
+  "id": "2026-fd1d7b",
+  "title": "건학 50주년 기념 동명대학교 캐릭터 공모전",
+  "official_url": "https://www.tu.ac.kr/tuhome/sub07_01_11.do?mode=view&articleNo=428766&article.offset=0&articleLimit=10",
+  "apply_url": null,
+  "organizer": "동명대학교",
+  "categories": [
+   "게임",
+   "대학"
+  ],
+  "subcategories": [
+   "원화"
+  ],
+  "start_date": "2026-11-09",
+  "end_date": "2026-11-27",
+  "prize_text": "1등 200만원 / 총상금 1천만원이하",
+  "prize_max_krw": 2000000,
+  "target_text": "일반인, 대학생, 기타,  : 만 14세 이상 누구나(개인 또는 4인 이하 팀) ■ 접수 기간 : 2026. 11. 9.(월) ~ 11. 27.(금) ■ 결과 발표 : 2026. 12. 9.(수) 예정 ■ 시상내역 - 대상(1등) : 1명(팀) / 200만 원 - 최우수상(2등) : 1명(팀) / 50만 원 -",
+  "targets": [
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261112000256_a66ab820.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112233"
+   }
+  ],
+  "created_at": "2026-11-12T08:37",
+  "updated_at": "2026-11-12T08:37"
+ },
+ {
   "id": "2026-0ae017",
   "title": "타구·바쿠 캐릭터 기념품 디자인 공모전",
   "official_url": "http://www.dtro.or.kr/index.do?menu_link=%2Ficms%2Fbbs%2FselectBoardArticle.do%3FnttId%3D76276&bbsId=BBS_00253&menu_id=00000289#wevity-111939",
@@ -10434,10 +10475,14 @@
    {
     "site": "contestkorea",
     "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611040026"
+   },
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112237"
    }
   ],
   "created_at": "2026-11-04T18:47",
-  "updated_at": "2026-11-04T18:47"
+  "updated_at": "2026-11-12T08:38"
  },
  {
   "id": "2026-d55299",
