@@ -7588,6 +7588,43 @@
   "updated_at": "2026-11-02T08:21"
  },
  {
+  "id": "2026-e730c0",
+  "title": "Arcjam 2026",
+  "official_url": "https://itch.io/jam/game-writing-sig-arcjam-2026",
+  "apply_url": null,
+  "organizer": "Arcweave",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-21",
+  "end_date": "2026-11-24",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/game-writing-sig-arcjam-2026"
+   }
+  ],
+  "created_at": "2026-11-13T08:28",
+  "updated_at": "2026-11-13T08:28"
+ },
+ {
   "id": "2026-7b9471",
   "title": "제1회 AI 숏드라마 시나리오 공모전",
   "official_url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112212",
@@ -8364,6 +8401,43 @@
   "updated_at": "2026-07-31T09:44"
  },
  {
+  "id": "2026-11e20c",
+  "title": "\"Finish Your Game\" Jam 2026",
+  "official_url": "https://itch.io/jam/finishyourgamejam2026",
+  "apply_url": null,
+  "organizer": "Portland Indie Game Squad",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-14",
+  "end_date": "2026-12-01",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/finishyourgamejam2026"
+   }
+  ],
+  "created_at": "2026-11-13T08:28",
+  "updated_at": "2026-11-13T08:28"
+ },
+ {
   "id": "2026-3e34b3",
   "title": "Solovember 2026",
   "official_url": "https://itch.io/jam/solovember2026",
@@ -9064,6 +9138,44 @@
   "updated_at": "2026-11-04T18:47"
  },
  {
+  "id": "2026-b9ba12",
+  "title": "2026 제천시장배 전국 e-스포츠 대회",
+  "official_url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112329",
+  "apply_url": null,
+  "organizer": "제천시",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "대회"
+  ],
+  "start_date": "2026-11-05",
+  "end_date": "2026-12-07",
+  "prize_text": "총상금 3천만원~1천만원",
+  "prize_max_krw": 30000000,
+  "target_text": "제한없음, 은 대회 규정을 확인해 주세요. 이번 겨울, 제천에서 실력 한번 보여줄 사람?! ■ 참가 신청은 GGGL에서! - 리그 오브 레전드 참가신청: https://esports.sooplive.com/gggl/tournament/bysl2521/2999 - 발로란트 참가신청: https://",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261112195545_8d5986a5.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112329"
+   }
+  ],
+  "created_at": "2026-11-13T08:27",
+  "updated_at": "2026-11-13T08:27"
+ },
+ {
   "id": "2026-e88a3a",
   "title": "제39회 무등일보 신춘문예 공모",
   "official_url": "https://www.mdilbo.com/detail/L3KfzM/759587",
@@ -9474,6 +9586,45 @@
   ],
   "created_at": "2026-11-05T18:47",
   "updated_at": "2026-11-05T18:47"
+ },
+ {
+  "id": "2026-192281",
+  "title": "2026 saaskr 게임 어워드 - AI로 만든 웹게임 연말 시상",
+  "official_url": "https://game.saaskr.com/awards",
+  "apply_url": null,
+  "organizer": "saaskr",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-10-20",
+  "end_date": "2026-12-20",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": "일반인, 대학생, 청소년, : 제한 없음(청소년•대학생•일반 누구나) ■ 접수: ~2026.12.20 (game.saaskr.com 에 게임을 공개하면 자동 후보, 참가비 없음) ■ 결선 투표 ~2026.12.31, 발표 2027년 1월 둘째 주까지 ■ 시상: 수상 확인서(발급번호•QR 진위 확인), 메인 배너,",
+  "targets": [
+   "middle",
+   "high",
+   "univ",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261112210826_79e61e88.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112277"
+   }
+  ],
+  "created_at": "2026-11-13T08:27",
+  "updated_at": "2026-11-13T08:27"
  },
  {
   "id": "2026-181136",

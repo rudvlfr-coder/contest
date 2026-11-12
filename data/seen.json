@@ -2826,5 +2826,29 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611040060": {
   "relevant": false,
   "title": "대전지역 대학생과 함께하는 시민체감 교통 아이디어 공모"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112331": {
+  "relevant": false,
+  "title": "2027 춘천마임축제 메인포스터 디자인 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112329": {
+  "relevant": true,
+  "id": "2026-b9ba12"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112277": {
+  "relevant": true,
+  "id": "2026-192281"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112327": {
+  "relevant": false,
+  "title": "문익환 목사 창작희곡 공모전"
+ },
+ "https://itch.io/jam/finishyourgamejam2026": {
+  "relevant": true,
+  "id": "2026-11e20c"
+ },
+ "https://itch.io/jam/game-writing-sig-arcjam-2026": {
+  "relevant": true,
+  "id": "2026-e730c0"
  }
 }
