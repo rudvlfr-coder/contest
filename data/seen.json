@@ -2802,5 +2802,29 @@
  "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112237": {
   "relevant": true,
   "id": "2026-6a56e2"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112325": {
+  "relevant": true,
+  "id": "2026-e4a423"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611110028": {
+  "relevant": false,
+  "title": "2027년 서울문화재단 서울장애예술창작센터 17기 입주작가 정기 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611110029": {
+  "relevant": false,
+  "title": "2027 아티스타트 작가 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611110021": {
+  "relevant": false,
+  "title": "POSTECH 테크데이"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611100065": {
+  "relevant": false,
+  "title": "[2026 서울관광 프롬프톤] 참가자모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611040060": {
+  "relevant": false,
+  "title": "대전지역 대학생과 함께하는 시민체감 교통 아이디어 공모"
  }
 }
