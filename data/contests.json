@@ -9300,6 +9300,42 @@
   "updated_at": "2026-10-30T18:38"
  },
  {
+  "id": "2026-14b4a6",
+  "title": "2027 광주일보 신춘문예",
+  "official_url": "http://www.kwangju.co.kr/article.php?aid=1794495600805330026",
+  "apply_url": null,
+  "organizer": "광주일보",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-13",
+  "end_date": "2026-12-10",
+  "prize_text": "1등 300만원 / 총상금 1천만원이하",
+  "prize_max_krw": 3000000,
+  "target_text": "제한없음, 기타",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261113234239_a1603d59.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112286"
+   }
+  ],
+  "created_at": "2026-11-14T08:27",
+  "updated_at": "2026-11-14T08:27"
+ },
+ {
   "id": "2026-fccb40",
   "title": "2026 제5회 서원대학교 웹툰 콘텐츠 공모전",
   "official_url": "https://www.mgood.co.kr/contest/21002_contest_view.php?c_seq=4455",
@@ -9713,6 +9749,43 @@
   ],
   "created_at": "2026-11-11T08:24",
   "updated_at": "2026-11-11T08:24"
+ },
+ {
+  "id": "2026-2acf98",
+  "title": "Month of Horror #3: Endless Ocean",
+  "official_url": "https://itch.io/jam/month-of-horror-3",
+  "apply_url": null,
+  "organizer": "Beregon, BroodyGaming",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-19",
+  "end_date": "2026-12-21",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/month-of-horror-3"
+   }
+  ],
+  "created_at": "2026-11-14T08:28",
+  "updated_at": "2026-11-14T08:28"
  },
  {
   "id": "2026-8aca3b",

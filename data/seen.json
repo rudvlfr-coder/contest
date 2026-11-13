@@ -2902,5 +2902,17 @@
  "https://itch.io/jam/mini-jame-gam-61": {
   "relevant": true,
   "id": "2026-66db18"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112286": {
+  "relevant": true,
+  "id": "2026-14b4a6"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112284": {
+  "relevant": false,
+  "title": "2027 전북도민일보 신춘문예 공모"
+ },
+ "https://itch.io/jam/month-of-horror-3": {
+  "relevant": true,
+  "id": "2026-2acf98"
  }
 }
