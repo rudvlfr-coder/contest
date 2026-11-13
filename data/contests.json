@@ -6697,6 +6697,43 @@
   "updated_at": "2026-11-06T18:49"
  },
  {
+  "id": "2026-66db18",
+  "title": "Mini Jame Gam #61",
+  "official_url": "https://itch.io/jam/mini-jame-gam-61",
+  "apply_url": null,
+  "organizer": "Jame Gam, tiimo, AmiableVegetable, AcidBurritos",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-11-13",
+  "end_date": "2026-11-15",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/mini-jame-gam-61"
+   }
+  ],
+  "created_at": "2026-11-13T18:47",
+  "updated_at": "2026-11-13T18:47"
+ },
+ {
   "id": "2026-7c79c6",
   "title": "2026 4TH 메타툰 여성향 성인 단편 노블코믹스 작화 모집 공모전",
   "official_url": "https://www.metatoon.co.kr/fair",
@@ -7692,10 +7729,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111295"
+   },
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112349"
    }
   ],
   "created_at": "2026-10-25T16:31",
-  "updated_at": "2026-10-25T16:31"
+  "updated_at": "2026-11-13T18:46"
  },
  {
   "id": "2026-4b7cac",
@@ -7895,7 +7936,8 @@
   "apply_url": null,
   "organizer": "문화체육관광부",
   "categories": [
-   "웹툰"
+   "웹툰",
+   "대학"
   ],
   "subcategories": [
    "AI"
@@ -7906,7 +7948,12 @@
   "prize_max_krw": 200000,
   "target_text": "제한없음, : 쉽고 바른 공공언어를 사랑하는 시민 누구나 ■ 신청 방법: 동아대 국어문화원 누리집을 참고하여 신청서와 작품을 전자 우편으로 제출 - 전자 우편: daukor7180@naver.com ■ 작품 규격 - 1장, 8컷 이내로 제작 - 크기: 240x150mm 이상 - 파일 형식: jpg",
   "targets": [
-   "general"
+   "general",
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -7919,10 +7966,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112325"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611130010"
    }
   ],
   "created_at": "2026-11-12T18:45",
-  "updated_at": "2026-11-12T18:45"
+  "updated_at": "2026-11-13T18:46"
  },
  {
   "id": "2026-0c7e28",
