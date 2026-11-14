@@ -2914,5 +2914,9 @@
  "https://itch.io/jam/month-of-horror-3": {
   "relevant": true,
   "id": "2026-2acf98"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611140023": {
+  "relevant": false,
+  "title": "2026 동남권 이노베이션 해커톤 ICT INNOHACK"
  }
 }
