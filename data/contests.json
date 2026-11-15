@@ -7233,6 +7233,40 @@
   "updated_at": "2026-10-25T16:31"
  },
  {
+  "id": "2026-1a3b1c",
+  "title": "제3회 초단편 웹소설 챌린지 퇴근길 나도작가",
+  "official_url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611100062",
+  "apply_url": "https://forms.gle/RdiuL8sEsn43cUi49",
+  "organizer": "작가다방",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-16",
+  "end_date": "2026-11-20",
+  "prize_text": "상금+상품(총상금 : 30만원 / 1위 : 20만원 / 스타벅스 상품권)",
+  "prize_max_krw": 300000,
+  "target_text": "일반인",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611101734537233696.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611100062"
+   }
+  ],
+  "created_at": "2026-11-16T08:31",
+  "updated_at": "2026-11-16T08:31"
+ },
+ {
   "id": "2026-37b180",
   "title": "제9회 박상륭상 응모원고 모집",
   "official_url": "https://www.psrprize.com/default/mp2/mp2_sub1.php?sub=01&com_board_basic=read_form&com_board_idx=32&com_board_id=1",
@@ -8385,13 +8419,14 @@
   "id": "2026-e13257",
   "title": "서울미래인재재단 대표 캐릭터 공모전 (서울의 미래, 새로운 얼굴)",
   "official_url": "https://www.seoulfuture.or.kr/home/kor/M648075107/scholarship/grow/view.do?idx=cb00d1a0008a85e71a41b8741facbffe53ce63e0a207da7b09c15b6e6df967b3&act=&eSearchValue1=&searchValue2=&searchValue4=&searchKeyword=&pageIndex=1",
-  "apply_url": null,
+  "apply_url": "https://sffcharacter.kr/",
   "organizer": "서울미래인재재단",
   "categories": [
    "게임"
   ],
   "subcategories": [
-   "원화"
+   "원화",
+   "기획"
   ],
   "start_date": "2026-11-16",
   "end_date": "2026-11-30",
@@ -8399,7 +8434,12 @@
   "prize_max_krw": 2000000,
   "target_text": "제한없음,  - 개인 또는 팀 누구나 * 팀은 4인 이하로 구성 ■ 모집 기간 - 2026.11.16.(월) ~ 11.30.(월) 23:59 - (결과발표) 2026.12월 중 * 시상식 개최, 선정자 개별 안내 ■ 공모전 시상내역 : 총 440만원 - 대상 200만원 - 최우수상 100만원 - ",
   "targets": [
-   "general"
+   "general",
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -8412,10 +8452,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111977"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280025"
    }
   ],
   "created_at": "2026-10-28T18:34",
-  "updated_at": "2026-10-28T18:34"
+  "updated_at": "2026-11-16T08:31"
  },
  {
   "id": "2026-fcb245",
@@ -10238,7 +10282,7 @@
   "id": "2026-725b93",
   "title": "제1회 ALONA 웹소설 공모전",
   "official_url": "https://wealona.com/#/contest",
-  "apply_url": null,
+  "apply_url": "https://www.wealona.com/#/contest",
   "organizer": "알로나",
   "categories": [
    "웹소설"
@@ -10265,10 +10309,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112240"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611090005"
    }
   ],
   "created_at": "2026-11-09T18:48",
-  "updated_at": "2026-11-09T18:48"
+  "updated_at": "2026-11-16T08:31"
  },
  {
   "id": "2027-f1ad13",

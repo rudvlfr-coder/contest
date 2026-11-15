@@ -2918,5 +2918,17 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611140023": {
   "relevant": false,
   "title": "2026 동남권 이노베이션 해커톤 ICT INNOHACK"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611100062": {
+  "relevant": true,
+  "id": "2026-1a3b1c"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611090005": {
+  "relevant": true,
+  "id": "2026-725b93"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280025": {
+  "relevant": true,
+  "id": "2026-e13257"
  }
 }
