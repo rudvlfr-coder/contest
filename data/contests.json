@@ -7699,13 +7699,14 @@
   "id": "2026-7b9471",
   "title": "제1회 AI 숏드라마 시나리오 공모전",
   "official_url": "https://www.wevity.com/?c=find&s=1&gbn=view&gp=1&ix=112212",
-  "apply_url": null,
+  "apply_url": "https://docs.google.com/forms/d/e/1FAIpQLSciM9M5bZW8GQF1jbIYcvSEKk_nYKCh9OTukKnaYkoTDU4zSA/viewform",
   "organizer": "다음",
   "categories": [
    "웹소설"
   ],
   "subcategories": [
-   "AI"
+   "AI",
+   "기획"
   ],
   "start_date": "2026-11-05",
   "end_date": "2026-11-26",
@@ -7714,7 +7715,8 @@
   "target_text": "일반인, 대학생, : 회당 2분 내외 분량의 15부작 숏드라마 시나리오 (총 30분 내외) - 공모 장르: SF / 판타지 / 하이틴 / 로맨스 / 코미디 / 액션 등 장르 자유 ※ 선정성·폭력성 등 서비스 제공에 적절하지 않은 경우 선정에서 제외될 수 있음 ■ 지원 자격 - 숏드라마 제작에 관심 있는 ",
   "targets": [
    "univ",
-   "general"
+   "general",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -7727,10 +7729,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112212"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611070003"
    }
   ],
   "created_at": "2026-11-06T18:49",
-  "updated_at": "2026-11-06T18:49"
+  "updated_at": "2026-11-16T19:30"
  },
  {
   "id": "2026-44d2bb",
@@ -7884,6 +7890,45 @@
   ],
   "created_at": "2026-11-12T08:37",
   "updated_at": "2026-11-12T08:37"
+ },
+ {
+  "id": "2026-e74a73",
+  "title": "TripPups AI Game Hackathon 2026",
+  "official_url": "http://hackon.kr/e/d0c8a7e5",
+  "apply_url": "https://hackon.kr/e/d0c8a7e5",
+  "organizer": "Trip-Pups/HACK:ON(해커온)",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "기획",
+   "AI"
+  ],
+  "start_date": "2026-11-16",
+  "end_date": "2026-11-28",
+  "prize_text": "상품(종합 1위 ElevenLabs Pro 3개월 (297달러 상당))",
+  "prize_max_krw": null,
+  "target_text": "대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611160009324908492.png",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611160001"
+   }
+  ],
+  "created_at": "2026-11-16T19:31",
+  "updated_at": "2026-11-16T19:31"
  },
  {
   "id": "2026-0ae017",
@@ -8377,6 +8422,47 @@
   ],
   "created_at": "2026-10-25T16:29",
   "updated_at": "2026-10-25T16:29"
+ },
+ {
+  "id": "2026-d57a2e",
+  "title": "2026 김천 삼색이수 자율상권 AI 영상·웹툰 공모전",
+  "official_url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611070002",
+  "apply_url": "https://form.naver.com/response/snZCRKAUTz",
+  "organizer": "삼색이수상권상인 협동조합",
+  "categories": [
+   "웹툰"
+  ],
+  "subcategories": [
+   "AI"
+  ],
+  "start_date": "2026-11-06",
+  "end_date": "2026-11-30",
+  "prize_text": "상금+상품(총상금 : 980만원 / 1위 : 300만원 / 상장 )",
+  "prize_max_krw": 9800000,
+  "target_text": "누구나, 유치원, 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 외국인",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ",
+   "grad",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.contestkorea.com/admincenter/files/meet/202611141214506585841.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611070002"
+   }
+  ],
+  "created_at": "2026-11-16T19:30",
+  "updated_at": "2026-11-16T19:30"
  },
  {
   "id": "2026-de4ea9",

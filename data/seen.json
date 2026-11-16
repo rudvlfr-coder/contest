@@ -2930,5 +2930,69 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610280025": {
   "relevant": true,
   "id": "2026-e13257"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611120026": {
+  "relevant": false,
+  "title": "2026 부산 해양문학 공모전 - 청소년부 이벤트 「해양 톡톡 짧은 글쓰기」"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611070003": {
+  "relevant": true,
+  "id": "2026-7b9471"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611080008": {
+  "relevant": false,
+  "title": "제16회 비정규노동 수기공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611070002": {
+  "relevant": true,
+  "id": "2026-d57a2e"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611160002": {
+  "relevant": false,
+  "title": "2027 춘천마임축제 메인포스터 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611070016": {
+  "relevant": false,
+  "title": "2026 피부건설 글로벌 패키지 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611160001": {
+  "relevant": true,
+  "id": "2026-e74a73"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611090018": {
+  "relevant": false,
+  "title": "2026 창업도시 프로젝트 <지역문제 해결형 AI활용 경진대회>"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611070019": {
+  "relevant": false,
+  "title": "2027 MOBIS Robotics Challenge 현대모비스 로보틱스 경진대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611070018": {
+  "relevant": false,
+  "title": "저출생·인구감소 대응 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611160023": {
+  "relevant": false,
+  "title": "2026 포항시 AI 솔루션 아이디어 대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611080003": {
+  "relevant": false,
+  "title": "2026 대전광역시 청소년지도사 정책 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611160006": {
+  "relevant": false,
+  "title": "『2026 SVC Seoul AI 해커톤』 | 현대건설과 함께하는 주거생활 AI 아이디어 도전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611080005": {
+  "relevant": false,
+  "title": "부천도시공사 2026 ESG 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611160021": {
+  "relevant": false,
+  "title": "2026 힐링충남 관광 정책 아이디어 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611160020": {
+  "relevant": false,
+  "title": "2026 국가시범도시 AI 아이디어 · 기술 공모전"
  }
 }
