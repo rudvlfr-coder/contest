@@ -7205,7 +7205,9 @@
   "categories": [
    "웹소설"
   ],
-  "subcategories": [],
+  "subcategories": [
+   "기획"
+  ],
   "start_date": "2026-11-17",
   "end_date": "2026-11-19",
   "prize_text": "1등 400만원 / 총상금 3천만원~1천만원",
@@ -7227,10 +7229,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=111531"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610070052"
    }
   ],
   "created_at": "2026-10-25T16:31",
-  "updated_at": "2026-10-25T16:31"
+  "updated_at": "2026-11-17T08:29"
  },
  {
   "id": "2026-1a3b1c",
@@ -8214,6 +8220,43 @@
   ],
   "created_at": "2026-10-25T16:29",
   "updated_at": "2026-10-25T16:33"
+ },
+ {
+  "id": "2026-4cea24",
+  "title": "(4주) 신춘문예 작가님에게 글쓰기를 배워보세요! 참여자 모집 중",
+  "official_url": "https://cafe.naver.com/egowriting/12347",
+  "apply_url": null,
+  "organizer": "작필(作筆)",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-11-17",
+  "end_date": "2026-11-30",
+  "prize_text": "총상금 다양한 혜택",
+  "prize_max_krw": null,
+  "target_text": "일반인, 대학생, 기타",
+  "targets": [
+   "univ",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261116224229_00017d41.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112398"
+   }
+  ],
+  "created_at": "2026-11-17T08:29",
+  "updated_at": "2026-11-17T08:29"
  },
  {
   "id": "2026-5dc34a",
@@ -10516,6 +10559,45 @@
   ],
   "created_at": "2026-10-25T16:33",
   "updated_at": "2026-10-25T16:33"
+ },
+ {
+  "id": "2026-6c7935",
+  "title": "제5회 진주남강청소년문학상 현상 공모",
+  "official_url": "https://cafe.naver.com/jinjunamgangmundan/86",
+  "apply_url": null,
+  "organizer": "진주남강문학회",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-12-01",
+  "end_date": "2027-01-30",
+  "prize_text": "1등 50만원 / 총상금 1천만원이하",
+  "prize_max_krw": 500000,
+  "target_text": "청소년, 어린이, 기타,  - 전국 초, 중, 고등학생. 학교 밖 청소년. (대학생은 응모할 수 없음) ■ 시상 내용 - 대상 1명. (상패. 상금 50만원) - 최우수상 1명. (상패. 상금 30만원) - 우수상 1명. (상패. 상금 20만원) - 가작 1명. (상패. 상금 10만원) ■ 접수 기간 - 202",
+  "targets": [
+   "elementary",
+   "middle",
+   "high",
+   "univ"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261116195624_4c63e596.jpg",
+  "needs_review": true,
+  "review_reasons": [
+   "분류 확인 필요"
+  ],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112300"
+   }
+  ],
+  "created_at": "2026-11-17T08:29",
+  "updated_at": "2026-11-17T08:29"
  },
  {
   "id": "2026-0f89f3",

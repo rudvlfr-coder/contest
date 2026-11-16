@@ -2994,5 +2994,21 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611160020": {
   "relevant": false,
   "title": "2026 국가시범도시 AI 아이디어 · 기술 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112398": {
+  "relevant": true,
+  "id": "2026-4cea24"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112305": {
+  "relevant": false,
+  "title": "2027 한라일보 신춘문예 공모"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112300": {
+  "relevant": true,
+  "id": "2026-6c7935"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202610070052": {
+  "relevant": true,
+  "id": "2026-527bdb"
  }
 }
