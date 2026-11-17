@@ -8467,6 +8467,43 @@
   "updated_at": "2026-10-25T16:29"
  },
  {
+  "id": "2026-d14ffb",
+  "title": "Harvest",
+  "official_url": "https://itch.io/jam/harvest",
+  "apply_url": null,
+  "organizer": "augie, Hack Club, JosTheDude, lucki-katsu, jollyroger182",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": null,
+  "end_date": "2026-11-30",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/harvest"
+   }
+  ],
+  "created_at": "2026-11-17T18:50",
+  "updated_at": "2026-11-17T18:50"
+ },
+ {
   "id": "2026-d57a2e",
   "title": "2026 김천 삼색이수 자율상권 AI 영상·웹툰 공모전",
   "official_url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611070002",
@@ -9320,6 +9357,43 @@
   "updated_at": "2026-10-25T16:32"
  },
  {
+  "id": "2026-9392f4",
+  "title": "3x3x3 Jam",
+  "official_url": "https://itch.io/jam/3x3x3-jam",
+  "apply_url": null,
+  "organizer": "Macrow",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-12-01",
+  "end_date": "2026-12-04",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/3x3x3-jam"
+   }
+  ],
+  "created_at": "2026-11-17T18:50",
+  "updated_at": "2026-11-17T18:50"
+ },
+ {
   "id": "2026-1664eb",
   "title": "제1회 CLIIP AI 웹툰 영상화 공모전",
   "official_url": "http://cliip.co.kr/",
@@ -9846,6 +9920,41 @@
   ],
   "created_at": "2026-11-05T18:47",
   "updated_at": "2026-11-05T18:47"
+ },
+ {
+  "id": "2026-125b9e",
+  "title": "제5회 위즈덤하우스 어린이청소년 판타지문학상 공모",
+  "official_url": "https://www.wisdomhouse.co.kr/contest/info/8",
+  "apply_url": null,
+  "organizer": "위즈덤하우스",
+  "categories": [
+   "웹소설"
+  ],
+  "subcategories": [],
+  "start_date": "2026-04-21",
+  "end_date": "2026-12-20",
+  "prize_text": "1등 2,000만원 / 총상금 5천만원~3천만원",
+  "prize_max_krw": 20000000,
+  "target_text": "일반인, 대학생",
+  "targets": [
+   "univ",
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "domestic",
+  "summary": null,
+  "poster_url": "https://www.wevity.com/upload/contest/20261117153423_bc52b037.jpg",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "wevity",
+    "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112414"
+   }
+  ],
+  "created_at": "2026-11-17T18:49",
+  "updated_at": "2026-11-17T18:49"
  },
  {
   "id": "2026-192281",
