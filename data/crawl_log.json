@@ -1,42 +1,6 @@
 [
  {
   "site": "wevity",
-  "started_at": "2026-10-25T16:29:23",
-  "listed": 75,
-  "already_seen": 36,
-  "irrelevant": 0,
-  "new": 38,
-  "merged": 1,
-  "needs_review": 16,
-  "errors": [],
-  "finished_at": "2026-10-25T16:31:58"
- },
- {
-  "site": "contestkorea",
-  "started_at": "2026-10-25T16:31:58",
-  "listed": 252,
-  "already_seen": 228,
-  "irrelevant": 0,
-  "new": 15,
-  "merged": 9,
-  "needs_review": 0,
-  "errors": [],
-  "finished_at": "2026-10-25T16:33:41"
- },
- {
-  "site": "itchio",
-  "started_at": "2026-10-25T16:33:41",
-  "listed": 42,
-  "already_seen": 1,
-  "irrelevant": 0,
-  "new": 41,
-  "merged": 0,
-  "needs_review": 0,
-  "errors": [],
-  "finished_at": "2026-10-25T16:33:52"
- },
- {
-  "site": "wevity",
   "started_at": "2026-10-27T11:28:36",
   "listed": 76,
   "already_seen": 37,
@@ -2566,5 +2530,57 @@
   "errors": [],
   "posters": 0,
   "finished_at": "2026-11-17T18:50:44"
+ },
+ {
+  "site": "wevity",
+  "started_at": "2026-11-18T12:55:49",
+  "listed": 73,
+  "already_seen": 73,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-18T12:56:26"
+ },
+ {
+  "site": "contestkorea",
+  "started_at": "2026-11-18T12:56:26",
+  "listed": 175,
+  "already_seen": 172,
+  "irrelevant": 2,
+  "new": 0,
+  "merged": 1,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-18T12:57:04"
+ },
+ {
+  "site": "mgood",
+  "started_at": "2026-11-18T12:57:04",
+  "listed": 4,
+  "already_seen": 4,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-18T12:57:15"
+ },
+ {
+  "site": "itchio",
+  "started_at": "2026-11-18T12:57:15",
+  "listed": 28,
+  "already_seen": 28,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-18T12:57:27"
  }
 ]

@@ -7867,7 +7867,9 @@
    "대학"
   ],
   "subcategories": [
-   "원화"
+   "원화",
+   "기획",
+   "AI"
   ],
   "start_date": "2026-11-09",
   "end_date": "2026-11-27",
@@ -7892,10 +7894,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112233"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611110009"
    }
   ],
   "created_at": "2026-11-12T08:37",
-  "updated_at": "2026-11-12T08:37"
+  "updated_at": "2026-11-18T12:56"
  },
  {
   "id": "2026-e74a73",
