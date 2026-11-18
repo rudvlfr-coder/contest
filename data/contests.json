@@ -9780,6 +9780,43 @@
   "updated_at": "2026-10-29T18:38"
  },
  {
+  "id": "2026-ffe66e",
+  "title": "PROCJAM - The Procedural Generation Jam",
+  "official_url": "https://itch.io/jam/procjam",
+  "apply_url": null,
+  "organizer": "PROCJAM",
+  "categories": [
+   "게임"
+  ],
+  "subcategories": [
+   "프로그래밍",
+   "대회"
+  ],
+  "start_date": "2026-12-05",
+  "end_date": "2026-12-14",
+  "prize_text": null,
+  "prize_max_krw": null,
+  "target_text": "누구나 (온라인, 해외 게임잼)",
+  "targets": [
+   "general"
+  ],
+  "student_eligible": "yes",
+  "region": "overseas",
+  "summary": null,
+  "poster_url": "",
+  "needs_review": false,
+  "review_reasons": [],
+  "competitor_hits": [],
+  "sources": [
+   {
+    "site": "itchio",
+    "url": "https://itch.io/jam/procjam"
+   }
+  ],
+  "created_at": "2026-11-19T02:42",
+  "updated_at": "2026-11-19T02:42"
+ },
+ {
   "id": "2026-2da30f",
   "title": "필전 2026 조선 백일장",
   "official_url": "https://gleaming-fudge-fc70bd.netlify.app/",
@@ -9936,7 +9973,9 @@
   "categories": [
    "웹소설"
   ],
-  "subcategories": [],
+  "subcategories": [
+   "기획"
+  ],
   "start_date": "2026-04-21",
   "end_date": "2026-12-20",
   "prize_text": "1등 2,000만원 / 총상금 5천만원~3천만원",
@@ -9944,7 +9983,8 @@
   "target_text": "일반인, 대학생",
   "targets": [
    "univ",
-   "general"
+   "general",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -9957,10 +9997,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112414"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611180001"
    }
   ],
   "created_at": "2026-11-17T18:49",
-  "updated_at": "2026-11-17T18:49"
+  "updated_at": "2026-11-19T02:41"
  },
  {
   "id": "2026-192281",

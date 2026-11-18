@@ -3066,5 +3066,37 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611110017": {
   "relevant": false,
   "title": "울산중구 고향사랑기부제 기금사업 아이디어 공모"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611180001": {
+  "relevant": true,
+  "id": "2026-125b9e"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611160005": {
+  "relevant": false,
+  "title": "2026년 대국민 경륜·경정 건전화 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611170043": {
+  "relevant": false,
+  "title": "「2026 강원 차세대 과학전문가상」 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611170034": {
+  "relevant": false,
+  "title": "2027 제 2회 Superb AI X BDAI Vision AI 해커톤"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611160022": {
+  "relevant": false,
+  "title": "제2회 교원그룹과 함께하는 루브 골드버그 머신 콘테스트 아시아 대표 선발대회"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611120035": {
+  "relevant": false,
+  "title": "2026년 벤처브릿지 오픈이노베이션"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611170042": {
+  "relevant": false,
+  "title": "2027 지역 창업 솔버톤 대회"
+ },
+ "https://itch.io/jam/procjam": {
+  "relevant": true,
+  "id": "2026-ffe66e"
  }
 }
