@@ -3106,5 +3106,37 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611120016": {
   "relevant": false,
   "title": "2027 상반기 참여자 공모 - 달달 갤러리"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112467": {
+  "relevant": false,
+  "title": "제30회 보령머드축제 공식 포스터 디자인 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112439": {
+  "relevant": false,
+  "title": "밀양아리랑대축제 AI 포스터 공모전"
+ },
+ "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112474": {
+  "relevant": false,
+  "title": "일상 속 아이디어를 AI로 웹·앱 서비스로! INNO-CODER AI HACKATHON 참가팀 모집"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030110001&str_no=202611190031": {
+  "relevant": true,
+  "id": "2026-4c6fc2"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611120017": {
+  "relevant": false,
+  "title": "2026 밀양 경남 차사발 전국공모전 및 차우림이 전국공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611190036": {
+  "relevant": false,
+  "title": "제30회 보령머드축제 공식 포스터 디자인 공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611190035": {
+  "relevant": false,
+  "title": "제 3회 스마트그리드 아이디어 공모전"
+ },
+ "https://itch.io/jam/gimersia-inspire-2026": {
+  "relevant": true,
+  "id": "2026-f5f211"
  }
 }
