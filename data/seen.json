@@ -3150,5 +3150,17 @@
  "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202611120048": {
   "relevant": false,
   "title": "토마토들 일본지역관광 아이디어톤"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611200028": {
+  "relevant": false,
+  "title": "2027 스페이스다온 졸업작품 재전시 공모전"
+ },
+ "https://itch.io/jam/mini-jam-224-mythology": {
+  "relevant": true,
+  "id": "2026-5fd718"
+ },
+ "https://itch.io/jam/gmt-jam-1": {
+  "relevant": true,
+  "id": "2026-314294"
  }
 }

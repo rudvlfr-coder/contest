@@ -1,58 +1,6 @@
 [
  {
   "site": "wevity",
-  "started_at": "2026-10-27T21:48:35",
-  "listed": 76,
-  "already_seen": 76,
-  "irrelevant": 0,
-  "new": 0,
-  "merged": 0,
-  "needs_review": 0,
-  "errors": [],
-  "posters": 30,
-  "finished_at": "2026-10-27T21:50:39"
- },
- {
-  "site": "contestkorea",
-  "started_at": "2026-10-27T21:50:39",
-  "listed": 271,
-  "already_seen": 271,
-  "irrelevant": 0,
-  "new": 0,
-  "merged": 0,
-  "needs_review": 0,
-  "errors": [],
-  "posters": 16,
-  "finished_at": "2026-10-27T21:51:58"
- },
- {
-  "site": "mgood",
-  "started_at": "2026-10-27T21:51:58",
-  "listed": 3,
-  "already_seen": 3,
-  "irrelevant": 0,
-  "new": 0,
-  "merged": 0,
-  "needs_review": 0,
-  "errors": [],
-  "posters": 0,
-  "finished_at": "2026-10-27T21:52:12"
- },
- {
-  "site": "itchio",
-  "started_at": "2026-10-27T21:52:12",
-  "listed": 41,
-  "already_seen": 41,
-  "irrelevant": 0,
-  "new": 0,
-  "merged": 0,
-  "needs_review": 0,
-  "errors": [],
-  "posters": 0,
-  "finished_at": "2026-10-27T21:52:24"
- },
- {
-  "site": "wevity",
   "started_at": "2026-10-28T08:17:44",
   "listed": 75,
   "already_seen": 74,
@@ -2598,5 +2546,57 @@
   "errors": [],
   "posters": 0,
   "finished_at": "2026-11-20T12:47:13"
+ },
+ {
+  "site": "wevity",
+  "started_at": "2026-11-21T02:25:42",
+  "listed": 75,
+  "already_seen": 75,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-21T02:26:18"
+ },
+ {
+  "site": "contestkorea",
+  "started_at": "2026-11-21T02:26:18",
+  "listed": 157,
+  "already_seen": 156,
+  "irrelevant": 1,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-21T02:26:49"
+ },
+ {
+  "site": "mgood",
+  "started_at": "2026-11-21T02:26:49",
+  "listed": 4,
+  "already_seen": 4,
+  "irrelevant": 0,
+  "new": 0,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-21T02:27:01"
+ },
+ {
+  "site": "itchio",
+  "started_at": "2026-11-21T02:27:01",
+  "listed": 31,
+  "already_seen": 29,
+  "irrelevant": 0,
+  "new": 2,
+  "merged": 0,
+  "needs_review": 0,
+  "errors": [],
+  "posters": 0,
+  "finished_at": "2026-11-21T02:27:12"
  }
 ]
