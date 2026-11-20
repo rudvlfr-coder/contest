@@ -10052,13 +10052,14 @@
   "id": "2026-192281",
   "title": "2026 saaskr 게임 어워드 - AI로 만든 웹게임 연말 시상",
   "official_url": "https://game.saaskr.com/awards",
-  "apply_url": null,
+  "apply_url": "https://game.saaskr.com/submit",
   "organizer": "saaskr",
   "categories": [
    "게임"
   ],
   "subcategories": [
-   "AI"
+   "AI",
+   "기획"
   ],
   "start_date": "2026-10-20",
   "end_date": "2026-12-20",
@@ -10069,7 +10070,9 @@
    "middle",
    "high",
    "univ",
-   "general"
+   "general",
+   "elementary",
+   "grad"
   ],
   "student_eligible": "yes",
   "region": "domestic",
@@ -10082,10 +10085,14 @@
    {
     "site": "wevity",
     "url": "https://www.wevity.com/?c=find&s=1&gbn=viewok&ix=112277"
+   },
+   {
+    "site": "contestkorea",
+    "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030310001&str_no=202611130021"
    }
   ],
   "created_at": "2026-11-13T08:27",
-  "updated_at": "2026-11-13T08:27"
+  "updated_at": "2026-11-20T12:46"
  },
  {
   "id": "2026-181136",
