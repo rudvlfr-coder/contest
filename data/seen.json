@@ -3162,5 +3162,21 @@
  "https://itch.io/jam/gmt-jam-1": {
   "relevant": true,
   "id": "2026-314294"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202610230020": {
+  "relevant": false,
+  "title": "2026 제2회 대한민국 AI 창조공모대전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202608250038": {
+  "relevant": false,
+  "title": "2026 국제사이버디자인 트렌드공모전"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611110007": {
+  "relevant": false,
+  "title": "세종사이버대학교 전국민 AI 공모전 - AI 불씨"
+ },
+ "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=030610001&str_no=202611190044": {
+  "relevant": false,
+  "title": "AI 불씨"
  }
 }
