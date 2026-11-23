@@ -93,5 +93,83 @@
  "2026-4cefe8": {
   "action": "confirm",
   "at": "2026-11-09T16:15"
- }
+ },
+ "2026-c8202d": {
+  "action": "confirm",
+  "at": "2026-11-23T11:34"
+ },
+ "2026-7a59d9": {
+  "action": "confirm",
+  "at": "2026-11-23T11:34"
+ },
+ "_manual": [
+  {
+   "title": "메이플스토리 제2회 금손 어워즈 — 유저 제작 아이템 공모전",
+   "organizer": "넥슨 메이플스토리",
+   "categories": [
+    "게임"
+   ],
+   "subcategories": [
+    "원화"
+   ],
+   "start_date": "2026-10-22",
+   "end_date": "2026-11-11",
+   "targets": [
+    "general"
+   ],
+   "target_text": "메이플스토리 계정(메이플ID)이 있는 누구나 — 공식 페이지에서 로그인 후 접수",
+   "prize_text": "최종 선정작은 메이플스토리 게임 안에서 아이템으로 판매 + 수상 보상 (세부 보상은 공식 페이지 참고)",
+   "summary": "직접 디자인한 아이템이 게임에 출시되는 메이플스토리 유저 공모전 (2021년 1회 이후 5년 만). 부문: 헤어(10명), 성형(10명), 의상 세트(10명), 펫(3명), 솔 헤카테 스킨(3명, 신설). 부문별 제작 가이드·양식을 내려받아 작업하고, 제출 전 가이드라인 AI 검사를 거침. 접수 마감 11.11(수) 23:59 → 내부 심사 11.12~11.29 → 1차 투표 11.30~12.6 → 최종 수상작은 추후 발표.",
+   "official_url": "https://maplestory.nexon.com/promotion/event/2026/20261015/event01",
+   "apply_url": "https://maplestory.nexon.com/promotion/event/2026/20261015/event01",
+   "poster_url": "https://lwi.nexon.com/maplestory/2026/1015_goldenHandsAwards_2C0CF061DB7AF68E/exception/meta.png",
+   "key": "f1"
+  },
+  {
+   "title": "2026 네이버웹툰 연재직행열차 4기 — 학원 로맨스 웹툰 투고",
+   "organizer": "네이버웹툰",
+   "categories": [
+    "웹툰"
+   ],
+   "subcategories": [],
+   "start_date": "2026-11-30",
+   "end_date": "2026-12-04",
+   "targets": [
+    "high",
+    "univ",
+    "grad",
+    "general"
+   ],
+   "target_text": "만 15세 이상, 신인·경력 작가 누구나",
+   "prize_text": "선정 시 네이버웹툰 정식 연재 (결과 발표 12.11, 발표 후 6개월 내 연재 오픈 목표)",
+   "summary": "제안부터 연재 확정까지 2주. 설렘 가득한 학원 로맨스 웹툰 모집. 제출: 1화 원고(JPG, 가로 690px) + 2~3화 콘티 + 자유 형식 시놉시스. 접수 시작일 0시 ~ 마감일 23시 59분 59초.",
+   "official_url": "https://comic.naver.com/notice/detail?noticeId=2025",
+   "apply_url": "https://joinus.comic.naver.com/contest/author",
+   "poster_url": "https://naverwebtoon-phinf.pstatic.net/20260128_48/1769574662063ID9rE_PNG/upload_15388969969223295173.PNG",
+   "key": "f2"
+  },
+  {
+   "title": "2026 네이버웹툰 연재직행열차 4기 — 병맛 코미디 웹툰 투고",
+   "organizer": "네이버웹툰",
+   "categories": [
+    "웹툰"
+   ],
+   "subcategories": [],
+   "start_date": "2026-12-14",
+   "end_date": "2026-12-18",
+   "targets": [
+    "high",
+    "univ",
+    "grad",
+    "general"
+   ],
+   "target_text": "만 15세 이상, 신인·경력 작가 누구나",
+   "prize_text": "선정 시 네이버웹툰 정식 연재 (결과 발표 12.28, 발표 후 6개월 내 연재 오픈 목표)",
+   "summary": "제안부터 연재 확정까지 2주. 뇌 빼고 봐야 하는 예측불허 병맛 코미디 웹툰 모집. 제출: 1화 원고(JPG, 가로 690px) + 2~3화 콘티 + 자유 형식 시놉시스. 접수 시작일 0시 ~ 마감일 23시 59분 59초.",
+   "official_url": "https://comic.naver.com/notice/detail?noticeId=2025",
+   "apply_url": "https://joinus.comic.naver.com/contest/author",
+   "poster_url": "https://naverwebtoon-phinf.pstatic.net/20260128_48/1769574662063ID9rE_PNG/upload_15388969969223295173.PNG",
+   "key": "f3"
+  }
+ ]
 }
